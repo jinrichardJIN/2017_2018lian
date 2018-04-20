@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>2018新年活动</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<script src="../js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			getRem(750, 100)
+		})
+
+		window.onresize = function() {
+			getRem(750, 100)
+		};
+
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var body = document.getElementsByTagName("body")[0]
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+	</script>
+
+	<body >
+		<div id="vue" v-cloak>
+			<div v-if='activityOn' >
+				<!--banner-->
+				<div class="">
+					<div class="backgroundSnow2">
+						<img src="img/banner_l@2x.png" class="banner">
+						<p class="font12 font24 color966d37 positionR">
+							活动时间：2018/02/01 00:00:00~2018/02/22 23:59:59
+							<img src="img/butt.png" style="width:1.25rem;" class="ruleFloat" onclick="vm.activityRule=true;">
+						</p>
+						<p class="marginTop70 font12">
+							<img src="img/title1.png" style="width:5.6rem;">
+						</p>
+					</div>
+					<ul class="paddingRight60 paddingLeft60  paddingTop70 disFlex backgroundSnow">
+						<li class="width45 margingBottom50">
+							<img src="img/500Vcouher.png" class="width100">
+							<span class='rightNowGet'>立即领取</span>
+						</li>
+						<li class="width45 margingBottom50">
+							<img src="img/500Vcouher.png" class="width100">
+							<span class='rightNowGet'>立即领取</span>
+						</li>
+						<li class="width45 margingBottom50">
+							<img src="img/500Vcouher.png" class="width100">
+							<span class='rightNowGet'>立即领取</span>
+						</li>
+						<li class="width45 margingBottom50">
+							<img src="img/500Vcouher.png" class="width100">
+							<span class='rightNowGet'>立即领取</span>
+						</li>
+						<li class="width45 margingBottom50">
+							<img src="img/500Vcouher.png" class="width100">
+							<span class='rightNowGet'>立即领取</span>
+						</li>
+						<li class="width45 margingBottom50">
+							<img src="img/500Vcouher.png" class="width100">
+							<span class='Geted'>已领取</span>
+						</li>
+						<li class="width45 margingBottom50">
+							<img src="img/500Vcouher.png" class="width100">
+							<span class='rightNowGet'>立即领取</span>
+						</li>
+
+					</ul>
+				</div>
+				<div class="backgroundFish">
+					<!--第二栏-->
+					<div class="paddingTop30">
+
+						<img src="img/title_touzi.png" width="100%">
+						<p class="maringTop60 font12 color966d37 font26">
+							当前用户总额：3000
+						</p>
+						<img src="img/title_qiucai.png" class="marginTop75 width640">
+						<div class="margingTop40 marginLeft30 marginRight30 backgroundDraw height860">
+							<img src="img/qian.png" id="drawImg" class="blockC block paddingTop270" style="width:4.55rem;">
+							<img src="img/button_chouqian.png" class="width265 block blockC" onclick="vm.drawTip=true;">
+							<p class="font12 colora76447 marinTop30 font16">抽签一次消耗10000可兑额，奖品有8元、18元和88元现金红包</p>
+							<img src="img/button_zhongjiangjilu.png" class="marginTop70" style="width:2.44rem" onclick="vm.activityDrawnRecord=true;">
+						</div>
+					</div>
+					<!--第三栏-->
+					<div class="maringTop90">
+						<img src="img/title_xinnian.png" class="width640">
+						<div class="MT10 marginLeft30 marginRight30 positionR over_hidden">
+							<ul class="disFlex">
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">5万可兑换额</p>
+									<p class="line marinTop20"></p>
+									<img src="img/liuliang.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">全国当月三网流浪1G</p>
+									<p class="font22 marinTop20 colorfc010d">价值50元</p>
+									<div class='font22 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">10万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/defu.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">德芙巧克力糖果礼盒装</p>
+									<p class="font22 marinTop20 colorfc010d">价值99元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">15万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/rose.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">I’M HUA HUA51朵红色玫瑰花礼盒</p>
+									<p class="font22 marinTop20 colorfc010d">价值158元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">16万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/lihe.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">唯兰朵（vlando）首饰盒礼盒装</p>
+									<p class="font22 marinTop20 colorfc010d">价值228元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">25万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/naobaijin.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">脑白金年轻态健康品礼盒装</p>
+									<p class="font22 marinTop20 colorfc010d">价值388元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">30万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/LAFITE.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">法国进口红酒 拉菲（LAFITE）传奇波尔多干红葡萄酒 整箱装 750ml*6瓶（ASC）</p>
+									<p class="font22 marinTop20 colorfc010d">价值498元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">58万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/Kindle-Paperwhite.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10 ">Kindle Paperwhite电子书阅读器</p>
+									<p class="font22 marinTop20 colorfc010d">价值958元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">70万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/tixudao.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">飞利浦电动剃须刀 S7310/12</p>
+									<p class="font22 marinTop20 colorfc010d">价值1199元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">75万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/zhoudafu.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">周大福（CHOW TAI FOOK）十二生肖狗黄金吊坠 R20943</p>
+									<p class="font22 marinTop20 colorfc010d">价值1311元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">120万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/Lamer.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">海蓝之谜（Lamer）活颜焕肤精华露30ml</p>
+									<p class="font22 marinTop20 colorfc010d">价值2498元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+								<li class="width325 margingBottom50 backgroundFramer paddingBottom90">
+									<p class="paddingTop55 colordfc596 font26 color966d37">200万可兑额可兑换</p>
+									<p class="line marinTop20"></p>
+									<img src="img/huawei.png" class="width265">
+									<p class="font22 color966d37 paddingRight10 paddingLeft10">华为 HUAWEI Mate 10 Pro 全网通 6GB+128GB</p>
+									<p class="font22 marinTop20 colorfc010d">价值5399元</p>
+									<div class='font20 rightNowExchange marginTop40 '>立即兑换</div>
+								</li>
+							</ul>
+
+							<img src="img/decorate.png" class="decorate">
+						</div>
+					</div>
+					<!--第4栏-->
+					<div class="marginTop20">
+						<img src="img/button_duihuanjilu.png" style="width:2.44rem" onclick="vm.activityExchangeRecord=true;">
+						<img src="img/bottom.png" width="100%" class="marinTop20 block">
+					</div>
+
+				</div>
+
+				<!--弹窗汇总-->
+				<!--1.中奖记录-->
+				<div v-if="activityDrawnRecord" id="exchangeAlert" class="width100 height100P positionF exchangeAlert">
+					<div id="slideTip" class="radius5 whiteBkg width80 positionA textC exchangeTip">
+						<img src="img/popup_wdzjjl.png" style="width:5.5rem;" class="paddingTop80">
+						<p class="width80 clearfix blockC lineOnTopBottom colorb3711e marginTop40 font26">
+							<span class="inlineB blockC width50 fl ">中奖奖品</span> <span class="inlineB blockC width50 fr ">中奖时间</span>
+						</p>
+						<ul class="width80 blockC exchangeUl color966d37 font24">
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR">爱上暗示法</span>
+							</li>
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR">索大法阿什顿飞</span>
+							</li>
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR">阿什顿飞撒点粉大水法</span>
+							</li>
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR">阿什顿飞大水法</span>
+							</li>
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR">阿什顿飞大水法</span>
+							</li>
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR">阿什顿飞大水法</span>
+							</li>
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR">阿什顿飞大水法</span>
+							</li>
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR">阿什顿飞大水法</span>
+							</li>
+						</ul>
+						<img class="closeImg" onclick="vm.activityDrawnRecord=false" src="img/closeBoxBtn.png">
+					</div>
+				</div>
+				<!--2.兑换记录-->
+				<div v-if="activityExchangeRecord" class="width100 height100P positionF exchangeAlert">
+					<div id="slideTip" class="radius5 whiteBkg width80 positionA textC exchangeTip">
+						<img src="img/popup_wddhjl.png" style="width:5.5rem;" class="paddingTop80">
+						<p class="width80 clearfix blockC lineOnTopBottom font26 colorb3711e marginTop40">
+							<span class="inlineB blockC width50 fl ">兑换礼物</span> <span class="inlineB blockC width50 fr ">兑换时间</span>
+						</p>
+						<ul class="width80 blockC exchangeUl color966d37 font24 ">
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR"></span>
+							</li>
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR"></span>
+							</li>
+							<li class="clearfix exchangeLi" style="">
+								<span class="inlineB blockC width50 fl textL">礼金</span>
+								<span class="inlineB blockC width50 fr textR"></span>
+							</li>
+						</ul>
+						<img class="closeImg" onclick="vm.activityExchangeRecord=false" src="img/closeBoxBtn.png">
+					</div>
+				</div>
+				<!--3.活动规则-->
+				<div v-show="activityRule" class="width100 height100P positionA exchangeAlert">
+					<div id="slideTip" class="radius5 whiteBkg width80 positionA textC exchangeTip  ">
+						<img src="img/popup_hdgz.png" style="width:5.5rem;" class="paddingTop80 blockC block">
+						<div class="width80 clearfix blockC color966d37 marginTop40  textL  readScroll height650 margingBottom60">
+							<p class="colorb3711e font28">活动时间：</p>
+							<p class="font24">2018/02/01 00:00:00~2018/02/22 23:59:59</p>
+							<p class="colorb3711e font28">活动对象：</p>
+							<p class="paddingBottom30 font24">注册联璧金融的所有有效用户</p>
+							<p class=" paddingTop30 line1  font24 ">1、活动期间用户每投资一笔定期产品，都可获得对应可兑额，可兑额可用于抽签、兑换礼物。 可兑额=单笔定期投资金额*投资天数/90，四舍五入取整 3月期按90天计算，6月期按180天计算 例如用户购买1万元三月期产品，可以获得1万可兑额。<br> 2、抽签活动自愿参与，抽签需消耗1万可兑额。 <br>3、所有礼物需要手动点击兑换，兑换需消耗相应可兑额，一旦兑换，不退不换，兑换后请及时去“我的账户”设置收货地址。 4、活动期间可兑额可以累计，仅限活动期间有效，请在活动期间及时使用，活动结束后自动清零。<br> 5、本次活动仅限定期理财产品，联璧发现不参与。 <br>6、现金红包于活动结束后3个工作日内发放至联璧金融账户余额内，实物礼品兑换后3个工作日内发出。<br> 7、本活动中的有关实物奖品均由第三方供应商提供，若发生质量及售后问题，请在签收后7天内联系联璧金融客服协助提供相关售后信息，过期视为放弃售后问题处理。<br> 8、在法律允许范围内，联璧金融保留相应的解释权，如遇问题，可详询联璧金融官方客服热线4006-999-211 市场有风险，投资需谨慎
+							</p>
+						</div>
+						<img class="closeImg" onclick="vm.activityRule=false" src="img/closeBoxBtn.png">
+					</div>
+				</div>
+
+				<!--4.抽奖结果-->
+				<div v-if="drawReward" class="width100 height100P positionF exchangeAlert">
+					<div id="slideTip" class="radius5  positionA textC exchangeTipNoBg">
+						<img src="img/alert_caishen.png" style="width:6.4rem;transform:rotateY(0deg);" class="rotate">
+						<span class="exchangeSure Ikonw" @click='closeExchangePlan'>知道了</span>
+					</div>
+				</div>
+				<!--5.抽奖提示-->
+
+				<div v-if="drawTip" class="width100 height100P positionF exchangeAlert">
+					<div id="slideTip" class=" whiteBkg width80 positionA textC exchangeTipFlip">
+						<img src="img/alert.png" style="width:3rem;" class="paddingTop40 ">
+						<p class="marginTop30 color966d37 font30">您确定抽奖吗？<br> 抽奖一次，消耗1万可兑额
+
+						</p>
+						<br>
+						<p class="paddingBottom55">
+							<span class="inlineB cancel" onclick="vm.drawTip=false">取消</span>
+							<span class="inlineB sure" @click="CgoDraw()">确认</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div v-if='!activityOn' class="activityOff">
+				<div class="timeActi">
+					<p class="font28 colorf63b22">您来晚了，活动已经结束！</p>
+					<p class="font24 MT20 color666666">活动时间：2018/02/01 00:00:00~2018/02/22 23:59:59</p>
+				</div>
+			</div>
+
+		</div>
+	</body>
+	<script src="../js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

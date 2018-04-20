@@ -1,0 +1,947 @@
+/*公共*/
+html,body{
+	background: #ece3d2;
+}
+/*扭蛋index页*/
+.niudan{
+	width:100%;
+	padding-bottom:110%;
+	background: url('../../../pic/weixin/activity/doubleFestivals/niudanji.png') no-repeat;
+	background-size:100% 100%;
+	position:relative;
+}
+.niudan a{
+	display: block;
+	position:absolute;
+	bottom:10%;
+	background: url('../../../pic/weixin/activity/doubleFestivals/start.png') no-repeat;
+	background-size:100% 100%;
+	width:46%;
+	padding-bottom:13%;
+	left:50%;
+	margin-left:-23%;
+}
+.niudan a:active{
+	opacity: 0.5;
+}
+.niudan .chance{
+	display: block;
+	position:absolute;
+	bottom:3%;
+	width:100%;
+	text-align: center;
+	color:#FFFFFF;
+}
+.niudan .record{
+	display: block;
+	position:absolute;
+	top:10px;
+	background: url('../../../pic/weixin/activity/doubleFestivals/record.png') no-repeat;
+	background-size:100% 100%;
+	width:100px;
+	height:52px;
+	line-height: 40px;
+	text-align: center;
+	right:10px;
+	font-size:12px;
+	color:#EE8A41;
+}
+.niudan .snow span{
+	position:absolute;
+	top:-100px;
+	width:20px;
+	height:200px;
+
+}
+.niudan .snow span:nth-child(1){
+	left:10px;
+	background: url('../../../pic/weixin/activity/doubleFestivals/snow.png') no-repeat;
+	background-size:contain;
+	background-position-y: 70%;
+	-webkit-animation:piao 2s linear forwards infinite;
+    -moz-animation:piao 2s linear forwards infinite;
+    -ms-animation:piao 2s linear forwards infinite;
+    animation:piao 2s linear forwards infinite;
+}
+.niudan .snow span:nth-child(2){
+	left:50px;
+	background: url('../../../pic/weixin/activity/doubleFestivals/snows.png') no-repeat;
+	background-size:contain;
+	background-position-y: 80%;
+	-webkit-animation:piao2 3s linear forwards infinite;
+    -moz-animation:piao2 3s linear forwards infinite;
+    -ms-animation:piao2 3s linear forwards infinite;
+    animation:piao2 3s linear forwards infinite;
+}
+.niudan .snow span:nth-child(3){
+	left:50%;
+	background: url('../../../pic/weixin/activity/doubleFestivals/snow.png') no-repeat;
+	background-size:contain;
+	background-position-y: 70%;
+	-webkit-animation:piao 2.4s linear forwards infinite;
+    -moz-animation:piao 2.4s linear forwards infinite;
+    -ms-animation:piao 2.4s linear forwards infinite;
+    animation:piao 2.4s linear forwards infinite;
+}
+
+.niudan .snow span:nth-child(4){
+	right:8%;
+	background: url('../../../pic/weixin/activity/doubleFestivals/snow.png') no-repeat;
+	background-size:contain;
+	background-position-y: 60%;
+	-webkit-animation:piao2 1.5s linear forwards infinite;
+    -moz-animation:piao2 1.5s linear forwards infinite;
+    -ms-animation:piao2 1.5s linear forwards infinite;
+    animation:piao2 1.5s linear forwards infinite;
+}
+
+.niudan .snow span:nth-child(5){
+	right:15%;
+	background: url('../../../pic/weixin/activity/doubleFestivals/snow.png') no-repeat;
+	background-size:contain;
+	background-position-y: 50%;
+	-webkit-animation:piao 2.4s linear forwards infinite;
+    -moz-animation:piao 2.4s linear forwards infinite;
+    -ms-animation:piao 2.4s linear forwards infinite;
+    animation:piao 2.4s linear forwards infinite;
+}
+@-moz-keyframes piao{
+    0%{-moz-transform:rotate(0deg)}
+    25%{-moz-transform:rotate(30deg)}
+    50%{-moz-transform:rotate(0deg)}
+    75%{-moz-transform:rotate(-30deg)}
+    100%{-moz-transform:rotate(0deg)}
+}
+@-ms-keyframes piao{
+    0%{-ms-transform:rotate(0deg)}
+    25%{-ms-transform:rotate(30deg)}
+    50%{-ms-transform:rotate(0deg)}
+    75%{-ms-transform:rotate(-30deg)}
+    100%{-ms-transform:rotate(0deg)}
+}
+@-webkit-keyframes piao{
+    0%{-webkit-transform:rotate(0deg)}
+    25%{-webkit-transform:rotate(30deg)}
+    50%{-webkit-transform:rotate(0deg)}
+    75%{-webkit-transform:rotate(-30deg)}
+    100%{-webkit-transform:rotate(0deg)}
+}
+@keyframes piao{
+    0%{transform:rotate(0deg)}
+    25%{transform:rotate(30deg)}
+    50%{transform:rotate(0deg)}
+    75%{transform:rotate(-30deg)}
+    100%{transform:rotate(0deg)}
+}
+
+
+
+
+
+@-moz-keyframes piao2{
+    0%{-moz-transform:rotate(0deg)}
+    25%{-moz-transform:rotate(-30deg)}
+    50%{-moz-transform:rotate(0deg)}
+    75%{-moz-transform:rotate(30deg)}
+    100%{-moz-transform:rotate(0deg)}
+}
+@-ms-keyframes piao2{
+    0%{-ms-transform:rotate(0deg)}
+    25%{-ms-transform:rotate(-30deg)}
+    50%{-ms-transform:rotate(0deg)}
+    75%{-ms-transform:rotate(30deg)}
+    100%{-ms-transform:rotate(0deg)}
+}
+@-webkit-keyframes piao2{
+    0%{-webkit-transform:rotate(0deg)}
+    25%{-webkit-transform:rotate(-30deg)}
+    50%{-webkit-transform:rotate(0deg)}
+    75%{-webkit-transform:rotate(30deg)}
+    100%{-webkit-transform:rotate(0deg)}
+}
+@keyframes piao2{
+    0%{transform:rotate(0deg)}
+    25%{transform:rotate(-30deg)}
+    50%{transform:rotate(0deg)}
+    75%{transform:rotate(30deg)}
+    100%{transform:rotate(0deg)}
+}
+
+
+.hrs{
+	margin-top:10px;
+}
+.hrs img{
+	width: 100%;
+}
+.niudan-des{
+	margin-top:25px;
+	position:relative;
+}
+.niudan-des .title{
+	width:50%;
+	height:50px;
+	line-height: 28px;
+	background: url('../../../pic/weixin/activity/doubleFestivals/play.png') no-repeat;
+	background-size: 100% 100%;
+	color:#FFFFFF;
+	font-weight: bold;
+	margin:auto;
+	font-size:18px;
+}
+@media only screen and (min-width: 350px) and (max-width: 400px) {
+	.niudan-des .title{
+		font-size:20px;
+	}
+}
+@media only screen and (min-width: 400px) and (max-width: 450px) {
+	.niudan-des .title{
+		font-size:22px;
+	}
+}
+.niudan-des .share{
+	position: absolute;
+	top:0px;
+	right:10px;
+	width:50px;
+	height:50px;
+	background: url('../../../pic/weixin/activity/doubleFestivals/share.png') no-repeat;
+	background-size: 100% 100%;
+}
+.niudan-des ul{
+	color:#FFFFFF;
+	padding:0px 20px;
+	margin:30px 0;
+}
+.niudan-des ul li{
+	margin-bottom:5px;
+}
+.niudan-des .coupons img{
+	width:100%;
+}
+
+
+.niudan-jp{
+	margin-top:20px;
+	position:relative;
+}
+.niudan-jp .title{
+	width:50%;
+	height:50px;
+	line-height: 28px;
+	background: url('../../../pic/weixin/activity/doubleFestivals/gift.png') no-repeat;
+	background-size: 100% 100%;
+	color:#FFFFFF;
+	font-weight: bold;
+	margin:auto;
+	font-size:18px;
+}
+@media only screen and (min-width: 350px) and (max-width: 400px) {
+	.niudan-jp .title{
+		font-size:20px;
+	}
+}
+@media only screen and (min-width: 400px) and (max-width: 450px) {
+	.niudan-jp .title{
+		font-size:22px;
+	}
+}
+.niudan-jp ul{
+	color:#FFFFFF;
+	padding:0px 20px;
+	margin:30px 0;
+}
+.niudan-jp ul li{
+	margin-bottom:5px;
+}
+.niudan-jp ul li:nth-child(2){
+	font-size:12px;
+}
+.niudan-jp ul li:nth-child(3){
+	font-size:12px;
+}
+.niudan-jp .product img{
+	display: block;
+	width:95%;
+	margin:auto;
+}
+
+
+.niudan-cb{
+	margin:30px 0px;
+	position:relative;
+	
+}
+.niudan-cb .title{
+	width:50%;
+	height:50px;
+	line-height: 28px;
+	background: url('../../../pic/weixin/activity/doubleFestivals/surprise.png') no-repeat;
+	background-size: 100% 100%;
+	color:#FFFFFF;
+	font-weight: bold;
+	margin:auto;
+	font-size:18px;
+}
+@media only screen and (min-width: 350px) and (max-width: 400px) {
+	.niudan-cb .title{
+		height:55px;
+		line-height: 28px;
+		font-size:20px;
+	}
+}
+@media only screen and (min-width: 400px) and (max-width: 450px) {
+	.niudan-cb .title{
+		height:60px;
+		line-height: 28px;
+		font-size:22px;
+	}
+}
+.niudan-cb ul{
+	color:#FFFFFF;
+	padding:0px 20px;
+	margin:30px 0;
+}
+.niudan-cb ul li{
+	margin-bottom:5px;
+}
+.niudan-cb .tzlist{
+	width: 96%;
+	margin:auto;
+	background: url('../../../pic/weixin/activity/doubleFestivals/list.png') no-repeat;
+	background-size: 100% 100%;
+}
+.niudan-cb .tzlist table{
+	color:#FFFFFF;
+	width: 100%;
+}
+.niudan-cb .tzlist table tr td,.niudan-cb .tzlist table tr th{
+	height:50px;
+	text-align: center;
+	border-bottom:1px solid #474A79;
+}
+@media only screen and (min-width: 300px) and (max-width: 350px) {
+	.niudan-cb .tzlist table tr td,.niudan-cb .tzlist table tr th{
+		height:43px;
+	}
+}
+@media only screen and (min-width: 400px) and (max-width: 450px) {
+	.niudan-cb .tzlist table tr td,.niudan-cb .tzlist table tr th{
+		height:52px;
+	}
+}
+
+footer{
+	padding:30px 0px;
+}
+footer p{
+	text-align: center;
+	color:#FFFFFF;
+}
+footer .weixin{
+	display: block;
+	width:40%;
+	margin:auto;
+	margin-bottom:20px;
+}
+
+.mygift{
+	position:relative;
+	margin:auto;
+	background: url('../../../pic/weixin/activity/doubleFestivals/pop_zhongjiangjilu.png') no-repeat;
+	background-size:100% 100%;
+}
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	
+}
+.mygift .gift-title{
+	display: block;
+	position:absolute;
+	top:30%;
+	left:50%;
+	width:250px;
+	margin-left:-125px;
+	height:20px;
+}
+.mygift .gift-title img{
+	width:100%;
+	height:100%;
+}
+.mygift .zjtable{
+	position:absolute;
+	top:42%;
+	overflow: auto;
+	color:black;
+	width:80%;
+	left:50%;
+	margin-left:-40%;
+	border-radius: 10px;
+    background: #FFFFFF;
+}
+@media only screen and (min-width: 300px) and (max-width: 340px) {
+	.mygift .zjtable{
+		width:86%;
+		margin-left:-43%;
+	}
+}
+.mygift .table-title {
+	width:100%;
+}
+.mygift .table-title tr th{
+	text-align: center;
+	height:40px;
+	background: #FCE7A8;
+}
+.mygift .table-title tr th:first-child{
+	border-right: 1px solid #F9D466;
+}
+.mygift .table-info{
+	height:160px;
+	overflow: auto;
+	background: #FEFCF9;
+}
+
+.mygift .table-info table{
+	width:100%;
+}
+.mygift .table-info tr td{
+	text-align: center;
+	width: 50%;
+}
+.mygift .table-info tr td{
+	font-size:12px;
+	height:40px;
+	border-bottom:1px solid #D5D5D5;
+}
+@media only screen and (min-width: 300px) and (max-width: 350px) {
+	.mygift .table-info{
+		height:145px;
+	}
+	.mygift .table-info tr td{
+		height:35px;
+	}
+}
+@media only screen and (min-width: 350px) and (max-width: 400px) {
+	.mygift .table-info{
+		height:170px;
+	}
+}
+@media only screen and (min-width: 400px) and (max-width: 450px) {
+	.mygift .table-info{
+		height:195px;
+	}
+}
+.close{
+    width: 40px;
+    height: 40px;
+    margin: auto;
+}
+.close img{
+	width:100%;
+	height:100%;
+}
+.mygift  .scrollt{
+	position: absolute;
+    top: 225px;
+    right: 20px;
+    width: 20px;
+    height: 100px;
+    background: url(../../../pic/weixin/activity/doubleFestivals/slide.png) no-repeat;
+    background-size: 100% 100%;
+}
+@media only screen and (min-width: 300px) and (max-width: 350px) {
+	.mygift  .scrollt{
+		right: 11px;
+	}
+}
+@media only screen and (min-width: 350px) and (max-width: 400px) {
+	.mygift  .scrollt{
+	    top: 244px;
+		right: 23px;
+	}
+}
+@media only screen and (min-width: 400px) and (max-width: 450px) {
+	.mygift  .scrollt{
+		top: 260px;
+   	 	right: 26px;
+	}
+}
+/*gameStart弹框*/
+.gameStartInfo{
+	position:relative;
+	margin:auto;
+	background: url('../../../pic/weixin/activity/doubleFestivals/pop.png') no-repeat;
+	background-size:100% 100%;
+	
+}
+.gameStartInfo .things{
+	position:absolute;
+	top:62%;
+	overflow: auto;
+	color:black;
+	width:100%;
+	left:0;
+	text-align: center;
+	font-size:16px;
+	color:#DC2833;
+}
+.gameStartInfo .fftime{
+	position:absolute;
+	top:70%;
+	overflow: auto;
+	color:black;
+	width:100%;
+	left:0;
+	text-align: center;
+	font-size:14px;
+}
+
+
+/*注册register页*/
+.register-header img{
+	width:100%;
+}
+.register-form {
+	background:url(../img/backgroundSnow.png);
+	background-size: 100% 100%;
+}
+.register-form .form-inp{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+
+	
+}
+.register-form .form-inp input{
+	width: 100%;
+	height:100%;
+	padding-left:45px;
+	box-sizing: border-box;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+}
+.register-form .form-inp i{
+	width:40px;
+	height:40px;
+	background: url('../img/phone.png') no-repeat;
+	background-size: 40%;
+	background-position: center;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.register-form .form-valid{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.register-form .form-valid input{
+	width:60%;
+	height:100%;
+	padding-left:45px;
+	box-sizing: border-box;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+	float:left;
+}
+.register-form .form-valid a{
+	display: block;
+	margin-left:5%;
+	width:35%;
+	height:100%;
+	background: #F3534A;
+	color:#FFFFFF;
+	text-align: center;
+	float:left;
+	border-radius: 5px;
+}
+.register-form .form-valid i{
+	width:40px;
+	height:40px;
+	background: url('../img/Verificationcode.png') no-repeat;
+	background-size: 40%;
+	background-position: center;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.register-form .form-pass{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.register-form .form-pass input{
+	width: 100%;
+	height:100%;
+	padding-left:45px;
+	box-sizing: border-box;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+}
+.register-form .form-pass i{
+	width:40px;
+	height:40px;
+	background: url('../img/cipher.png') no-repeat;
+	background-size: 40%;
+	background-position: center;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+.register-form .form-pass2{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.register-form .form-pass2 input{
+	width: 100%;
+	height:100%;
+	padding-left:45px;
+	box-sizing: border-box;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+}
+.register-form .form-pass2 i{
+	width:40px;
+	height:40px;
+	background: url('../img/transact.png') no-repeat;
+	background-size: 40%;
+	background-position: center;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.register-form .form-btn{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.register-form .form-btn a{
+	width: 100%;
+	height:100%;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+	color:#FFFFFF;
+	text-align: center;
+	background: #F3534A;
+}
+.register-form .otherlog{
+	padding:0px 28px;
+	margin-top:5px;
+}
+.register-form .otherlog p:first-child{
+	float:left;
+	color:#966d37;
+	font-size:12px;
+}
+.register-form .otherlog p:last-child{
+	float:right;
+	color:#966d37;
+	font-size:12px;
+}
+
+.register-adv{
+	margin-top:50px;
+}
+.register-adv .title{
+	width:70%;
+	margin:auto;
+}
+.register-adv .title img{
+	width:100%;
+}
+.register-adv ul{
+	width:95%;
+	margin:auto;
+	margin-top:20px;
+}
+.register-adv ul li{
+	float:left;
+	width:50%;
+}
+.register-adv ul li img{
+	width:100%;
+}
+.companyS{
+	background:url(../img/backgroundSnow.png);
+	background-size:100%;
+}
+
+
+
+
+/*手机验证码登录loginPhone页*/
+.loginphone-header img{
+	width:100%;
+}
+.loginphone-form{
+	background:url(../img/backgroundSnow.png);
+	background-size:100%;
+	padding-bottom:200px;
+}
+.loginphone-form .form-inp{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+}
+.loginphone-form .form-inp input{
+	width: 100%;
+	height:100%;
+	padding-left:45px;
+	box-sizing: border-box;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+}
+.loginphone-form .form-inp i{
+	width:40px;
+	height:40px;
+	background: url('../img/phone.png') no-repeat;
+	background-size: 40%;
+	background-position: center;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.loginphone-form .form-valid{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.loginphone-form .form-valid input{
+	width:60%;
+	height:100%;
+	padding-left:45px;
+	box-sizing: border-box;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+	float:left;
+}
+.loginphone-form .form-valid a{
+	display: block;
+	margin-left:5%;
+	width:35%;
+	height:100%;
+	background: #F3534A;
+	color:#FFFFFF;
+	text-align: center;
+	float:left;
+	border-radius: 5px;
+}
+.loginphone-form .form-valid i{
+	width:40px;
+	height:40px;
+	background: url('../img/Verificationcode.png') no-repeat;
+	background-size: 40%;
+	background-position: center;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.loginphone-form .form-btn{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.loginphone-form .form-btn a{
+	width: 100%;
+	height:100%;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+	color:#FFFFFF;
+	text-align: center;
+	background: #F3534A;
+}
+.loginphone-form .otherlog{
+	padding:0px 28px;
+	margin-top:5px;
+}
+.loginphone-form .otherlog p:first-child{
+	float:left;
+	color:#966d37;
+	font-size:12px;
+}
+.loginphone-form .otherlog p:last-child{
+	float:right;
+	color:#966d37;
+	font-size:12px;
+}
+
+
+
+
+/*密码登录loginPass页*/
+.loginpass-header img{
+	width:100%;
+}
+.loginpass-form{
+	background:url(../img/backgroundSnow.png);
+	background-size:100%;
+	padding-bottom:200px;
+}
+.loginpass-form .form-inp{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.loginpass-form .form-inp input{
+	width: 100%;
+	height:100%;
+	padding-left:45px;
+	box-sizing: border-box;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+}
+.loginpass-form .form-inp i{
+	width:40px;
+	height:40px;
+	background: url('../img/phone.png') no-repeat;
+	background-size: 40%;
+	background-position: center;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.loginpass-form .form-pic{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.loginpass-form .form-pic input{
+	width:60%;
+	height:100%;
+	padding-left:45px;
+	box-sizing: border-box;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+	float:left;
+}
+.loginpass-form .form-pic a{
+	display: block;
+	margin-left:5%;
+	width:35%;
+	height:100%;
+	float:left;
+}
+.loginpass-form .form-pic a img{
+	display: block;
+	width:100%;
+	height:100%;
+	border-radius: 5px;
+}
+.loginpass-form .form-pic i{
+	width:40px;
+	height:40px;
+	background: url('../img/figure.png') no-repeat;
+	background-size: 40%;
+	background-position: center;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.loginpass-form .form-pass{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.loginpass-form .form-pass input{
+	width: 100%;
+	height:100%;
+	padding-left:45px;
+	box-sizing: border-box;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+}
+.loginpass-form .form-pass i{
+	width:40px;
+	height:40px;
+	background: url('../img/cipher.png') no-repeat;
+	background-size: 40%;
+	background-position: center;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.loginpass-form .form-btn{
+	width:85%;
+	height:40px;
+	line-height: 40px;
+	margin:auto;
+	position:relative;
+	margin-top:10px;
+}
+.loginpass-form .form-btn a{
+	width: 100%;
+	height:100%;
+	font-size:14px;
+	display: block;
+	border-radius:5px;
+	color:#FFFFFF;
+	text-align: center;
+	background: #F3534A;
+}
+.loginpass-form .otherlog{
+	padding:0px 28px;
+	margin-top:5px;
+}
+.loginpass-form .otherlog p:first-child{
+	float:left;
+	color:#966d37;
+	font-size:12px;
+}
+.loginpass-form .otherlog p:last-child{
+	float:right;
+	color:#966d37;
+	font-size:12px;
+}

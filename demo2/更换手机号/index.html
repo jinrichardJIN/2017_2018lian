@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="changePhoneNum.css" />
+	</head>
+
+	<body>
+		<div class="whiteBkg height100">
+			<div class="wrap width90 blockC PT30">
+				<p class="textL">旧手机号&nbsp;<span>1580025521</span></p>
+				<!--表单-->
+				<div class="formWrap">
+					<div class="borderBottomGray clearfix PB20 MT30">
+						<input type="tel" name="" placeholder="验证码" maxlength="6" class="textL inlineB fl "> <span class="fr color858585" id="getCode">获取验证码</span>
+					</div>
+					<div class="borderBottomGray clearfix PB20 MT30">
+						<input type="text" name="" maxlength="18" placeholder="身份证号" class="textL inlineB fl " id="id">
+					</div>
+					<div class="borderBottomGray clearfix PB20 MT30">
+						<input type="text" name=""   placeholder="登录密码" value="" class="textL inlineB fl " id="loginPassword">
+					</div>
+					<div class="clearfix MT30 font14 grayTex textL">
+						<p>如果旧手机收不到验证码，请致电联璧客服400-699-9211进行修改手机操作</p>
+					</div>
+				</div>
+				
+				<!--下一步-->
+				<div class="next" id="next">
+					下一步
+				</div>
+			</div>
+		</div>
+		
+		<!--更改手机号弹窗-->
+		<div class="height100 width100 positionF" style="background:rgba(0,0,0,0.5);top:0;display:none;" id="container">
+			<div class="width80 blockC whiteBkg positionA alertChange" id="slideTip" style="top:150%;left:10%;border-radius:10px;transition: 0.5s 0s;transform:translateY(-50%);">
+				<p class="MT20 PB20 borderBottomGray">更换手机号</p>
+				<input type="tel" name="" id="" placeholder="请输入新的手机号" maxlength="11" class='width80 MT30 borderBottomGray PB10 font14'>
+				<div class="width80 blockC clearfix MT30 " id="publish_selection">
+					<input type="tel" maxlength="1" class="width15 fl borderBottomGray MR5 PL10 boxSizing PB5PX">
+					<input type="tel" maxlength="1" class="width15 fl borderBottomGray MR5 PL10 boxSizing PB5PX">
+					<input type="tel" maxlength="1" class="width15 fl borderBottomGray MR5 PL10 boxSizing PB5PX">
+					<input type="tel" maxlength="1" class="width15 fl borderBottomGray MR5 PL10 boxSizing PB5PX">
+					<span class="width20 font14">获取验证码</span>
+				</div>
+				<div class="width80 blockC clearfix MT30 PB20">
+					<span class="inlineB width40 fl cancel" id="cancel">
+						取消
+					</span>
+					<span class="inlineB width40 fr sure" id="sure">
+						确定
+					</span>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="../js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/yundun.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/merge.js" type="text/javascript" charset="utf-8"></script>
+	<script src="changePhoneNum.js" type="text/javascript" charset="utf-8"></script>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的礼包</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../css/giftBagBase.css" />
+	</head>
+	<script src="../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			getRem(750, 100)
+		})
+
+		window.onresize = function() {
+			getRem(750, 100)
+		};
+
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var body = document.getElementsByTagName("body")[0]
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+	</script>
+	<style type="text/css">
+		body {
+			background: #FBFBFB;
+		}
+		
+		.line {
+			border-bottom: 1px dashed gainsboro;
+			display: inline-block;
+			width: 90%;
+			margin: 0 auto;
+		}
+		
+		.disFlex {
+			display: flex;
+			align-items: center;
+		}
+		/*渐变*/
+		
+		.backgroundGrandient {
+			background: -webkit-linear-gradient(left, #ff8671, #fe5341);
+		}
+		
+		.addSpeed {
+			width: 1.4rem;
+			height: 0.6rem;
+			line-height: 0.6rem;
+			display: inline-block;
+			font-size: 0.28rem;
+			color: #6589FF;
+			border: 1px solid #6589FF;
+			float: right;
+			border-radius: 5px;
+			margin-top: 0.3rem;
+		}
+		
+		.listStatus {
+			background: url(../img/gift_give.png);
+			background-size: 100% 100%;
+		}
+	</style>
+
+	<body>
+		<!--礼包信息-->
+		<div class="whiteBkg">
+			<div class="fontSize18  clearfix borderBottomGray">
+				<div class="fl width50">
+					<p class="paddingTop70 fontSize32">0.00</p>
+					<p class="paddingTop15 paddingBottom45 fontSize24">礼包资产（元）</p>
+				</div>
+				<div class="fl width50">
+					<p class="paddingTop70 fontSize32">0</p>
+					<p class="paddingTop15 paddingBottom45 fontSize24">可兑换礼包（个）</p>
+				</div>
+			</div>
+			<div class="fontSize18  clearfix ">
+				<div class="fl width50">
+					<p class="paddingTop45 paddingBottom70 fontSize28">k码券&nbsp;&nbsp;<span class="fontSize32 colorFF5240">0</span>张</p>
+
+				</div>
+				<div class="fl width50">
+					<p class="paddingTop45 paddingBottom70 fontSize28">加速券&nbsp;&nbsp;<span class="fontSize32 colorFF5240">0</span>张</p>
+
+				</div>
+			</div>
+		</div>
+
+		<!--礼包列表-->
+		<div class="whiteBkg">
+			<ul class="width90 blockC fontSize18 ">
+				<li class="borderRadius15 margingBottom35" style="background:#FFFFFF;">
+					<div style="background:url(../img/gift_ticket_top.png);background-size:100% 100%;">
+						<p class="paddingTop45 textL paddingBottom20 width90 blockC fontSize32">现金礼包</p>
+					</div>
+
+					<p style="background:url(../img/gift_ticket_mid.png);background-size:100% 100%;" class="height30 disFlex">
+						<span class="line "></span>
+					</p>
+
+					<div style="background:url(../img/gift_ticket_bot.png);background-size:100% 100%;">
+						<div class="width90 blockC clearfix">
+							<div class="fl width50">
+								<p class="paddingTop20 textL fontSize28">礼金（元）<span class="fontSize40 colorFF5240">1999</span></p>
+								<p class="paddingTop25 paddingBottom45 textL  fontSize24 color8B8B8B">礼包总礼金（元）<span class="fontSize28">1999</span></p>
+							</div>
+							<div class="fl width50">
+								<span class="addSpeed">我要加速</span>
+							</div>
+						</div>
+						<span class="width90 fontSize28 blockC inlineB height60 lineHeight60 backgroundGrandient margingBottom35 whiteTex borderRadius5">
+						兑换并提现<span>1999</span>元
+						</span>
+					</div>
+
+				</li>
+
+				<li class="boxShadow borderRadius15 margingBottom35 positionR">
+					<p class="paddingTop45 textL paddingBottom20 width90 blockC fontSize32">现金礼包</p>
+					<p class="height30 disFlex">
+						<span class="line "></span>
+					</p>
+					<div class="width90 blockC clearfix">
+						<div class="fl width50">
+							<p class="paddingTop20 textL fontSize28">礼金（元）<span class="fontSize40 colorFF5240">1999</span></p>
+							<p class="paddingTop25 paddingBottom45 textL  fontSize24 color8B8B8B">礼包总礼金（元）<span class="fontSize28">1999</span></p>
+						</div>
+						<div class="fl width50">
+							<span class="addSpeed">我要加速</span>
+						</div>
+					</div>
+					<span class="width90 fontSize28 blockC inlineB height60 lineHeight60 backgroundGrandient margingBottom35 whiteTex borderRadius5">
+						兑换并提现<span>1999</span>元
+					</span>
+					<span class="positionA right60 top0 listStatus height60 lineHeightInitial whiteTex width54">
+						送
+					</span>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

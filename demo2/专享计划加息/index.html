@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="no" />
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>专享计划1</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../css/giftBagBase.css" />
+		<style type="text/css">
+			body {
+				background: #F7F7F7;
+			}
+			
+			.backgroundBanner {
+				background: url(../img/jiaxi/backgroud_jiaxi.png);
+				background-size: 100% 100%;
+			}
+			
+			.maringTop80 {
+				margin-top: 0.8rem;
+			}
+			
+			.paddingTop80 {
+				padding-top: 0.8rem;
+			}
+			
+			.marginTop30 {
+				margin-top: 0.3rem;
+			}
+			
+			.marginTop50 {
+				margin-top: 0.5rem;
+			}
+			
+			.maringTop90 {
+				margin-top: 0.9rem;
+			}
+			
+			.maringTop10 {
+				margin-top: 0.1rem;
+			}
+			
+			.maringTop20 {
+				margin-top: 0.2rem;
+			}
+			
+			.margingBottom70 {
+				margin-bottom: 0.7rem;
+			}
+			
+			.border1pxWhite {
+				border: 1px solid #FFFFFF;
+			}
+			
+			.height120 {
+				height: 1.2rem;
+				line-height: 1.2rem;
+			}
+			
+			.rightNowSign {
+				padding: 0.21rem 0.44rem;
+				border-radius: 0.08rem;
+			}
+			
+			#progress {}
+			
+			.good {
+				position: absolute;
+				top: 0;
+				width: 10%;
+				height: 100%;
+				border-radius: 10px;
+				background: salmon;
+				transition: 1s 0s;
+			}
+			
+			.rightInvest {
+				width: 90%;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				position: fixed;
+				bottom: 0.4rem;
+				background: #FF5240;
+				border-radius: 8px;
+				color: #FFFFFF;
+			}
+			
+			.slider {
+				padding-bottom: 0.2rem;
+				border-bottom: 2px solid #FF5240;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="vue">
+			<div class="width90 blockC">
+				<div class="height100P clearfix marginTop30">
+					<span class="width50 fl inlineB fontSize28">
+						<span v-bind:class="{'slider':isUse}" @click='changeStaus(0)'>
+							专享计划1
+						</span>
+					</span>
+					<span class="width50 fl inlineB fontSize28">
+						<span v-bind:class="{'slider':!isUse}" @click='changeStaus(1)'>
+							专享计划2
+						</span>
+					</span>
+				</div>
+
+				<!--专享计划1-->
+				<div class="exclusivePlan marginTop50 boxShadow whiteBkg" v-show='isUse'>
+					<div class="width90 blockC">
+						<p class="textL clearfix paddingTop50">
+							<span class="fl fontSize28">专享计划1</span> <span class="fr fontSize20">在投本金：5000.00</span>
+						</p>
+
+						<div id="progress" class="maringTop90">
+
+						</div>
+						<p class="textL clearfix maringTop10">
+							<span class="fl fontSize20">0天</span> <span class="fr fontSize20 color99999">满10天</span>
+						</p>
+						<p class="textL maringTop20 fontSize20 paddingBottom70">
+							优享计划投资本金满5千元，最高可加息+1.0%
+						</p>
+					</div>
+				</div>
+
+				<!--专享计划2-->
+				<div class="exclusivePlan marginTop50 boxShadow whiteBkg" v-show='!isUse'>
+					<div class="width90 blockC">
+						<p class="textL clearfix paddingTop50">
+							<span class="fl fontSize28">专享计划2</span> <span class="fr fontSize20">在投本金：5000.00</span>
+						</p>
+
+						<div id="progress" class="maringTop90">
+
+						</div>
+						<p class="textL clearfix maringTop10">
+							<span class="fl fontSize20">0天</span> <span class="fr fontSize20 color99999">满10天</span>
+						</p>
+						<p class="textL maringTop20 fontSize20 paddingBottom70">
+							优享计划投资本金满5千元，最高可加息+1.0%
+						</p>
+					</div>
+				</div>
+
+				<div class="marginTop50 ">
+					<p class="clearfix width90 blockC fontSize28 textL">
+						专享计划1投资说明
+					</p>
+					<p class="maringTop20 width90 blockC fontSize24 textL" style="line-height:0.4rem;">
+						1.每日24点零钱计划资产在投满5000元（或者当日收益满1元），次日专享利率可以在当日基础上增加0.1%，按日累加，上限为1%（即连续满足条件10天可享受1%的加息）。之后在投本金不低于5000元（或者当日收益满1元）可持续享有加息1%。 2.若计算零钱计划收益时在投本金不足5000元（且当日收益低于1元），则该项专项利率归为0，之后的专享利率从0开始重新统计。
+					</p>
+				</div>
+
+				<div class="rightInvest fontSize30">
+					立即投资
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			getRem(750, 100)
+		})
+
+		window.onresize = function() {
+			getRem(750, 100)
+		};
+
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var body = document.getElementsByTagName("body")[0]
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+
+		var vm = new Vue({
+			el: '#vue',
+			data: {
+				isUse: true
+
+			},
+			created: function() {
+				//初始化页面
+				ajaxRequest(contextPath + "webClient?functionId=getAddInterestPageInfo", "", this.initialAccoutInfo);
+			},
+			methods: {
+				changeStaus: function(status) {
+					vm.isUse = status == 0 ? true : false;
+				},
+
+				initialAccoutInfo: function(res) {
+					
+
+					//专享计划1
+					vm.speacialIntro1 = res.records[0].intro; //说明
+					vm.speacialValuePrincipal1 = numFormat(res.records[0].valuePrincipal); //本金
+					vm.speacialWebUrl1 = '//' + res.records[0].webUrl; //跳转链接
+					vm.speacialPercent1 = res.records[0].amount / 1;
+					var tmpAddrate1 = vm.speacialPercent2 == 0 ? '<span style="color:#FE5744">暂无收益</span>' : '加息<span style="color:#FE5744">' + vm.speacialPercent1 + '</span>';
+					progress1.changePercent(vm.speacialPercent1, tmpAddrate1);
+
+					//专享计划2
+					vm.speacialIntro2 = res.records[1].intro; //说明
+					vm.speacialValuePrincipal2 = numFormat(res.records[1].valuePrincipal); //本金
+					vm.speacialWebUrl2 = '//' + res.records[1].webUrl; //跳转链接
+					vm.speacialPercent2 = res.records[1].amount / 1;
+					var tmpAddrate2 = vm.speacialPercent2 == 0 ? '<span style="color:#FE5744">暂无收益</span>' : '加息<span style="color:#FE5744">' + vm.speacialPercent2 + '</span>';
+					progress2.changePercent(vm.speacialPercent2, tmpAddrate2);
+				}
+				
+			},
+		})
+	</script>
+
+</html>

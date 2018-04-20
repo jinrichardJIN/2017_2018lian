@@ -1,0 +1,51 @@
+html,body{
+	height:100%;
+}
+input{
+	border:none;
+}
+/*字体颜色*/
+.coloracacac{
+	color:#acacac;
+}
+.color858585{
+	color:#858585;
+}
+
+
+.PB5PX{
+	padding-bottom:5px;
+}
+.wrap{
+
+}
+.height100{
+	height:100vh;
+}
+.borderBottomGray{
+	border-bottom:1px solid gainsboro;
+}
+.next{
+	background:#ff5240;
+	border-radius:5px;
+	height:40px;
+	margin-top:10px;	
+	color:#FFFFFF;
+	line-height:40px;
+}
+.alertChange{
+}
+.cancel,.sure{
+	height:40px;
+	line-height:40px;
+	border:1px solid #ff5240;
+	border-radius:5px;
+}
+.cancel{
+	color:#ff5240;
+}
+.sure{
+	background:#ff5240;
+	color:#FFFFFF;
+}
+

@@ -1,0 +1,211 @@
+/*字体类*/
+.colorFF5240 {
+	color: #FF5240;
+}
+.color4A4A4A{
+	color:#4A4A4A;
+}
+
+.color8B8B8B {
+	color: #8B8B8B;
+}
+.colorFF5341{
+	color: #FF5341;
+}
+.colorA0A0A0{
+	color:#A0A0A0;
+}
+.color99999{
+	color:#999999;
+}
+.color666666{
+	color:#666666;
+}
+
+
+/*字体大小类*/
+.fontSize12 {
+	font-size: 0.12rem;
+}
+
+.fontSize14 {
+	font-size: 0.14rem;
+}
+
+.fontSize16 {
+	font-size: 0.16rem;
+}
+
+.fontSize18 {
+	font-size: 0.18rem;
+}
+.fontSize20 {
+	font-size: 0.20rem;
+}
+
+.fontSize30 {
+	font-size: 0.3rem;
+}
+.fontSize32 {
+	font-size: 0.32rem;
+}
+
+.fontSize24 {
+	font-size: 0.24rem;
+}
+
+.fontSize28 {
+	font-size: 0.28rem;
+}
+.fontSize36{
+	font-size: 0.36rem;
+}
+.fontSize40 {
+	font-size: 0.4rem;
+}
+
+
+
+/*border类*/
+.borderBottomGray {
+	border-bottom: 1px solid gainsboro;
+}
+
+
+
+/*padding类*/
+
+.paddingTop70 {
+	/*0.7rem*/
+}
+
+.paddingTop70 {
+	padding-top: 0.7rem;
+}
+
+.paddingTop15 {
+	padding-top: 0.15rem;
+}
+
+.paddingBottom45 {
+	padding-bottom: 0.45rem;
+}
+.paddingTop60{
+	padding-top:0.6rem;
+}
+
+.paddingTop45 {
+	padding-top: 0.45rem;
+}
+
+.paddingBottom70 {
+	padding-bottom: 0.7rem;
+}
+.paddingBottom20 {
+	padding-bottom: 0.2rem;
+}
+.paddingTop35{
+	padding-top:0.35rem;
+}
+.paddingTop30{
+	padding-top:0.3rem;
+}
+.paddingBottom45{
+	padding-bottom:0.45rem;
+}
+.paddingBottom65{
+	padding-bottom:0.65rem;
+}
+.paddingTop20 {
+	padding-top: 0.2rem;
+}
+.paddingTop50 {
+	padding-top: 0.5rem;
+}
+.paddingLeft45{
+	padding-left:0.45rem;
+}
+.paddingTop70 {
+	padding-top: 0.7rem;
+}
+.paddingTop25 {
+	padding-top: 0.25rem;
+}
+
+.paddingTop60{
+	padding-top:0.6rem;
+}
+
+/*maring类*/
+.margingBottom40{
+	margin-bottom:0.4rem;
+}
+
+.margingBottom35 {
+	margin-bottom: 0.35rem;
+}
+
+
+
+/*高度类*/
+
+.height30 {
+	height: 0.3rem;
+}
+
+.height60 {
+	height: 0.6rem;
+}
+.height70{
+	height:0.7rem;
+	line-height:0.7rem;
+}
+
+.lineHeightInitial {
+	line-height: initial;
+}
+.height54{
+	height:0.54rem;
+}
+
+.lineHeight60 {
+	line-height: 0.6rem;
+}
+
+/*定位类*/
+.top0 {
+	top: 0;
+}
+
+.right60 {
+	right: 0.6rem;
+}
+
+
+/*width类 */
+.width65Pecent{
+	width:65%;
+}
+.width35Pecent{
+	width:35%;
+}
+.width54 {
+	width: 0.54rem;
+}
+
+
+/*特殊类*/
+.borderRadius5 {
+	border-radius: 5px;
+}
+
+.borderRadius15 {
+	border-radius: 0.15rem;
+}
+
+.boxShadow {
+	box-shadow: 0px 2px 6px 2px gainsboro;
+}
+.blackOpcity{
+	color:rgba(0,0,0,0.8);
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>k码券</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+		<link rel="stylesheet" href="../css/giftBagBase.css" />
+	</head>
+	<script src="../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			getRem(750, 100)
+		})
+
+		window.onresize = function() {
+			getRem(750, 100)
+		};
+
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var body = document.getElementsByTagName("body")[0]
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+	</script>
+	<style type="text/css">
+		body {
+			background: #FFFFFF;
+		}
+		
+		.kCodeBackground {
+			background: url(../img/k码券/coupon_kmaquan.png);
+			background-size: 100% 100%;
+		}
+		
+		.kCodeBackgroundUsed {
+			background: url(../img/k码券/coupon_kmaquan_disable.png);
+			background-size: 100% 100%;
+		}
+		
+		.paddingTop90 {
+			padding-top: 0.9rem;
+		}
+		
+		.paddingRight20 {
+			padding-right: 0.2rem;
+		}
+		
+		.margingBottom40 {
+			margin-bottom: 0.4rem;
+		}
+		
+		.sliderUse,
+		.sliderNoUse {
+			border-bottom: 2px solid #FF5341;
+			padding-bottom: 10px;
+		}
+	</style>
+
+	<body>
+		<div id="Vue">
+			<div class="tab clearfix fontSize28 height70 textC margingBottom40">
+				<span class="inlineB fl width50" @click='changeStaus()'>
+					<span  v-bind:class="{'sliderUse':isUse}" >
+						可使用
+					</span>
+				</span>
+				<span class="inlineB fl width50" @click='changeStaus()'>
+					<span  v-bind:class="{'sliderUse':!isUse}" >
+						已使用
+					</span>
+				</span>
+			</div>
+			<ul class="KcodeList width90 blockC" v-show="isUse">
+				<li class="clearfix fontSize28 kCodeBackground margingBottom40 ">
+					<div class="fl whiteTex width65Pecent textL paddingLeft45 boxSizing">
+						<p class="paddingTop50 fontSize36">k路由器k码券</p>
+						<p class="paddingTop30 paddingBottom65 fontSize20">有效期：2017/5/25</p>
+					</div>
+					<div class="width35Pecent fl ">
+						<p class="paddingTop90 paddingRight20 fontSize18 colorFF5341">积分兑换</p>
+					</div>
+				</li>
+				<li class="clearfix fontSize28 kCodeBackground margingBottom40 ">
+					<div class="fl whiteTex width65Pecent textL paddingLeft45 boxSizing">
+						<p class="paddingTop50 fontSize36">k路由器k码券</p>
+						<p class="paddingTop30 paddingBottom65 fontSize20">有效期：2017/5/25</p>
+					</div>
+					<div class="width35Pecent fl ">
+						<p class="paddingTop90 paddingRight20 fontSize18 colorFF5341">积分兑换</p>
+					</div>
+				</li>
+			</ul>
+
+			<ul class="KcodeList width90 blockC" v-show="!isUse">
+				<li class="clearfix fontSize28 kCodeBackgroundUsed margingBottom40 ">
+					<div class="fl whiteTex width65Pecent textL paddingLeft45 boxSizing">
+						<p class="paddingTop50 fontSize36">k路由器k码券</p>
+						<p class="paddingTop30 paddingBottom65 fontSize20">有效期：2017/5/25</p>
+					</div>
+					<div class="width35Pecent fl ">
+						<p class="paddingTop90 paddingRight20 fontSize18 colorA0A0A0">积分兑换</p>
+					</div>
+				</li>
+				<li class="clearfix fontSize28 kCodeBackgroundUsed margingBottom40 ">
+					<div class="fl whiteTex width65Pecent textL paddingLeft45 boxSizing">
+						<p class="paddingTop50 fontSize36">k路由器k码券</p>
+						<p class="paddingTop30 paddingBottom65 fontSize20">有效期：2017/5/25</p>
+					</div>
+					<div class="width35Pecent fl ">
+						<p class="paddingTop90 paddingRight20 fontSize18 colorA0A0A0">积分兑换</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/giftBagBase.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+				
+
+		var vm = new Vue({
+			el: '#Vue',
+			data: {
+				isUse: true,
+			},
+			methods: {
+				changeStaus: function() {
+					vm.isUse = !vm.isUse;
+				}
+			}
+
+		})
+	</script>
+
+</html>

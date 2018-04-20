@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="activityInviteFriendsRegister.css"/>
+		<script src="../js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				getRem(750, 100)
+			})
+
+			window.onresize = function() {
+				getRem(750, 100)
+			};
+
+			function getRem(pwidth, prem) {
+				var html = document.getElementsByTagName("html")[0];
+				var body = document.getElementsByTagName("body")[0]
+				var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+				html.style.fontSize = oWidth / pwidth * prem + "px";
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--第一-->
+			<div class="positionR">
+				<img src="image/beijing_01.jpg" class="width100 block">
+				<div class="width90 blockC positionA top0 left5P">
+					<img src="image/logo.png" class="width25P positionA left0 top30">
+					<p class="margingTop20P fontSize32">普融网APP</p>
+					<p class="MT10 fontSize48 strong">值得信赖的理财产品</p>
+				</div>
+			</div>
+			<!--第二-->
+			<div class="positionR bgMiddle">
+				<div class="width90 blockC  top0 left5P">
+					<p class="fontSize36 textL width90 blockC strong">普融网优势</p>
+					<ul class="MT20">
+						<li class="bgWhite clearfix paddingBottom10 paddingTop10">
+							<div class="width90 blockC  disFlex">
+								<div class="width20">
+									<img src="image/gaoshouyi.png" class="width100">
+								</div>
+
+								<div class="fr width70">
+									<p class="fontSize36 strong textR">高收益 更胜一筹</p>
+									<p class="fontSize24 MT10 textR color999999">高出同类产品利率，年化利率更高随心投、轻松赚，收益浮动小，稳定安心</p>
+								</div>
+							</div>
+						</li>
+						<li class="bgWhite clearfix paddingBottom10 paddingTop10">
+							<div class="width90 blockC  disFlex">
+								<div class="fr width70">
+									<p class="fontSize36 strong textL">低风险 资金监管</p>
+									<p class="fontSize24 MT10 textL color999999">高出同类产品利率，年化利率更高随心投、轻松赚，收益浮动小，稳定安心</p>
+								</div>
+								<div class="width20">
+									<img src="image/difengxian.png" class="width100">
+								</div>
+							</div>
+						</li>
+						<li class="bgWhite clearfix paddingBottom10 paddingTop10">
+							<div class="width90 blockC  disFlex">
+								<div class="width20">
+									<img src="image/dimengkan.png" class="width100">
+								</div>
+								<div class="fr width70">
+									<p class="fontSize36 strong textR">低门槛 百元起投</p>
+									<p class="fontSize24 MT10 textR color999999">高出同类产品利率，年化利率更高随心投、轻松赚，收益浮动小，稳定安心</p>
+								</div>
+							</div>
+						</li>
+						<li class="bgWhite clearfix paddingBottom10 paddingTop10">
+							<div class="width90 blockC  disFlex">
+								<div class="fr width70">
+									<p class="fontSize36 strong textL">更灵活 随存随取</p>
+									<p class="fontSize24 MT10 textL color999999">高出同类产品利率，年化利率更高随心投、轻松赚，收益浮动小，稳定安心</p>
+								</div>
+								<div class="width20">
+									<img src="image/genglinghuo.png" class="width100">
+								</div>
+
+							</div>
+						</li>
+						<li>
+							<img src="image/towCode.png" class="width30 marginTop90 ">
+							<p class="fontSize24 paddingBottom80">长按识别二维码下载</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--第三-->
+			<div class="paddingBottom60">
+				<img src="image/beijing_03.jpg" class="width100 block">
+			</div>
+		</div>
+
+		<!--弹窗-->
+		<div class="bgBlack none">
+
+			<input id="appMobileNumber" name="appMobileNumber" type="hidden" value='<%=request.getParameter("mobile")%>'>
+			<input id="channel" name="channel" type="hidden" value='<%=request.getParameter("channel")%>'>
+			<div class="alertBox">
+				<img src="image/logo.png" class="width30 MT20">
+				<div class="width90 blockC">
+					<input type="tel" maxlength="11" name="phoneNum" class="inputL" placeholder="请输入手机号" id="phoneNum">
+				</div>
+				<div class="positionR width90 blockC">
+					<input type="tel" maxlength="4" name="checkCode" id="checkCode" class="inputL" placeholder="请输入验证码">
+					<span class="getCode">
+						获取验证码
+					</span>
+				</div>
+				<div class="width90 blockC magrinTop30">
+					<div style="" id="captcha"></div>
+				</div>
+				<div class="width90 blockC">
+					<input type="password" id="password" class="inputL" name="password" placeholder="请设置登录密码">
+				</div>
+				<div class="width90 blockC">
+					<button class="rightNowR" id="loginSubmit">
+						立即注册
+					</button>
+				</div>
+				<div class="fontSize24 magrinTop30">
+					<img src="image/duigou.png" style="width:15px;vertical-align:middle;">
+					<span id="registerAgree">我同意《用户注册服务协议》</span>
+				</div>
+				<img src="image/tuichu.png" class="delete">
+			</div>
+
+		</div>
+
+		<!--底部-->
+		<div class="bottom clear">
+			<div class="width90 blockC clearfix">
+				<div class="logo"><img src="image/logo2.png"></div>
+				<div class="info">
+					<p class="fontSize24">普融网APP</p>
+					<p class="fontSize24">值得信赖的理财精品</p>
+				</div>
+				<div class="btnNew">
+					<span>立即注册</span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/merge.js" type="text/javascript" charset="utf-8"></script>
+	<script src="//cstaticdun.126.net/load.min.js"></script>
+	<script src="activityInviteFriendsRegister.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" href="css/main.css"/>
+
+</head>
+<body>
+	<header class="register-header">
+		<img src="img/background_sign.png" />
+	</header>
+	<section class="register-form">
+		<form id="registerForm">
+			<div class='form-inp'>
+				<i></i>
+				<input type="tel" name="phoneNum" id="phoneNum"  placeholder="请输入手机号" value="${phoneNum}" maxlength="11" oncopy="return false;" onpaste="return false" oninput="$.checkLimit($(this),'',true);" onkeyup="$.checkLimit($(this),'',true);" onafterpaste="$.checkLimit($(this),'',true);"  />
+			</div>
+			<div class='form-valid'>
+				<i></i>
+				<input placeholder="请输入验证码" type="tel" id="checkCode" name="checkCode" value="" oncopy="return false;" onpaste="return false" oninput="$.checkLimit($(this),'',false);checkC();" onkeyup="$.checkLimit($(this),'',false);checkC();" onafterpaste="$.checkLimit($(this),'',false);checkC();" maxlength="6" />
+				<a href="javascript:void(0)" id="gainCode">获取验证码</a>
+			</div>
+			<div class='form-pass'>
+				<i></i>
+				<input placeholder="请设置登录密码" type="password" name="password" id="password" value="" maxlength="16" />
+			</div>
+			<div class='form-pass2'>
+				<i></i>
+				<input placeholder="请设置交易密码(6位数字)" type="password" name="passwordCash" id="passwordCash" value="" oncopy="return false;" onpaste="return false" oninput="$.checkLimit($(this),'',false);checkC();" onkeyup="$.checkLimit($(this),'',false);checkC();" onafterpaste="$.checkLimit($(this),'',false);checkC();" maxlength="6" />
+			</div>
+			<input type="hidden" name="mobile" id="mobile"  >
+			<input type="hidden" name="channel" id="channel"  >
+			<div class='form-btn'>
+				<a href="javascript:void(0)" id="loginSubmit">立即注册</a>
+			</div>
+			<div class="otherlog clear">
+				<p id="register">我同意《用户注册协议》</p>
+				<p onclick="gologin()">已有账号，去登录</p>
+			</div>
+			<div class="width85 blockC MT50 PB30">
+				<img src="img/title_youshi.png" width="100%">
+			</div>
+		</form>
+	</section>
+	<section class="companyS PB30">
+		<img src="img/adventage.png" width="85%">
+	</section>
+	<div class="bottom clear">
+		<div class="closef"><img src='img/close.png?<%=request.getAttribute("version")%>' /></div>
+		<div class="logo"><img src='img/logo.png?<%=request.getAttribute("version")%>' /></div>
+		<div class="info">
+			<p>联璧金融</p>
+			<p>使用APP客户端，体验更多惊喜</p>
+		</div>
+		<div class='btn'><a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.lincomb.licai" >下载APP</a></div>
+	</div>
+	
+</body>
+<script src="${pageContext.request.contextPath}/js/weixin/page/doubleFestivals/main.js?<%=request.getAttribute("version")%>"></script>
+<script src="${pageContext.request.contextPath}/js/web/integration/yundun.js"></script><!-- 验证码组件js -->
+<script src="${pageContext.request.contextPath}/js/weixin/page/doubleFestivals/register.js?<%=request.getAttribute("version")%>"></script>
+
+<script>
+	var contextPath = "${pageContext.request.contextPath}";
+    var message = "${message}";
+</script>
+</html>

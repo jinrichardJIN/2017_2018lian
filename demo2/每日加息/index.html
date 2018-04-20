@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="no" />
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>每日加息</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../css/giftBagBase.css" />
+		<style type="text/css">
+			body {
+				background: #F7F7F7;
+			}
+			
+			.backgroundBanner {
+				background: url(../img/jiaxi/backgroud_jiaxi.png);
+				background-size: 100% 100%;
+			}
+			
+			.maringTop80 {
+				margin-top: 0.8rem;
+			}
+			
+			.paddingTop80 {
+				padding-top: 0.8rem;
+			}
+			
+			.marginTop30 {
+				margin-top: 0.3rem;
+			}
+			
+			.marginTop50 {
+				margin-top: 0.5rem;
+			}
+			
+			.maringTop90 {
+				margin-top: 0.9rem;
+			}
+			
+			.maringTop10 {
+				margin-top: 0.1rem;
+			}
+			
+			.maringTop20 {
+				margin-top: 0.2rem;
+			}
+			
+			.margingBottom70 {
+				margin-bottom: 0.7rem;
+			}
+			
+			.border1pxWhite {
+				border: 1px solid #FFFFFF;
+			}
+			
+			.height120 {
+				height: 1.2rem;
+				line-height: 1.2rem;
+			}
+			
+			.rightNowSign {
+				padding: 0.21rem 0.44rem;
+				border-radius: 0.08rem;
+			}
+			
+			#progress {}
+			
+			.good {
+				position: absolute;
+				top: 0;
+				width: 10%;
+				height: 100%;
+				border-radius: 10px;
+				background: salmon;
+				transition: 1s 0s;
+			}
+			
+			.fade-enter-active,
+			.fade-leave-active {
+				transition: opacity .5s
+			}
+			
+			.fade-enter,
+			.fade-leave-active {
+				opacity: 0
+			}
+			
+			.drop-enter-active {
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+				-ms-transition: all 0.5s;
+				-o-transition: all 0.5s;
+				transition: all 0.5s;
+				-webkit-transform: translateY(0px);
+				-moz-transform: translateY(0px);
+				-ms-transform: translateY(0px);
+				-o-transform: translateY(0px);
+				transform: translateY(0px);
+			}
+			
+			drop-leave {
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+				-ms-transition: all 0.5s;
+				-o-transition: all 0.5s;
+				transition: all 0.5s;
+				-webkit-transform: translateY(0px);
+				-moz-transform: translateY(0px);
+				-ms-transform: translateY(0px);
+				-o-transform: translateY(0px);
+				transform: translateY(0px);
+			}
+			
+			.drop-enter {
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+				-ms-transition: all 0.5s;
+				-o-transition: all 0.5s;
+				transition: all 0.5s;
+				-webkit-transform: translateY(0px);
+				-moz-transform: translateY(0px);
+				-ms-transform: translateY(0px);
+				-o-transform: translateY(0px);
+				transform: translateY(-1000px);
+			}
+			
+			.drop-leave-active {
+				transition: all 0.5s;
+				transform: translateY(-1000px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="vue">
+			<div class="width90 blockC">
+				<div class="backgroundBanner positionR">
+					<p class="paddingTop80 fontSize36 whiteTex">签到可获得0.5%加息</p>
+					<span class="marginTop30 fontSize24 whiteTex border1pxWhite rightNowSign inlineB margingBottom70">
+						立即签到
+					</span>
+					<img src="../img/jiaxi/explain.png" style="width:0.3rem;right:0.3rem;top:0.2rem" class="positionA">
+				</div>
+
+				<!--专享计划-->
+				<div class="exclusivePlan marginTop50 boxShadow whiteBkg">
+					<div class="width90 blockC">
+						<p class="textL clearfix paddingTop50">
+							<span class="fl fontSize28">专享计划</span> <span class="fr fontSize20">在投本金：5000.00</span>
+						</p>
+
+						<div id="progress" class="maringTop90">
+
+						</div>
+						<p class="textL clearfix maringTop10">
+							<span class="fl fontSize20">0天</span> <span class="fr fontSize20 color99999">满10天</span>
+						</p>
+						<p class="textL maringTop20 fontSize20 paddingBottom70">
+							优享计划投资本金满5千元，最高可加息+1.0%
+						</p>
+					</div>
+				</div>
+
+				<!--专享计划-->
+				<div class="exclusivePlan marginTop50 boxShadow whiteBkg">
+					<div class="width90 blockC">
+						<p class="textL clearfix paddingTop50">
+							<span class="fl fontSize28">专享计划</span> <span class="fr fontSize20">在投本金：5000.00</span>
+						</p>
+
+						<div id="progressa" class="maringTop90">
+
+						</div>
+						<p class="textL clearfix maringTop10">
+							<span class="fl fontSize20">0天</span> <span class="fr fontSize20 color99999">满10天</span>
+						</p>
+						<p class="textL maringTop20 fontSize20 paddingBottom70">
+							优享计划投资本金满5千元，最高可加息+1.0%
+						</p>
+					</div>
+				</div>
+
+				<div class="marginTop50 height120 boxShadow">
+					<p class="clearfix width90 blockC">
+						<span class="fl fontSize28">加息券加息</span>
+						<span class="fr fontSize24">最高可加息</span>
+					</p>
+				</div>
+
+				<div class="marginTop50 paddingBottom65">
+					<img src="../img/jiaxi/icon_jiaxi_xingyunchoujiang.png" / style="width:0.8rem;">
+					<p class="fontSize20">幸运抽奖</p>
+				</div>
+
+				<transition name='drop' v-clock>
+					<div class="s" v-show='ad'>
+						asdf
+					</div>
+
+				</transition>
+				<div @click='test()'>
+					adfaaa
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+	<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			getRem(750, 100)
+		})
+
+		window.onresize = function() {
+			getRem(750, 100)
+		};
+
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var body = document.getElementsByTagName("body")[0]
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+
+		var vm = new Vue({
+			el: '#vue',
+			data: {
+				ad: false,
+			},
+			methods: {
+				test: function() {
+					vm.ad = !vm.ad;
+				}
+			}
+
+		})
+
+		//进度条 
+		function Progress(wrap, configOption) {
+			//必须写在外面不能公用  每一个对象有自己的方法  操作 都必须放在这里
+			this['domParent'] = wrap;
+
+			this.start = function() {
+				this.configStyle();
+				this.productDom(this.data.config);
+				this.initialDom(wrap, this.data.html);
+			};
+			this.start();
+
+		}
+
+		Progress.prototype = {
+			data: {
+				html: '',
+				config: {
+					domParent: ''
+				}
+			},
+			productDom: function(styleOption) {
+
+				var tmpHtml = '';
+
+				tmpHtml += '<div style="position:relative;height:' + styleOption.height + ';border-radius:' + styleOption.borderRadius + ';background:' + styleOption.backGround + ';border:' + styleOption.ParentBoderStyle + ';">';
+				tmpHtml += '<div class="percentProgress" style="transition:1s;position:absolute;height:100%;background:' + styleOption.backGroundPecent + ';border-radius:' + styleOption.borderRadius + ';width:' + styleOption.percent + '%;">';
+				if(styleOption.percent <= 1) {
+					tmpHtml += '<div style="position:absolute;top:-10px;right:-0.40rem;">';
+				} else {
+					tmpHtml += '<div style="position:absolute;top:-10px;right:-0.40rem;">';
+				}
+
+				tmpHtml += '<p style="width:1.2rem;top:-0.36rem;left:-0.3rem" class="positionA fontSize20 addRate">加息<span>0.5</span></p>';
+				tmpHtml += '<img src="' + contextPath + 'pic/weixin/ver_201712/icon_bull.png"/ style="width:0.46rem;">';
+				tmpHtml += '</div>';
+				tmpHtml += '</div>';
+				tmpHtml += '</div>';
+				this.data.html = tmpHtml;
+			},
+			configStyle: function(configOption) {
+
+				var defaultO = {
+					percent: 0,
+					height: '0.1rem',
+					borderRadius: '10px',
+					backGround: '#E2E2E2',
+					backGroundPecent: '#FE5744',
+					ParentBoderStyle: 'none'
+				}
+				var Option = Object.assign({}, defaultO, configOption);
+				this.data.config = Option;
+			},
+			changePercent: function(width, html) {
+				$(this.domParent).find('.percentProgress').width(width + '%');
+				$(this.domParent).find('.addRate').html(html);
+			},
+			initialDom: function(wrap, OurHtml) {
+				$(wrap).append(OurHtml);
+			}
+
+		}
+		
+		var progress = new 
+	</script>
+
+</html>
