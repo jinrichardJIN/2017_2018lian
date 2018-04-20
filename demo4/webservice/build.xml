@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="test" basedir="." default="127.to.206">
+	<!--版本号-->
+	<property name="version" value="1.0" />
+	<property name="year" value="2014" />
+
+	<!--项目发布目录 -->
+	<property name="servicedir" value="/data/wl/war/webservice" />
+
+	<!--tomcat的lib目录，用于java代码编译 -->
+	<property name="tomcat.lib" value="/usr/lib/jenkinsLib" />
+
+	<!--206服务器的主机，用户名，密码-->
+	<property name="www.weblogic.host" value="192.168.52.28" />
+	<property name="www.weblogic.user" value="weblogic" />
+	<property name="www.weblogic.password" value="lbjr123.com" />
+
+	<!--清理项目的打包目录，并拷贝项目所有源代码到打包目录-->
+	<property name="build" value="build" />
+
+	<!--清除打包文件-->
+	<target name="clean">
+		<delete dir="${build}" />
+	</target>
+
+	<!--打包-->
+	<target name="init">
+		<delete dir="${build}" />
+		<mkdir dir="${build}" />
+		<copy todir="${build}">
+			<fileset dir="${basedir}\WebRoot">
+				<include name="**/**" />
+				<exclude name="devWeb/"/>
+			</fileset>
+		</copy>
+		<!--排除目录-->
+		<delete dir="${build}\devWeb"/>
+	</target>
+
+	<!--将172项目打好包的文件发布到206服务器-->
+	<target name="127.to.206" depends="init">
+		<antcall target="seach.stop.server" />
+
+		<sshexec host="${www.weblogic.host}" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true" 
+			command="rm -rf ${servicedir}/*" />
+
+		<scp todir="${www.weblogic.user}@${www.weblogic.host}:${servicedir}/" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true">
+			<fileset dir="${build}">
+				<include name="**/**" />
+			</fileset>
+		</scp>
+		<antcall target="start.server" />
+		<antcall target="copy.webservice.to.nginx" />
+	</target>
+
+	<!--结束weblogic进程 -->
+	<target name="stop.server">
+		<sshexec host="${www.weblogic.host}" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true" command="kill -9 `ps -ef|grep webservice7003|grep -v grep|awk '{print $2}'`" />
+	</target>
+
+	<!--启动weblogic服务 -->
+	<target name="start.server">
+		<sshexec host="${www.weblogic.host}" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true" command="cd /data/wl/; sh startwebservice7003.sh" />
+	</target>
+
+	<!--nginx缓存覆盖 -->
+	<target name="copy.webservice.to.nginx">
+		<sshexec host="${www.weblogic.host}" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true" command="cd /data/wl/war/webservice/; scp -r * 192.168.52.27:/data/usr/local/nginx/html/webservice/" />
+	</target>
+
+	<!--查找进程start -->
+	<!--查找weblogic进程 -->
+	<target name="seach.server.code">
+		<sshexec host="${www.weblogic.host}" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true" outputproperty="server.code" 
+			command="ps -ef|grep webservice7003|grep -v grep|awk '{print $2}' " />
+		<echo>server: ${server.code}</echo>
+	</target>
+
+	<target name="seach.stop.server" depends="seach.server.code">
+		<condition property="scondition">
+			<!--判断服务进程号是否为空-->
+			<equals arg1="${server.code}" arg2="" />
+		</condition>
+		<antcall target="isTrue">
+		</antcall>
+		<antcall target="isFalse">
+		</antcall>
+	</target>
+	<target name="isTrue" if="scondition">
+		<echo>is null</echo>
+	</target>
+	<target name="isFalse" unless="scondition">
+		<echo>not null</echo>
+		<antcall target="stop.server" />
+	</target>
+	<!--查找进程end-->
+</project>

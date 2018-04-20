@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="GB2312"?>
+<config>
+    <connection>
+	   <drivername>oracle.jdbc.driver.OracleDriver</drivername>
+	   <url>jdbc:oracle:thin:@192.168.137.252:1521:syhxzg</url>
+	   <username>db_xtwh</username>
+	   <password>db_xtwh</password>
+    </connection>
+    <implclasses>
+      <paramclasses desc="所有file标签中type指定实现类">
+  	     <impclass type="static" class="com.neusoft.autocode.handler.param.StaticParamHandler"/>
+  	  </paramclasses>
+  	  <buildclasses desc="所有template标签中type使用实现类">
+  	     <buildclass type="default" class="com.neusoft.autocode.handler.file.DefaultFileHandler"/>
+  	     <buildclass type="dataset" class="com.neusoft.autocode.handler.file.DataSetFileHandler"/>
+         <buildclass type="txtappend" class="com.neusoft.autocode.handler.file.AppendTextFileHandler"/>
+         <buildclass type="xmlappend" class="com.neusoft.autocode.handler.file.AppendXMLFileHandler"/>
+         <buildclass type="createdao" class="com.neusoft.autocode.handler.file.CreateTableDaoFileHandler" />
+         <buildclass type="dbdataset" class="com.neusoft.autocode.handler.file.DBTablesDataSetFileHandler" />
+         <buildclass type="sbmodelcreate" class="com.neusoft.autocode.handler.file.SBXMLCreateFileHandler" desc="申报模型生成" />	
+         <buildclass type="checkdbdiff" class="com.neusoft.autocode.handler.db.CheckDBDiffHandler"/>
+         <buildclass type="outputtabledata" class="com.neusoft.autocode.handler.db.OutputSpTableHandler"/>
+  	  </buildclasses>
+    </implclasses>
+    <!--一个具体要生成代码的方案可以生成多个文件 name名称 type需要那个实现类来处理-->  
+    <templates>
+	   <template name="公共使用" type="导出指定的数据表数据">
+		   <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+	        <param name="dbtable" value="" type="" desc="要生成的数据库表名" />
+	        <param name="replacefield" value="" type="" desc="指定要统一替换字段名" /> 
+	        <param name="replacevalue" value="" type="" desc="统一替换成" />
+	        <param name="mail" value="shizq@neusoft.com" type="" desc="电子邮件地址" />
+	        <param name="author" value="shizq" type="" desc="作者名字" />
+	        <param name="java_filepath" value="${project_path}" type="" desc="默认模块文件(JAVA)起始位置" />
+	      </input>
+	      <files>
+	        <!--要生成文件配置信息 -->
+	        <file name="${dbtable}.sql" type="outputtabledata" path="${java_filepath}" srcFile="code_template\DataSet\DataSet.Template" desc="具体要生成的文件">
+	          <param name="datasource_name" value="hxzg" type="static" />
+	          <param name="dbtable" value="${dbtable}" type="static" />
+	          <param name="replacefield" value="${replacefield}" type="static" desc="要生成的类名" /> 
+	          <param name="replacevalue" value="${replacevalue}" type="static" />
+	          <param name="attributes" value="${attributes}" type="static" />
+	          <param name="mail" value="${mail}" type="static" />
+	          <param name="author" value="${author}" type="static" />
+	        </file>
+	      </files>
+	  </template>    
+	   <template name="公共使用" type="核对两个数据库实例之间的差别">
+		    <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+		    	<!--param name="modulename" value="" type="" desc="要建立的模块文件名"/--> 	
+		    	<param name="cpdb_driver" value="oracle.jdbc.driver.OracleDriver" type="" desc="要生成的数据库表名"/> 	
+		    	<param name="cpdb_url" value="jdbc:oracle:thin:@192.168.137.252:1521:syhxzg" type="" desc="主键字段名称"/> 
+				<param name="cpdb_user" value="db_hxzg" type="" desc="电子邮件地址"/> 
+				<param name="cpdb_password" value="db_hxzg" type="" desc="作者名字"/> 
+				<param name="java_filepath" value="${project_path}" type="" desc="默认模块文件(JAVA)起始位置"/> 	
+		    </input>
+		    <files>
+			    <!--要生成文件配置信息 -->
+		 	    <file name="db_diff.xml" type="checkdbdiff" path="${java_filepath}" srcFile="code_template\DataSet\DataSet.Template" desc="具体要生成的文件">
+			    	<param name="cpdb_driver" value="${cpdb_driver}" type="static"/>
+                    <param name="cpdb_url" value="${cpdb_url}" type="static"/>
+                    <param name="cpdb_user" value="${cpdb_user}" type="static"/>
+                    <param name="cpdb_password" value="${cpdb_password}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>    
+			</files>
+	  </template>	        
+	  <template name="公共使用" type="生成申报模型领域配置文件">
+	      <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+	        <param name="name" value="" type="" desc="要生成的模型名" />
+	        <param name="ename" value="" type="" desc="要生成的ID（不加版本号）" /> 
+	        <param name="maintables" value="" type="" desc="使用的数据主表多表使用,分割" />
+			<param name="childtables" value="" type="" desc="使用的数据子表多表使用,分割" />
+	        <param name="author" value="shizq" type="" desc="作者名字" />
+	        <param name="java_filepath" value="${project_path}\webroot\WEB-INF\conf\dlhxzg\declare\declareObj" type="" desc="默认模块文件起始位置" />
+	      </input>
+	      <files>
+	        <!--要生成文件配置信息 -->
+	        <file name="${name}.xml" type="sbmodelcreate" path="${java_filepath}" srcFile="不使用模板文件" desc="具体要生成的文件">
+	          <param name="name" value="${name}" type="" desc="要生成的模型名" />
+	          <param name="ename" value="${ename}" type="" desc="要生成的ID（不加版本号）" /> 
+	          <param name="maintables" value="${maintables}" type="" desc="使用的数据主表多表使用,分割" />
+			  <param name="childtables" value="${childtables}" type="" desc="使用的数据子表多表使用,分割" />
+	          <param name="mail" value="${mail}" type="static" />
+	          <param name="author" value="${author}" type="static" />
+	        </file>
+	      </files>
+      </template> 
+	  <template name="公共使用" type="生成Table影射管理类">
+	      <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+	        <!--param name="modulename" value="" type="" desc="要建立的模块文件名"/-->
+	        <param name="dbtable" value="" type="" desc="要生成的数据库表名" />
+	        <param name="class" value="" type="" desc="要生成的类名" /> 
+	        <param name="pk_name" value="" type="" desc="主键字段名称" />
+	        <param name="mail" value="shizq@neusoft.com" type="" desc="电子邮件地址" />
+	        <param name="author" value="shizq" type="" desc="作者名字" />
+	        <param name="java_filepath" value="${project_path}\src\com\neusoft\tax\hxzg\dllt\" type="" desc="默认模块文件(JAVA)起始位置" />
+	      </input>
+	      <files>
+	        <!--要生成文件配置信息 -->
+	        <file name="${class}.java" type="createdao" path="${java_filepath}" srcFile="code_template\DataSet\DataSet.Template" desc="具体要生成的文件">
+	          <param name="datasource_name" value="hxzg" type="static" />
+	          <param name="dbtable" value="${dbtable}" type="static" />
+	          <param name="class" value="${class}" type="static" desc="要生成的类名" /> 
+	          <param name="pk_name" value="${pk_name}" type="static" />
+	          <param name="attributes" value="${attributes}" type="static" />
+	          <param name="mail" value="${mail}" type="static" />
+	          <param name="author" value="${author}" type="static" />
+	        </file>
+	      </files>
+	    </template> 
+		<template name="公共使用" type="生成所有数据表对应DataSet文件">
+		    <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+		    	<!--param name="modulename" value="" type="" desc="要建立的模块文件名"/--> 	
+		    	<param name="dbtable" value="" type="" desc="要生成的数据库表名"/> 	
+		    	<param name="pk_name" value="" type="" desc="主键字段名称"/> 
+				<param name="mail" value="shizq@neusoft.com" type="" desc="电子邮件地址"/> 
+				<param name="author" value="史忠钦" type="" desc="作者名字"/> 
+				<param name="java_filepath" value="${project_path}\webroot\WEB-INF\conf\unieap\dataset\hxzg" type="" desc="默认模块文件(JAVA)起始位置"/> 	
+		    </input>
+		    <files>
+			    <!--要生成文件配置信息 -->
+		 	    <file name="${dbtable}.xml" type="dbdataset" path="${java_filepath}" srcFile="code_template\DataSet\DataSet.Template" desc="具体要生成的文件">
+			    	<param name="datasource_name" value="hxzg" type="static"/>
+                    <param name="dbtable" value="${dbtable}" type="static"/>
+                    <param name="pk_name" value="${pk_name}" type="static"/>
+                    <param name="attributes" value="${attributes}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>    
+			</files>
+		</template>		       
+		<template name="公共使用" type="生成DataSet文件">
+		    <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+		    	<!--param name="modulename" value="" type="" desc="要建立的模块文件名"/--> 	
+		    	<param name="dbtable" value="" type="" desc="要生成的数据库表名"/> 	
+		    	<param name="pk_name" value="" type="" desc="主键字段名称"/> 
+				<param name="mail" value="shizq@neusoft.com" type="" desc="电子邮件地址"/> 
+				<param name="author" value="史忠钦" type="" desc="作者名字"/> 
+				<param name="java_filepath" value="${project_path}\webroot\WEB-INF\conf\unieap\dataset\hxzg" type="" desc="默认模块文件(JAVA)起始位置"/> 	
+		    </input>
+		    <files>
+			    <!--要生成文件配置信息 -->
+		 	    <file name="${dbtable}.xml" type="dataset" path="${java_filepath}" srcFile="code_template\DataSet\DataSet.Template" desc="具体要生成的文件">
+			    	<param name="datasource_name" value="hxzg" type="static"/>
+                    <param name="dbtable" value="${dbtable}" type="static"/>
+                    <param name="pk_name" value="${pk_name}" type="static"/>
+                    <param name="attributes" value="${attributes}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>    
+			</files>
+		</template>	   
+		<template name="地税项目" type="税务应用总线">
+		    <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+		    	<param name="modulename" value="" type="" desc="要建立的模块文件名"/> 	
+		    	<param name="package_module" value="" type="" desc="要新建的模块包片段名"/> 	
+		    	<param name="formname" value="uniform" type="" desc="ActionForm名称"/>
+		    	<param name="scope" value="request" type="" desc="生存期范围(request,session)"/>
+				<param name="mail" value="shizq@neusoft.com" type="" desc="电子邮件地址"/> 
+				<param name="author" value="史忠钦" type="" desc="作者名字"/> 
+				<param name="java_filepath" value="${project_path}\src\com\neusoft\tax\hxzg\dllt\" type="" desc="默认模块文件(JAVA)起始位置"/> 	
+		    </input>
+		    <files>
+			    <!--要生成文件配置信息 -->
+		 	    <file name="${modulename}Action.java" type="default" path="${java_filepath}${package_module}\web\action" srcFile="code_template\应用总线\Action.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+                    <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}IAO.java" type="default" path="${java_filepath}${package_module}\bl\interaction" srcFile="code_template\应用总线\IAO.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}ALO.java" type="default" path="${java_filepath}${package_module}\bl\applogic" srcFile="code_template\应用总线\ALO.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}DAO.java" type="default" path="${java_filepath}${package_module}\bl\dao" srcFile="code_template\应用总线\DAO.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <!--file name="dlhxzg-config.xml" type="xmlappend" path="${project_path}\SourceCode\dllt_hxzg\webroot\WEB-INF\conf\dlhxzg\" srcFile="code_template\应用总线\action_map.xml" desc="具体要生成的文件"-->
+			    	<!--param name="package_module" value="${package_module}" type="static"/-->
+	                <!--param name="append_node" value="struts-config\action-mappings" type="static" desc="往那个Node点追加，XMLFileHandler必须要有的参数"/-->
+	                <!--param name="modulename" value="${modulename}" type="static"/-->
+	                <!--param name="formname" value="${formname}" type="static"/-->
+	                <!--param name="scope" value="${scope}" type="static"/-->
+			    <!--/file-->
+		    </files>
+		</template>
+		<template name="地税项目" type="通用文书应用总线">
+		    <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+		    	<param name="modulename" value="" type="" desc="要建立的模块文件名"/> 	
+		    	<param name="package_module" value="" type="" desc="要新建的模块包片段名"/> 	
+				<param name="mail" value="shizq@neusoft.com" type="" desc="电子邮件地址"/> 
+				<param name="author" value="史忠钦" type="" desc="作者名字"/> 
+				<param name="java_filepath" value="${project_path}\src\com\neusoft\tax\hxzg\dllt\" type="" desc="默认模块文件(JAVA)起始位置"/> 	
+		    </input>
+		    <files>
+			    <!--要生成通用文书配置信息 -->
+		 	    <file name="${modulename}Action.java" type="default" path="${java_filepath}${package_module}\web\action" srcFile="code_template\文书模型\Action.Template" desc="生成通用文书文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+                    <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}IAO.java" type="default" path="${java_filepath}${package_module}\bl\interaction" srcFile="code_template\文书模型\IAO.Template" desc="生成通用文书文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}ALO.java" type="default" path="${java_filepath}${package_module}\bl\applogic" srcFile="code_template\文书模型\ALO.Template" desc="生成通用文书文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}DAO.java" type="default" path="${java_filepath}${package_module}\bl\dao" srcFile="code_template\文书模型\DAO.Template" desc="生成通用文书文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+			    <file name="${modulename}DocType.java" type="default" path="${java_filepath}${package_module}\bl\model" srcFile="code_template\文书模型\Type.Template" desc="生成通用文书文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+			    <file name="${modulename}DocPrint.java" type="default" path="${java_filepath}${package_module}\bl\print" srcFile="code_template\文书模型\Print.Template" desc="生成通用文书文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		    </files>
+		</template>
+		<template name="地税项目" type="简单列表">
+		    <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+		    	<param name="modulename" value="" type="" desc="要建立的模块文件名"/> 	
+		    	<param name="package_module" value="" type="" desc="要新建的模块包片段名"/> 	
+				<param name="mail" value="shizq@neusoft.com" type="" desc="电子邮件地址"/> 
+				<param name="author" value="史忠钦" type="" desc="作者名字"/> 
+				<param name="java_filepath" value="${project_path}\src\com\neusoft\tax\hxzg\dllt\" type="" desc="默认模块文件(JAVA)起始位置"/> 	
+		    </input>
+		    <files>
+			    <!--要生成文件配置信息 -->
+		 	    <file name="${modulename}Action.java" type="default" path="${java_filepath}${package_module}\web\action" srcFile="code_template\简单列表\Action.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+                    <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}IAO.java" type="default" path="${java_filepath}${package_module}\bl\interaction" srcFile="code_template\简单列表\IAO.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}ALO.java" type="default" path="${java_filepath}${package_module}\bl\applogic" srcFile="code_template\简单列表\ALO.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}DAO.java" type="default" path="${java_filepath}${package_module}\bl\dao" srcFile="code_template\简单列表\DAO.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		    </files>
+		</template>
+		<template name="地税项目" type="联合列表">
+		    <input desc="所有在界面上要求填写项信息，系统会要求生成者设定这些信息">
+		    	<param name="modulename" value="" type="" desc="要建立的模块文件名"/> 	
+		    	<param name="package_module" value="" type="" desc="要新建的模块包片段名"/> 	
+				<param name="mail" value="shizq@neusoft.com" type="" desc="电子邮件地址"/> 
+				<param name="author" value="史忠钦" type="" desc="作者名字"/> 
+				<param name="java_filepath" value="${project_path}\src\com\neusoft\tax\hxzg\dllt\" type="" desc="默认模块文件(JAVA)起始位置"/> 	
+		    </input>
+		    <files>
+			    <!--要生成文件配置信息 -->
+		 	    <file name="${modulename}Action.java" type="default" path="${java_filepath}${package_module}\web\action" srcFile="code_template\联合列表\Action.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+                    <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}IAO.java" type="default" path="${java_filepath}${package_module}\bl\interaction" srcFile="code_template\联合列表\IAO.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}ALO.java" type="default" path="${java_filepath}${package_module}\bl\applogic" srcFile="code_template\联合列表\ALO.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		 	    <file name="${modulename}DAO.java" type="default" path="${java_filepath}${package_module}\bl\dao" srcFile="code_template\联合列表\DAO.Template" desc="具体要生成的文件">
+			    	<param name="package_module" value="${package_module}" type="static"/>
+	                <param name="modulename" value="${modulename}" type="static"/>
+					<param name="mail" value="${mail}" type="static"/>
+			    	<param name="author" value="${author}" type="static"/>
+			    </file>
+		    </files>
+		</template>		
+	</templates>
+</config>

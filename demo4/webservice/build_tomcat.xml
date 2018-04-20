@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+        
+<project name="test" basedir="." default="127.to.206">
+	<!--版本号-->
+ 	<property name="version" value="1.0" />
+ 	<property name="year" value="2014" />
+	
+	<!--项目jar包目录 -->
+    <property name="classpath_lib" value="${basedir}/WebRoot/WEB-INF/lib" /> 
+	
+	<!--项目发布目录 -->
+	<property name="servicedir" value="/data/tomcat/tomcat7/webapps/webservice/"/> 
+	<!--<property name="servicedir" value="D:/workspackInstill/apache-tomcat-6.0.44/webapps/javaservice/WEB-INF/" />-->
+       
+	<!--tomcat的lib目录，用于java代码编译 -->
+	<property name="tomcat.lib" value="/usr/lib/jenkinsLib" />
+	
+	<!--206服务器的主机，用户名，密码-->
+	<property name="www.weblogic.host"       value="192.168.47.102"/>
+	<property name="www.weblogic.user"       value="tomcat"/>
+	<property name="www.weblogic.password"    value="lbjr123.com"/>
+    
+	<!--清理项目的打包目录，并拷贝项目所有源代码到打包目录-->
+	<property name="build" value="build"></property>    
+	<property name="src" value="src"></property>  
+	<target name="init">  
+        <delete dir="${build}" />  
+        <mkdir dir="${build}"/>   
+		<mkdir dir="${build}\agreement"/>   
+		<mkdir dir="${build}\css"/>   
+		<mkdir dir="${build}\js"/>   
+		<mkdir dir="${build}\pic"/>   
+		<mkdir dir="${build}\META-INF"/>   
+        <mkdir dir="${build}\WEB-INF"/>    
+        <mkdir dir="${build}\WEB-INF\classes"/>    
+        <copy todir="${build}">    
+            <fileset dir="${basedir}\WebRoot">    
+                <include name="WEB-INF/**" />    
+                <include name="**" />    
+            </fileset>    
+        </copy> 
+		<delete dir="${build}\WEB-INF\classes" />  
+		<mkdir dir="${build}\WEB-INF\classes"/>   
+    </target>
+	
+	<!--编译java代码-->
+	<target name="complie" depends="init">    
+		<path id="classpath" description="">
+			<fileset dir="${tomcat.lib}"> 
+                <include name="**/*.jar"/>
+                <exclude name="**/*.bak" /> 
+            </fileset>
+			<fileset dir="${classpath_lib}"> 
+                <include name="**/*.jar"/>
+                <exclude name="**/*.bak" /> 
+            </fileset>
+		</path>
+             
+		<javac debug="true" encoding="utf-8" srcdir="${src}" destdir="${build}\WEB-INF\classes" includeantruntime="on">
+			<classpath refid="classpath" description="" />
+		</javac>
+    </target> 
+	
+	<!--将172项目打好包的文件发布到206服务器-->
+	<target name="127.to.206" depends="complie" >
+		<antcall target="seach.stop.server" />
+		
+		<sshexec  host="${www.weblogic.host}" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true" 
+			command="rm -rf ${servicedir}/agreement/*;rm -rf ${servicedir}/css/*;rm -rf ${servicedir}/js/*;rm -rf ${servicedir}/pic/*;rm -rf ${servicedir}/WEB-INF/classes/com/*;rm -rf ${servicedir}/WEB-INF/jsp/*;rm -rf ${servicedir}/WEB-INF/lib/*"/>
+			
+		<scp todir="${www.weblogic.user}@${www.weblogic.host}:${servicedir}/agreement" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true">
+		 	<fileset dir="${build}/agreement"> 
+		      <include name="**/**"/> 
+		    </fileset> 
+		</scp>
+		<scp todir="${www.weblogic.user}@${www.weblogic.host}:${servicedir}/css" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true">
+		 	<fileset dir="${build}/css"> 
+		      <include name="**/**"/> 
+		    </fileset> 
+		</scp>
+		<scp todir="${www.weblogic.user}@${www.weblogic.host}:${servicedir}/js" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true">
+		 	<fileset dir="${build}/js"> 
+		      <include name="**/**"/> 
+		    </fileset> 
+		</scp>
+		<scp todir="${www.weblogic.user}@${www.weblogic.host}:${servicedir}/pic" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true">
+		 	<fileset dir="${build}/pic"> 
+		      <include name="**/**"/> 
+		    </fileset> 
+		</scp>
+		<scp todir="${www.weblogic.user}@${www.weblogic.host}:${servicedir}/WEB-INF/classes/com" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true">
+		 	<fileset dir="${build}/WEB-INF/classes/com"> 
+		      <include name="**/**"/> 
+		    </fileset> 
+		</scp>
+		<scp todir="${www.weblogic.user}@${www.weblogic.host}:${servicedir}/WEB-INF/jsp" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true">
+		 	<fileset dir="${build}/WEB-INF/jsp"> 
+		      <include name="**/**"/> 
+		    </fileset> 
+		</scp>
+		<scp todir="${www.weblogic.user}@${www.weblogic.host}:${servicedir}/WEB-INF/lib" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true">
+		 	<fileset dir="${build}/WEB-INF/lib"> 
+		      <include name="**/**"/> 
+		    </fileset> 
+		</scp>
+		
+		<antcall target="start.server" />
+	</target>
+	
+	<!--结束tomcat进程 -->
+	<target name="stop.server">
+		<sshexec  host="${www.weblogic.host}" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true" 
+			command="kill -9 `ps -ef|grep tomcat7|grep -v grep|awk '{print $2}'`"/>
+    </target>
+	
+	<!--启动tomcat服务 -->
+	<target name="start.server">
+		<sshexec  host="${www.weblogic.host}" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true" 
+			command="cd /data/tomcat/tomcat7/bin/; sh startup.sh"/>
+    </target>
+	
+	<!--查找进程start -->
+	<!--查找tomcat进程 -->
+	<target name="seach.server.code">
+		<sshexec  host="${www.weblogic.host}" username="${www.weblogic.user}" password="${www.weblogic.password}" trust="true" outputproperty="server.code"
+			command="ps -ef|grep tomcat7|grep -v grep|awk '{print $2}' "/>
+		<echo>server: ${server.code}</echo> 
+    </target>
+	
+	<target name="seach.stop.server" depends="seach.server.code">  
+      	<condition property="scondition">  
+          	<!--判断服务进程号是否为空-->  
+      	 	<equals arg1="${server.code}" arg2="" />
+      	</condition>  
+      	<antcall target="isTrue">  
+       	</antcall>  
+       	<antcall target="isFalse">  
+       	</antcall>  
+    </target> 
+	<target name="isTrue" if="scondition">  
+     	<echo>is null</echo>  
+  	</target>  
+  	<target name="isFalse" unless="scondition">  
+      	<echo>not null</echo> 
+  		<antcall target="stop.server"></antcall>
+  	</target>  
+	<!--查找进程end-->
+	
+</project>    
