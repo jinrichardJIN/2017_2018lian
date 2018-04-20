@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#canvas{
+				/*background:salmon;*/
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="200" height="200"></canvas>
+		<input type="file" />上传图片
+	</body>
+	<script type="text/javascript">
+		
+		console.log(typeof window.URL.hasOwnProperty('createObjectURL'))
+		console.log(typeof window.webkitURL);
+		var inputModel = document.querySelector('input');
+		var canvas = document.getElementById('canvas');
+			var Ca = canvas.getContext('2d');
+		inputModel.onchange = function(e){
+			Ca.clearRect(0,0,canvas.width,canvas.height); 
+		    var URL = window.webkitURL || window.URL;
+		    var url = URL.createObjectURL(e.target.files[0]);
+		    console.log(e.target.files)
+		    console.log(inputModel.value)
+		    var img = new Image();
+		    img.src = url;
+			console.log(url);
+		    img.onload = function(){
+		            img_width = img.width;
+		            img_height = img.height;
+		            Ca.drawImage(img,0,0,img_width,img_height,0,0,canvas.width,canvas.height);
+		    }
+
+
+			
+			
+			
+			
+			
+//			console.log(inputModel.value);
+//			var canvas = document.getElementById('canvas');
+//			var Ca = canvas.getContext('2d');
+//			var img =  new Image();
+//			img.src = inputModel.value;
+//			Ca.drawImage(img,10,10,490,382);
+		}
+		
+		 
+		
+		
+	</script>
+</html>

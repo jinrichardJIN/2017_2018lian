@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 300px;
+				background: saddlebrown;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			
+		</div>
+		<table border="" cellspacing="" cellpadding="">
+			<tr><th>Header</th></tr>
+			<tr><td width="45">Data</td></tr>
+		</table>
+	</body>
+	<script type="text/javascript">
+		var body = document.querySelector('div');
+//		var obj = {
+//			test: function() {
+//				this.b = 3;
+//
+//				var _this = this
+//
+//				return function() {
+//					console.log(_this.b++);
+//				}
+//			}
+//		};
+//		obj.clickl = (function() {
+//			var a = 3;
+//			a++;
+//			return function() {
+//				console.log(a);
+//			}
+//		})();
+		var add;
+		var test = function() {
+			var b = 3;
+			add  = function (){
+				b++;
+			}
+			return function() {
+				console.log(b);
+			}
+		}
+		test()();
+		add();
+		test()();
+		
+		
+		//第二种方式  为什么会有区别呢 因为 上面一种 始终都运行了整个函数 而下面的是 运行了第一次的结果
+		
+		
+		function f1() {　　　　
+			var n = 999;　　　　
+			nAdd = function() { n += 1 }　　　　
+			function f2() {
+				　　　console.log(n);
+			}　　　　 
+			return f2;　　 
+		}　　
+		var result = f1();　　
+		result(); // 999
+		　　
+		nAdd();　　
+		result(); // 1000
+	</script>
+
+</html>

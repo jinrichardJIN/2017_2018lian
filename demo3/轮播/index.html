@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+		  <meta name=viewport content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		  <meta name=apple-mobile-web-app-capable content=no>
+		  <meta name=apple-touch-fullscreen content=yes>
+		  <meta name=format-detection content="telephone=no">
+		  <meta name=description content=多点金融,是提供网络借贷中介信息服务的平台，为有融资、投资需求的小微企业主或个人提供信息撮合服务。>
+		  <meta name=keywords content=多点金融，多点金融官网，多点金融网站，多点金融下载，多点金融App，多点小贷，多点小贷下载，多点小贷App>
+		  <meta name=sogou_site_verification content=bbIOehiDPk>
+		  <meta name=renderer content=webkit>
+		  <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+		  <link href="/src/assets/img/favicon.ico" rel="icon" type="image/x-icon">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../src/reset.css"/>
+		<style type="text/css">
+			body{
+				margin:0;
+				padding:0;
+				background:#000000;
+				position:relative;
+			}
+			#wrap{
+				width:500px;
+				background:#F0EFF0;
+				overflow:hidden;
+				height:400px;
+				position:relative;
+				-moz-user-select:none;
+				-ms-user-select:none;
+				-webkit-user-select:none;
+				position:absolute;
+				left:50%;
+				margin-left:-250px;
+			}
+			.dotAndControl{
+				position:absolute;
+				top:500px;
+				width:200px;
+				left:50%;
+				margin-left:-100px;
+				-moz-user-select:none;
+				-ms-user-select:none;
+				-webkit-user-select:none;
+			}
+			#content{
+				height:100%;
+				background:salmon;
+				position:absolute;
+				white-space:nowrap;	
+			}
+			#content li{
+				height:100%;
+				display:inline-block;
+				float:left;
+				line-height:300px;	
+			}
+			#content li img{
+				width:100%;
+				height:100%;
+				 pointer-events: none;	
+			}
+			.pagelot {
+				width:100%;
+			}
+			.pagelot li{
+				width:10px;
+				height:10px;
+				border-radius:10px;	
+				background:green;
+				display:inline-block;
+			}
+			.prev,.next{
+				width:50px;
+				height:50px;
+				border-radius:50px;
+				background:lightskyblue;
+				line-height: 50px;
+				text-align:center;
+				display:inline-block;
+				font-size:25px;
+			}	
+			@media only screen and (max-width: 768px) {
+				#wrap{
+					width:80%;
+					background:#F0EFF0;
+					overflow:hidden;
+					margin:0 auto;
+					position:relative;
+					-moz-user-select:none;
+					-ms-user-select:none;
+					-webkit-user-select:none;
+					position:relative;
+					left:initial;
+				}
+			}
+			
+			#test{
+				width:100%;
+				height:500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+				<ul id="content" >
+					<li unselectable="on"><img src="timg.jpg"/></li>
+					<li unselectable="on"><img src="timg1.jpg"/></li>
+					<li unselectable="on"><img src="1.jpg"/></li>
+				</ul>
+				
+		</div>
+		<div class="dotAndControl">
+			<ul class="pagelot">
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<span class="prev"><</span>
+				<span class="next">></span>
+		</div>
+		
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*
+		 项目兼容ie9以已上 ，如需兼容ie8以及一下 jquery 请引用1.0x 本项目使用3.1.1
+		 * */
+		var mousemove;
+		$(document).ready(function(){
+			var WrapWidth = $('#wrap').width();
+			var numberLi = $('#content li').length;
+			$('#content').width(numberLi*WrapWidth);
+			$('#content li').width(WrapWidth);
+			
+			var slider = new Slider();
+				slider.start();
+				
+			mousemove = function(event){
+				var _thisData = slider.data,
+					_event = window.event||event;
+					_event.preventDefault();
+					_event.cancelBubble = true;
+				_thisData.changeClientX = _event.clientX - _thisData.mouseClientInitalX;
+				//根据倍数改变分页数
+				$('#content').css('left',_thisData.sliderLeftInitial+Math.round(_thisData.changeClientX));
+			}
+		})
+		
+		var Slider = function(){
+			//初始化项目
+			this.start = function(){
+				var _thisData = this.data;
+				var windowWidth = $(document).width();
+				if(windowWidth>768){
+					//启动项
+					this.method.mouseup.call(this);
+					this.method.mousedown.call(this);
+				}else{
+					//启动项
+					this.method.touchend.call(this);
+					this.method.touchstart.call(this);
+					this.method.touchmove.call(this);
+				}
+				this.method.selectIndex.call(this);
+				this.method.prev.call(this);
+				this.method.next.call(this);
+			}
+			
+			//初始化数据
+			this.data = {
+				Mobile:['touchstart','touchend','touchmove','touches[0].pageX'],
+				Web:['mousedown','mouseup','mousemove','clientX'],
+				eventType:'',        //对应的事件类型
+				mouseClientInitalX:0, //初始x位置
+				mouseClientEndX:0,	//结束x位置
+				changeClientX:0,		//改变的x距离
+				changePage:0,			//应该改变的页面数
+				ulWidth:$('#wrap li').width(), //初始化整个轮播的单层宽度
+				liNumber:$('.pagelot li').length, //初始化整个轮播的离个数
+				sliderLeftInitial:$('#content').position().left, //初始化页面的左侧值	
+				minLeft:-(this.liNumber*this.ulWidth),   //距离左边最小	
+				maxLeft:this.ulWidth,				   //距离左边最大
+				dotIndex:0							   //全局index
+			}
+			this.method = {
+				
+				/*************************************手机端***************************************/				
+				//1.给每一个li添加按下事件
+				touchstart:function(){
+					var _thisData = this.data;
+					$('#content').on('touchstart','li',function(event){
+						var _event = window.event||event;
+						_thisData.mouseClientInitalX = _event.touches[0].pageX;
+					})
+				},
+				//2.给每一个li添加手势抬起事件
+				touchend:function(){
+					var _thisData = this.data;
+					$('#content').on('touchend','li',function(event){
+						var _event = window.event||event;
+						_thisData.mouseClientEndX = _event.changedTouches[0].pageX;
+						_thisData.changeClientX = _thisData.mouseClientEndX - _thisData.mouseClientInitalX;
+						
+						
+						
+						//判断li坐标
+						var liIndex = $(this).index();
+						if((liIndex+1)==_thisData.liNumber&&_thisData.changeClientX<=0){
+							$('#content').stop(true,true).animate({
+								left:_thisData.sliderLeftInitial
+							},100)
+							return;
+						}else if(liIndex==0&&_thisData.changeClientX>=0){
+							$('#content').stop(true,true).animate({
+								left:_thisData.sliderLeftInitial
+							},100)
+							return;
+						}
+						
+						//如果滑动终点和起始点超过制定距离 我们设定为50
+						if(Math.abs(_thisData.changeClientX)>=50){
+							if(_thisData.changeClientX>=0){
+								_thisData.dotIndex--;
+								if(_thisData.dotIndex<=-1){
+									_thisData.dotIndex = 0;	
+								}
+								//根据倍数改变分页数
+								$('#content').stop(true,true).animate({
+									left:-(_thisData.ulWidth*_thisData.dotIndex)
+								},100,function(){
+									_thisData.sliderLeftInitial = $('#content').position().left;
+									
+								})
+							}else{
+								_thisData.dotIndex++;
+								console.log(_thisData.dotIndex)
+								if(_thisData.dotIndex>=_thisData.liNumber){
+									_thisData.dotIndex = _thisData.liNumber-1;
+									
+								}
+								//根据倍数改变分页数
+								$('#content').stop(true,true).animate({
+									left:(-_thisData.ulWidth*_thisData.dotIndex)
+								},100,function(){
+									_thisData.sliderLeftInitial = $('#content').position().left;
+								})
+							}
+						}else{
+							$('#content').stop(true,true).animate({
+								left:_thisData.sliderLeftInitial
+							},100)	
+						}
+						
+						
+					})
+				},
+				//3.给容器添加跟随滑动
+				touchmove:function(){
+					var _thisData = this.data;
+					console.log(_thisData.sliderLeftInitial)
+					$('#content').on('touchmove','li',function(event){
+						var _event = window.event||event;
+							_event.preventDefault();
+							_event.cancelBubble = true;
+						_thisData.changeClientX = _event.touches[0].pageX - _thisData.mouseClientInitalX;
+						//根据倍数改变分页数
+						$('#content').css('left',_thisData.sliderLeftInitial+Math.round(_thisData.changeClientX))	
+					})
+				},
+				
+				
+				
+				/*************************************web***************************************/
+				//1.web
+				mousedown:function(){
+					var _thisData = this.data;
+						_this = this;
+					$('#content').on('mousedown','li',function(event){
+						var _event = window.event||event;
+						_thisData.mouseClientInitalX = _event.clientX;
+						$('#content').on('mousemove','li',mousemove);
+					})
+					
+				},
+				
+				mouseup:function(){
+					var _this = this;
+					var _thisData = this.data;
+					$('#content').on('mouseup','li',function(event){
+						$('#content').off('mousemove','li',mousemove)
+						
+						var _event = window.event||event;
+						_thisData.mouseClientEndX = _event.clientX;
+						_thisData.changeClientX = _thisData.mouseClientEndX - _thisData.mouseClientInitalX;
+
+						//如果终点和初始点相差距离超过50我们则翻页
+						if(Math.abs(_thisData.changeClientX)>=50){
+							if(_thisData.changeClientX>=0){
+								_thisData.dotIndex--;
+								if(_thisData.dotIndex<=-1){
+									_thisData.dotIndex = 0;	
+								}
+								//动画执行
+								$('#content').stop(true,true).animate({
+									left:-(_thisData.ulWidth*_thisData.dotIndex)
+								},100,function(){
+									_thisData.sliderLeftInitial = $('#content').position().left;
+									
+								})
+							}else{
+								_thisData.dotIndex++;
+								console.log(_thisData.dotIndex)
+								if(_thisData.dotIndex>=_thisData.liNumber){
+									_thisData.dotIndex = _thisData.liNumber-1;
+									
+								}
+								//动画执行
+								$('#content').stop(true,true).animate({
+									left:(-_thisData.ulWidth*_thisData.dotIndex)
+								},100,function(){
+									_thisData.sliderLeftInitial = $('#content').position().left;
+								})
+							}
+						}else{
+							$('#content').stop(true,true).animate({
+								left:_thisData.sliderLeftInitial
+							},100)	
+						}
+					})
+				},
+				//dot点击事件
+				selectIndex:function(){
+					var _thisData = this.data;
+					$('.pagelot').on('click','li',function(){
+						_thisData.dotIndex = $(this).index();
+						$('#content').css('left',-_thisData.dotIndex*_thisData.ulWidth);
+						_thisData.sliderLeftInitial = -_thisData.dotIndex*_thisData.ulWidth;
+					})
+					
+				},
+				//向前
+				prev:function(){
+					var _thisData = this.data;
+					$('.prev').on('click',function(){
+						if(_thisData.dotIndex<=0){
+							return
+						}else{
+							_thisData.dotIndex--;
+						}
+						$('#content').animate({
+							left:-(_thisData.ulWidth*_thisData.dotIndex)
+						},100,function(){
+							_thisData.sliderLeftInitial = -_thisData.dotIndex*_thisData.ulWidth;
+						})
+					})
+				},
+				//向后
+				next:function(){
+					var _thisData = this.data;
+					$('.next').on('click',function(){
+						if(_thisData.dotIndex>=(_thisData.liNumber-1)){
+							console.log(_thisData.dotIndex)
+							return
+						}else{
+							_thisData.dotIndex++;
+						}
+						$('#content').animate({
+							left:-(_thisData.ulWidth*_thisData.dotIndex)
+						},100,function(){
+							_thisData.sliderLeftInitial = -_thisData.dotIndex*_thisData.ulWidth;
+						})
+					})
+				}	
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#canvas{
+			width:600px;
+			height:600px;
+			background: saddlebrown;
+		}
+		#canvas div{
+			width:100px;
+			height:100px;
+			background: aquamarine;
+		}
+	</style>
+	<body>
+		<div id="canvas">
+			<div>
+				
+			</div>
+		</div>
+	</body>
+	<script src="src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		function con(){
+			console.log(111)
+		}
+		$('#canvas').on('mousemove','div',con)
+		
+		setTimeout(function(){
+			$('#canvas').off('mousemove','div',con)
+		},3000)
+		
+	</script>
+</html>
