@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="../lazyLoad/images/1.jpg"/ id="img">
+		
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('#img');
+		var images = new Image();
+		images.src = '../lazyLoad/images/3.jpg';
+		images.onload = function(){
+			console.log('成功');
+			$('#img').attr('src','../lazyLoad/images/3.jpg');
+		}
+	</script>
+	
+</html>

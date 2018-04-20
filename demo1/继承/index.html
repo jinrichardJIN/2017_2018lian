@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>构造函数继承</title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		function Parent(){
+			this.name = 'parent';
+			this.say  = function(){
+				console.log('shuohua');
+			}
+		}
+		Parent.prototype = {
+			sex:'男'
+		}
+		
+		function Child(){
+			Parent.call(this);
+		}
+		
+		
+		
+		var parent = new Parent();
+		var child  = new Child();
+		
+		console.log('实例化是否相同'+parent===child);
+		console.log('实例化是否相同2'+parent==child);
+		console.log(parent);
+		console.log(child);
+		console.log(parent.sex);
+		console.log(child.sex);
+		
+		
+		//总结：可以发现child是继承了parent里面的方法 ，但是不是相等，而且原形对象上面的属性是无法共享的
+		
+		
+		
+		
+	</script>
+</html>

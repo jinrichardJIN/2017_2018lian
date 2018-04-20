@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		开始：<p>2017-11-27 14:01:00</p>
+	</body>
+	<script type="text/javascript">
+		var youtime = 0;
+		var startTime = 1514366992502;
+			nowTime = new Date('2017-11-27 00:00:00').getTime();
+			youtime = 	startTime-nowTime;
+			
+			
+		
+		
+
+		function lxfEndtime(youtime) {
+			youtime -= 1000;
+			var seconds = youtime / 1000;
+			var day = Math.floor(seconds / 86400);
+				day == 0 ? day = '':day = day + '天';
+			var hour = Math.floor(seconds/3600 % 24);
+				hour == 0 ? hour = '':hour = hour + '时';
+			var minutes = Math.floor(seconds / 60 % 60);
+				minutes == 0 ? minutes = '':minutes = minutes + '分';
+			var CSecond = Math.floor(seconds % 60); //"%"是取余运算，可以理解为60进一后取余数，然后只要余数。
+
+			if(youtime > 0) {
+				setTimeout(function() {
+					lxfEndtime(youtime);
+				}, 1000);
+				console.log(day  + hour  + minutes  + CSecond + '秒');
+
+			} else {
+				console.log(minutes + "分" + CSecond + '秒');
+			}
+		}
+		lxfEndtime(youtime);
+	</script>
+
+</html>

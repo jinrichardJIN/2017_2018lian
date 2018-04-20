@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#progress{
+				width:500px;
+				height:10px;
+				border-radius:10px;
+				
+				background:gray;
+				position:relative;
+			}
+			.good{
+				position:absolute;
+				top:0;
+				width:10%;
+				height:100%;
+				border-radius:10px;
+				background:salmon;
+				transition:1s 0s;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="progress">
+			<div class="good">
+				
+			</div>
+		</div>
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var tmp = 10;
+		$('.good').click(function(){
+			tmp += 10;
+			$(this).width(tmp+'%');
+		})
+		
+	</script>
+</html>

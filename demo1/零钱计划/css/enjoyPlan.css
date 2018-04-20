@@ -1,0 +1,232 @@
+html{
+    font-size: 100px;
+}
+.fontSize0{
+    font-size: 0;
+}
+.fontSize24{
+    font-size: 0.24rem;
+}
+.fontSize26{
+    font-size: 0.26rem;
+}
+.fontSize28{
+    font-size: 0.28rem;
+}
+.color999{
+    color: #999;
+}
+.color333{
+    color: #333;
+}
+/*header样式开始*/
+.productHeaderWrap{
+    padding-bottom: 0.3rem;
+}
+.productHeaderWrap span{
+    font-size: 0.3rem;
+    padding: 0.28rem 0;
+}
+.productHeaderWrap span:nth-child(1){
+    margin-left: 0.4rem;
+}
+.productHeaderWrap span:nth-child(2){
+    margin-left: 0.89rem;
+}
+.productHeaderWrap span:nth-child(3){
+    margin-left: 1.2rem;
+}
+.productHeaderWrap span.current:after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0.8rem;
+    left: 0;
+    width: 0.56rem;
+    height: 0.04rem;
+    background: #FE6A56;
+}
+/*header样式结束*/
+
+.contentBox{
+    width: 90%;
+    height:3.36rem;
+    background: url("../ver_201712/change_bg.png") no-repeat;
+    background-size: 100% 100%;
+    padding-top: 0.5rem;
+}
+.currRate{
+    font-size: 0.6rem;
+}
+.currRate span{
+    font-size: 0.72rem;
+}
+.rateIcon{
+    width: 0.32rem;
+    height: 0.32rem;
+    vertical-align: bottom;
+    margin-left: 0.15rem;
+}
+.virtueBox img{
+    width: 0.65rem;
+    height: auto;
+}
+.virtueBox span{
+    top: 0.7rem;
+}
+.virtueBox span:nth-child(1){
+    left: 0.46rem;
+}
+.virtueBox span:nth-child(2){
+    left: 3.15rem;
+}
+.virtueBox span:nth-child(3){
+    right: 0.46rem;
+}
+.currRateList{
+    padding: 0.18rem 0.4rem 0.12rem 0.4rem;
+    top: 0.55rem;
+    right: 1rem;
+    z-index: 2;
+    line-height: 0.4rem;
+}
+.rateIconSpan:after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top:0.23rem;
+    left: 0.15rem;
+    border: 8px solid transparent;
+    border-bottom: 8px solid #FFF;
+}
+@media only screen and (max-width: 375px){
+    .currRateList:after{
+        left: 0.53rem;
+    }
+}
+.enjoyBox{
+    color: #999;
+    font-size: 0.28rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+}
+.leftBuy{
+    border-bottom: 1px solid #F7F7F7;
+    border-top: 1px solid #F7F7F7;
+}
+.enjoyInfo{
+    color: #929292;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.enjoyInfo li:nth-child(2){
+    margin-left: 1.86rem;
+}
+.enjoyInfo li:nth-child(2):after,.enjoyInfo li:nth-child(2):before{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 0.88rem;
+    height: 2px;
+    background: #FFE3CF;
+    top: 8px;
+}
+.enjoyInfo img{
+    width: 0.5rem;
+    height: auto;
+    margin-bottom: 10px;
+}
+.enjoyInfo li:nth-child(2):after{
+    left: 1.55rem;
+}
+.enjoyInfo li:nth-child(2):before{
+    right: 1.55rem;
+}
+
+
+
+
+.enjoyDetailHd{
+    border-top: 1px solid #F3F3F3;
+}
+.enjoyDetailHd li{
+    height: 0.9rem;
+    line-height: 0.9rem;
+}
+.enjoyDetailHd li:nth-child(2){
+    margin-left: 1.86rem;
+}
+.enjoyDetailHd li.current{
+    color: #000;
+    font-weight: bold;
+}
+.enjoyDetailHd li.current:after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0.56rem;
+    height: 2px;
+    background: #FA604C;
+}
+.productDetailList li{
+    padding: 0 0.7rem 0.45rem 1rem;
+}
+.productDetailList p{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    position: relative;
+}
+.productDetailList div{
+    line-height: 0.45rem;
+}
+.productDetailList,.investRecordList,.commonQuestion{
+    margin-bottom: 1.6rem;
+}
+.productDetailList img{
+    width: 0.5rem;
+    height: auto;
+    position: absolute;
+    top: 0.15rem;
+    left: -0.65rem;
+}
+.investRecordList li{
+    height: 1.4rem;
+    line-height: 1.4rem;
+}
+.investRecordList img{
+    width: 0.8rem;
+    height: auto;
+    margin-top: 0.3rem;
+    margin-right: 0.2rem;
+    border-radius: 50%;
+}
+
+
+
+.rightNowInvest{
+    width: 82%;
+    height: 0.84rem;
+    line-height: 0.84rem;
+    background: #FA604C;
+    font-size: 0.32rem;
+}
+.calculator{
+    width: 0.84rem;
+    height: 0.84rem;
+    border-radius: 50%;
+
+}
+.calculator img{
+    width: 100%;
+    height: auto;
+    vertical-align: super;
+}
+.investBtnWrap{
+    padding: 0.3rem 5%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}

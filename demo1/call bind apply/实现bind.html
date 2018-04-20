@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+	<script type="text/javascript">
+		//简易版本
+		Function.prototype.bindM = function(context, param) {
+			var self = this;
+			return function() {
+				return self.apply(context, param);
+			}
+		}
+		//通过函数柯里化实现的
+		Function.prototype.bindT = function() {
+			var fn = this;
+			var args = Array.prototype.slice.call(arguments);
+			var context = args.shift();
+			return function() {
+				return fn.apply(context,args.concat(Array.prototype.slice.call(arguments)));
+			};
+		};
+		
+		
+		
+		
+		//测试
+		var name = 'window'
+		var obj = {
+			name: 'lijin',
+			sayName: function(a,b,c,d) {
+				console.log(a,b,c,d)
+			}
+		}
+		//柯力化版本
+		var foot = obj.sayName.bindT(obj,1,2,3,4);
+			foot(5,6,7);
+		
+		//自己版本
+		var foo = obj.sayName.bindM(obj, [1, 2, 3]);
+//			foo(4,5,6);
+	</script>
+
+</html>

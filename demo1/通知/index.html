@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+	</body>
+	<script type="text/javascript">
+		//授权
+		Notification.requestPermission().then(function(permission) {
+			if(permission === 'granted') {
+				console.log('用户允许通知');
+			} else if(permission === 'denied') {
+				console.log('用户拒绝通知');
+			}
+		});
+		//通知内容
+		var n = new Notification('状态更新提醒', {
+			body: '你的朋友圈有3条新状态，快去查看吧',
+			tag: 'linxin',
+			icon: 'http://blog.gdfengshuo.com/images/avatar.jpg',
+			requireInteraction: true,
+			data: {
+				url: 'http://blog.gdfengshuo.com'
+			}
+		})
+		//关闭时候工作
+		n.onclick = function() {
+			window.open(n.data.url, '_blank'); // 打开网址
+			n.close(); // 并且关闭通知
+		}
+	</script>
+
+</html>

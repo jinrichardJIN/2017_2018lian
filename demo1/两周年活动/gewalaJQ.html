@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="img/reset.css" />
+		<link rel="stylesheet" type="text/css" href="img/layout.css" />
+	</head>
+	<style lang="scss" rel="stylesheet/scss">
+		body,
+		html {
+			padding: 0;
+			margin: 0;
+			height: 100vh;
+		}
+		
+		.changePage {
+			position: fixed;
+			bottom: 20px;
+			width: 30px;
+			height: 30px;
+			left: 50%;
+			margin-left: -15px;
+			z-index: 10;
+			-webkit-animation: shake 2s infinite both;
+		}
+		
+		@-webkit-keyframes shake {
+			0% {
+				bottom: 20px;
+			}
+			50% {
+				bottom: 30px;
+			}
+			100% {
+				bottom: 20px;
+			}
+		}
+		
+		.page {
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			position: absolute;
+			top: 0;
+			overflow: hidden;
+		}
+		
+		.imgBanner {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+		
+		.swiper-container {
+			height: 100%;
+		}
+		
+		.swiper-slide {
+			height: 100%;
+		}
+		
+		.top30 {
+			top: 30%;
+		}
+		
+		.left5 {
+			left: 5%;
+		}
+		
+		.width100p {
+			width: 100px;
+		}
+		
+		.colorfa324c {
+			color: #FA324C;
+		}
+		
+		.borderRadius5500 {
+			border-radius: 5px 5px 0 0;
+		}
+		
+		.blue {
+			background: #3471ef;
+			background: -webkit-linear-gradient(left, #2e3ee7, #3997f4);
+			/* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(right, #2e3ee7, #3997f4);
+			/* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(right, #2e3ee7, #3997f4);
+			/* Firefox 3.6 - 15 */
+			background: linear-gradient(to right, #2e3ee7, #3997f4);
+			/* 标准的语法 */
+		}
+		
+		.input::-webkit-input-placeholder {
+			/* WebKit browsers */
+			color: #fb4148;
+		}
+		
+		.input:-moz-placeholder {
+			/* Mozilla Firefox 4 to 18 */
+			color: #fb4148;
+		}
+		
+		#heightInitail {
+			height: initial;
+		}
+		
+		.input::-moz-placeholder {
+			/* Mozilla Firefox 19+ */
+			color: #fb4148;
+		}
+		
+		.input:-ms-input-placeholder {
+			/* Internet Explorer 10+ */
+			color: #fb4148;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight div input {
+			width: 244px;
+		}
+		
+		.downloadContent {
+			width: 100%;
+			text-align: left;
+		}
+		
+		.downloadContent .reminder {
+			top: -76px;
+			left: 0;
+			width: 100%;
+			height: 76px;
+			line-height: 76px;
+			background: rgba(83, 65, 123, 0.9);
+			color: #fff;
+			text-align: center;
+			font-size: 24px;
+			z-index: 1000;
+			transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+		}
+		
+		.downloadContent .bannerWrapper .bannerPic {
+			position: relative;
+			height: 800px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent {
+			width: 80%;
+			margin: 0 auto;
+			height: initial;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight {
+			height: 100%;
+			text-align: right;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight .register {
+			display: block;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight div {
+			width: 100%;
+			height: 44px;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight div input {
+			height: 44px;
+			line-height: 44px;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight div input .verification {
+			width: 50px;
+			height: 44px;
+			background-color: #ff063c;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight .verifycode input {
+			width: 244px;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight .password input {
+			width: 244px;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight .phoneNum input {
+			width: 244px;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight .captcha {
+			overflow: visible;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight .captcha input {
+			width: 180px;
+			left: 25px;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight .captcha span {
+			width: 86px;
+			right: -1px;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight a {
+			width: 100%;
+			height: 44px;
+			line-height: 44px;
+			color: #fff;
+			letter-spacing: 1px;
+		}
+		
+		.downloadContent .bannerWrapper .bannerContent .contentRight span {
+			width: 100%;
+			height: 44px;
+			line-height: 44px;
+		}
+		
+		.column img {
+			width: 100%;
+			display: block;
+			height: 100%;
+		}
+		
+		.DownLoadApp {
+			background: rgba(0, 0, 0, 0.5);
+			position: fixed;
+			bottom: 0px;
+			height: 80px;
+			width: 100%;
+		}
+		
+		.DownLoadApp>div {
+			width: 95%;
+			margin: 0 auto;
+			height: 50px;
+			margin-top: 15px;
+		}
+		
+		.DownLoadApp>div img {
+			height: 80%;
+			margin-top: 5px;
+		}
+		/*基础类*/
+		
+		.backgroundEfb843 {
+			background: #efb843;
+		}
+		
+		.overHidden {
+			overflow: hidden;
+		}
+		
+		.padding10P {
+			padding: 10px;
+		}
+		
+		.backgroundEfb843 {
+			background: #efb843;
+		}
+		
+		.backgroundImg {
+			background: url(img/middle.jpg);
+			background-size: 100% 100%;
+		}
+		
+		.colore9f842 {
+			color: #e9f842;
+		}
+		
+		.textWhite {
+			color: #FFFFFF;
+		}
+		
+		.ML5P {
+			margin-left: 5px;
+		}
+		
+		.MT10P {
+			margin-top: 10px;
+		}
+		
+		.height40P {
+			height: 40px;
+		}
+		
+		.radius5 {
+			border-radius: 5px;
+		}
+		
+		.lineHeight40 {
+			line-height: 40px;
+		}
+		
+		.border1pxWhite {
+			border: 1px solid #FFFFFF;
+		}
+		
+		.bottom0 {
+			bottom: 0;
+		}
+		
+		#width60 {
+			width: 60%;
+		}
+		
+		#Countdown {
+			width: 35%;
+			right: 0;
+			top: 0;
+		}
+		
+		.opacity7 {
+			opacity: 0.7;
+		}
+		
+		.colorWhiteImportant {
+			color: #FFFFFF !important;
+		}
+		
+		.height300 {
+			height: 300px;
+			overflow-y: scroll;
+		}
+		
+		.overFlowS {
+			overflow-y: scroll;
+		}
+		
+		.lineHeight25px {
+			line-height: 25px;
+		}
+		
+		.height90P {
+			height: 90%;
+		}
+		
+		.MT2point5 {
+			margin-top: 2.5px;
+		}
+		
+		.colorBlack {
+			color: #000000;
+		}
+		
+		.color2d982e {
+			color: #2d982e;
+		}
+		
+		.borderRightGray {
+			border-right: 1px solid gainsboro;
+		}
+		/*立即下载*/
+		
+		.RightNowDownLoad {
+			height: 30px;
+			line-height: 30px;
+			margin-top: 10px;
+			font-size: 14px;
+			padding: 0 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			display: block;
+			float: right;
+			color: #FFFFFF;
+			background: #fe495a;
+		}
+		/*活动规则*/
+		
+		.activeRule {}
+		/*弹窗*/
+		
+		.alertBOX {
+			z-index: 1000;
+			background: rgba(0, 0, 0, 0.5);
+			display: none;
+		}
+		
+		.alertGoAPP {
+			width: 70%;
+			position: absolute;
+			left: 15%;
+			background: white;
+			top: 50%;
+			margin-top: -50px;
+		}
+		
+		.swiper-container {
+			height: 100%;
+		}
+		
+		.swiper-slide {
+			position: relative;
+		}
+		
+		.alertGoAPP p {
+			width: 40%;
+			color: #000000;
+			text-align: center;
+			margin: 0 auto;
+			padding-top: 10px;
+			line-height: 30px;
+			padding-bottom: 10px;
+			font-weight: bold;
+			font-size: 16px;
+		}
+		
+		.alertGoAPP div {
+			overflow: hidden;
+			border-top: 1px solid gainsboro;
+		}
+		
+		.alertGoAPP div span {
+			display: block;
+			width: 50%;
+			text-align: center;
+			font-size: 16px;
+			float: left;
+			height: 40px;
+			line-height: 40px;
+			box-sizing: border-box;
+		}
+		
+		.alertGoAPP div span a {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		
+		.rigistered {
+			width: 92%;
+			margin: 0 auto;
+			background: #FFFFFF;
+			border-radius: 5px 5px 5px 5px;
+		}
+		
+		@media only screen and (max-width: 1280px) {
+			#nav .navWrap .logo[data-v-088a0d5a] {
+				margin-left: 50px;
+			}
+			#nav .navWrap .navContent[data-v-088a0d5a] {
+				margin-right: 60px;
+			}
+			.downloadContent .bannerWrapper .bannerPic {
+				height: 620px;
+			}
+			.downloadContent .bannerWrapper .bannerContent {
+				width: 910px;
+				height: 500px;
+			}
+		}
+		
+		@media only screen and (max-width: 798px) {
+			/*基础类*/
+			/*基础类*/
+			.overHidden {
+				overflow: hidden;
+			}
+			.padding10P {
+				padding: 10px;
+			}
+			.backgroundEfb843 {
+				background: url(img/button.png);
+				background-size: 100% 100%;
+				color: #FFFFFF;
+			}
+			.colore9f842 {
+				color: #e9f842;
+			}
+			.textWhite {
+				color: #FFFFFF;
+			}
+			.ML5P {
+				margin-left: 5px;
+			}
+			.MT10P {
+				margin-top: 10px;
+			}
+			.height40P {
+				height: 40px;
+			}
+			.radius5 {
+				border-radius: 5px;
+			}
+			.lineHeight40 {
+				line-height: 40px;
+			}
+			.border1pxWhite {
+				border: 1px solid #FFFFFF;
+			}
+			.bottom0 {
+				bottom: 0;
+			}
+			.opacity7 {
+				opacity: 0.7;
+			}
+			.colorWhiteImportant {
+				color: #FFFFFF !important;
+			}
+			.height300 {
+				height: 300px;
+				overflow-y: scroll;
+			}
+			.lineHeight25px {
+				line-height: 25px;
+			}
+			.height90P {
+				height: 90%;
+			}
+			.MT2point5 {
+				margin-top: 2.5px;
+			}
+			.colorBlack {
+				color: #000000;
+			}
+			/*立即下载*/
+			.RightNowDownLoad {
+				height: 30px;
+				line-height: 30px;
+				margin-top: 10px;
+				font-size: 14px;
+				padding: 0 20px;
+				border-radius: 5px;
+				cursor: pointer;
+				display: block;
+				float: right;
+				color: #FFFFFF;
+			}
+			.borderRightGray {
+				border-right: 1px solid gainsboro;
+			}
+			.color2d982e {
+				color: #2d982e;
+			}
+			/*活动规则*/
+			.activeRule {}
+			/*弹窗*/
+			.alertBOX {
+				z-index: 1000;
+				background: rgba(0, 0, 0, 0.5);
+				display: none;
+			}
+			.alertGoAPP {
+				width: 70%;
+				position: absolute;
+				left: 15%;
+				background: white;
+				top: 50%;
+				margin-top: -50px;
+			}
+			.alertGoAPP p {
+				width: 40%;
+				color: #000000;
+				text-align: center;
+				margin: 0 auto;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				line-height: 30px;
+			}
+			.alertGoAPP div {
+				overflow: hidden;
+				border-top: 1px solid gainsboro;
+			}
+			.alertGoAPP div span {
+				display: block;
+				width: 50%;
+				text-align: center;
+				font-size: 16px;
+				float: left;
+				height: 40px;
+				line-height: 40px;
+				box-sizing: border-box;
+			}
+			.alertGoAPP div span a {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			.downloadContent {
+				display: block;
+			}
+			.downloadContent .column img {
+				width: 100%;
+				display: block;
+			}
+			.column .rigistered img {
+				width: 44%;
+				height: initial;
+				margin-left: 28%;
+			}
+			.downloadContent .column #bannerContentDiv {
+				width: 90%;
+				margin: 0 auto;
+				padding-top: 0px;
+				height: initial;
+				position: static;
+				-webkit-transform: translateX(0);
+				-moz-transform: translateX(0);
+				-ms-transform: translateX(0);
+				-o-transform: translateX(0);
+				transform: translateX(0);
+				padding-bottom: 50px;
+			}
+			.DownLoadApp {
+				background: rgba(0, 0, 0, 0.5);
+				position: fixed;
+				bottom: 0px;
+				height: 60px;
+				width: 100%;
+			}
+			.DownLoadApp>div {
+				width: 95%;
+				margin: 0 auto;
+				height: 50px;
+				margin-top: 5px;
+			}
+			.DownLoadApp>div img {
+				height: 80%;
+				margin-top: 5px;
+			}
+			.DownLoadApp>div .close {
+				height: 40%;
+				margin-top: 15px;
+				margin-right: 10px;
+			}
+			.downloadContent .bannerWrapper .bannerContent .contentRight div input {
+				width: 100%;
+				height: 20px;
+				margin-top: 12px;
+				line-height: initial;
+			}
+			.downloadContent {
+				padding-top: 0;
+				padding-bottom: 80px;
+				background-size: 100%;
+				height: 100%;
+				width: 100%;
+				background: url(img/middle.jpg);
+				background-size: 100% 100%;
+			}
+			.downloadContent .reminder {
+				height: 70px;
+				line-height: 70px;
+				font-size: 18px;
+			}
+			.downloadContent .bannerWrapper .bannerContent {
+				width: 90%;
+				height: initial;
+				position: static;
+				-webkit-transform: translateX(0);
+				-moz-transform: translateX(0);
+				-ms-transform: translateX(0);
+				-o-transform: translateX(0);
+				transform: translateX(0);
+				margin: 0 auto;
+			}
+			.downloadContent .bannerWrapper .bannerContent .contentLeft {
+				float: none;
+				text-align: center;
+				left: 50%;
+				position: relative;
+				-webkit-transform: translateX(-51%);
+				-moz-transform: translateX(-51%);
+				-ms-transform: translateX(-51%);
+				-o-transform: translateX(-51%);
+				transform: translateX(-51%);
+			}
+			.downloadContent .bannerWrapper .bannerContent .contentLeft .special {
+				padding-top: 3px;
+				padding-bottom: 3px;
+				font-size: 12px;
+			}
+			.downloadContent .bannerWrapper .bannerContent .contentRight {
+				width: 90%;
+				padding-top: 50px;
+				float: none;
+				text-align: center;
+				margin: 0 auto;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.downloadContent .bannerWrapper .bannerContent .contentRight .register {
+				display: none;
+			}
+		}
+		
+		@media only screen and (max-width: 320px) {
+			.DownLoadApp>div div p:nth-child(1) {
+				font-size: 16px;
+			}
+			.DownLoadApp .RightNowDownLoad {
+				padding: 0 15px;
+				font-size: 12px;
+				position: absolute;
+				right: 2.5%;
+			}
+		}
+		/*动画类---烟花*/
+		
+		.startFlashOne {
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			width: 100px;
+			perspective: 1000px;
+			animation: rolateStar 4s 0s cubic-bezier(0.55, 0.54, 1, 1) forwards infinite;
+			transform: scale(0);
+		}
+		
+		.startFlashTwo {
+			position: absolute;
+			top: 50%;
+			left: 10%;
+			width: 50px;
+			perspective: 1000px;
+			animation: rolateStar 4s 0.5s cubic-bezier(0.55, 0.54, 1, 1) forwards infinite;
+			transform: scale(0);
+		}
+		
+		.startFlashThree {
+			position: absolute;
+			top: 80%;
+			left: 30%;
+			width: 80px;
+			perspective: 1000px;
+			animation: rolateStar 4s 1s cubic-bezier(0.55, 0.54, 1, 1) forwards infinite;
+			transform: scale(0);
+		}
+		
+		@-webkit-keyframes rolateStar {
+			0% {
+				-webkit-transform: scale(0);
+				opacity: 0;
+			}
+			40% {
+				-webkit-transform: scale(0.2);
+				opacity: 0.5;
+			}
+			60% {
+				-webkit-transform: scale(0.5);
+				opacity: 1;
+			}
+			100% {
+				-webkit-transform: scale(1);
+				opacity: 0;
+			}
+		}
+		/*动画类---飘带*/
+		
+		.ribbonOne {
+			width: 100px;
+			position: absolute;
+			top: -100px;
+			right: 10px;
+			animation: ribbon 20s 0s cubic-bezier(0.49, 0.48, 0.49, 0.48);
+		}
+		
+		.ribbonTwo {
+			width: 50px;
+			position: absolute;
+			top: 100px;
+			right: 10px;
+			top: -10%;
+			left: 10px;
+			animation: ribbon 15s 1s cubic-bezier(0.49, 0.48, 0.49, 0.48);
+		}
+		
+		@-webkit-keyframes ribbon {
+			0% {
+				top: -10%;
+			}
+			100% {
+				top: 100%;
+			}
+		}
+		/*动画类---流星雨*/
+		
+		.meteoricOne {
+			position: absolute;
+			width: 150px;
+			left: 100%;
+			top: -60%;
+			animation: meteoric 1.5s 1s cubic-bezier(0.49, 0.48, 0.49, 0.48);
+		}
+		
+		.meteoricTwo {
+			position: absolute;
+			width: 150px;
+			left: 100%;
+			top: -60%;
+			animation: meteoric 1s 0s cubic-bezier(0.49, 0.48, 0.49, 0.48);
+		}
+		
+		@-webkit-keyframes meteoric {
+			0% {
+				transform: translateX(-10px) translateY(100px);
+			}
+			100% {
+				transform: translateX(-600px) translateY(700px);
+			}
+		}
+		/*动画类---气球*/
+		
+		.balloon {
+			position: absolute;
+			width: 150px;
+			bottom: -300px;
+			left: 100px;
+			animation: balloon 4s 0s cubic-bezier(0.49, 0.48, 0.49, 0.48);
+		}
+		
+		@-webkit-keyframes balloon {
+			0% {
+				transform: translateY(-100px);
+			}
+			100% {
+				transform: translateY(-1000px);
+			}
+		}
+	</style>
+
+	<body>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<!--第一栏-->
+					<div class="page">
+						<div class="banner height30 width100">
+							<img src="img/banner.jpg" class="imgBanner">
+						</div>
+						<div class="height70 positionR">
+							<img src="img/bj.png" class="imgBanner">
+						</div>
+						<div class="width90 blockC positionA top30 left5 height55P whiteBkg borderRadius5500">
+							<p class="MT20 colorfa324c">你的好友给你发了80元红包</p>
+							<img src="img/bonus.png" class="width100p MT20">
+							<br>
+							<img src="img/button5.png" width="200" class="MT40">
+						</div>
+
+						<!--动画-->
+						<div class="animates">
+							<img src="img/fireworks.png" class="startFlashOne">
+							<img src="img/fireworks.png" class="startFlashTwo">
+							<img src="img/fireworks.png" class="startFlashThree">
+							<img src="img/flloat1.png" class="ribbonOne">
+							<img src="img/flloat3.png" class="ribbonTwo">
+
+							<img src="img/balloon.png">
+							<img src="img/line2.png" class="meteoricOne">
+							<img src="img/line3.png" class="meteoricTwo">
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="swiper-slide">
+					<div class='downloadContent outHide '>
+						<!--弹窗-->
+						<div class="positionF width100 height100 alertBOX">
+							<div class="alertGoAPP">
+								<p>是否下载<br>多点金融APP</p>
+								<div>
+									<span class="colorBlack borderRightGray" @click="cancel()">取消</span>
+									<span>
+						<a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.duodianjr.finance" class="color2d982e">前往</a>
+					</span>
+								</div>
+							</div>
+						</div>
+
+						<!--第一个图片栏-->
+						<div class="column">
+							<img src="img/bannerR.jpg">
+						</div>
+						<!--第二个图片栏-->
+						<div class='bannerWrapper ML-1 column SecondConlumn backgroundImg '>
+							<!--未注册-->
+							<div class='bannerContent' id="bannerContent">
+								<div class='contentRight  font14 bannerContentDiv' id="bannerContentDiv">
+									<div class="whiteBkg radius30 MB12 phoneNum bannerContentDiv clearfix">
+										<input type="text" id="phoneNum" maxlength="11" placeholder="请输入手机号" class="fl ML25" v-model="phoneNum" isKey="1"></input>
+									</div>
+
+									<div class="MB12 positionR">
+										<div class="whiteBkg radius30  outHide captcha positionR bannerContentDiv clearfix" id="width60">
+											<input type="text" maxlength="4" placeholder="请输入验证码" class="positionA" style="" v-model="captcha" id="captcha" isKey="2"></input>
+
+										</div>
+										<span id="Countdown" class=" verification positionA textC radius30 colorG backgroundEfb843" style="" @click="getJson()" v-text="timerCodeMsg">
+								获取验证码
+                 			 </span>
+									</div>
+									<div class="whiteBkg radius30 MB12 bannerContentDiv clearfix">
+										<input type="password" id="password" maxlength="16" placeholder="请设置登录密码" class="fl ML25" style="" v-model="password" isKey="3"></input>
+									</div>
+									<div class="whiteBkg radius30 MB12 outHide verifycode bannerContentDiv clearfix">
+										<input type="password" maxlength="6" placeholder="请设置交易密码" class="fl ML25 " style="" v-model="verifycode" id="verifycode" isKey="4"></input>
+
+									</div>
+									<!--注册-->
+									<img class="MT20" src="img/rightNowRigister.png" />
+
+									<div class="agreenment ">
+										
+										<span class="font14 whiteTex textL fl">	
+											<a   id="register" class="pointer" @click="registration()">我同意《用户注册服务协议》
+											</a>
+										</span>
+
+									</div>
+								</div>
+							</div>
+							<!--注册-->
+							<div class="rigistered none">
+								<img src="img/lianbilogo.png" class="PT30">
+								<img src="img/button2.png" / class="MT30">
+								<img src="img/button3.png" / class="MT20 PB30">
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="swiper-slide">
+					<!--第四个图片栏-->
+					<div class="column">
+						<img src="img/bj3.png">
+					</div>
+				</div>
+
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+
+				<!-- 如果需要导航按钮 -->
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+
+				<!-- 如果需要滚动条 -->
+				<div class="swiper-scrollbar"></div>
+
+			</div>
+
+		</div>
+		<!--悬浮-->
+		<span class="changePage">
+			<img src="img/icon_arrow.png"/ class="imgBanner">
+		</span>
+		<!--底部-->
+		<div class="DownLoadApp">
+			<div class="overHidden">
+				<img src="img/close.png" / class="fl width20P close">
+				<img class="fl" src="img/logo.png">
+				<div class="fl height90P ML5P MT2point5 positionR">
+					<p class="textWhite font16">联壁金融APP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<p class="textWhite font12 opacity7 positionA bottom0">使用APP客户端，体验更多惊喜</p>
+				</div>
+				<a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.duodianjr.finance" class="RightNowDownLoad">下载app</a>
+			</div>
+		</div>
+
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		//初始化 
+		$('.animates img').css('display', 'none');
+		$($('.animates')[0]).children().css('display', 'block');
+
+		var mySwiper = new Swiper('.swiper-container', {
+			direction: 'vertical',
+			loop: false,
+			// 如果需要分页器
+			pagination: '.swiper-pagination',
+			// 如果需要前进后退按钮
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			// 如果需要滚动条
+			scrollbar: '.swiper-scrollbar',
+			onSlideChangeEnd: function(swiper) {
+				$('.animates img').css('display', 'none');
+				$($('.animates')[swiper.activeIndex]).children().css('display', 'block');
+			}
+
+		})
+
+		//			//获取验证码
+		//			var getJson = function() {
+		//				this.checkingT();
+		//				if(this.fetchCodeMsg && this.fetchCodeMsgN) { //验证码
+		//					$.post(this.webUrl + 'javaservice/webClient?functionId=captcha', { data: JSON.stringify({ 'mobile': this.phoneNum, 'type': 'REGISTER', 'blackBox': this.sessionStorage }) }).then((res) => {
+		//						res = JSON.parse(res);
+		//						this.replaceFlag();
+		//						this.detail = res.resMsg;
+		//
+		//						if(res.resCode == "0000") {
+		//							this.SetRemainTime();
+		//						} else {
+		//							errorMessage(this.detail)
+		//						}
+		//					}, (error) => {
+		//						this.fetchCodeMsgN = true;
+		//
+		//					})
+		//				}
+		//			}
+		//
+		//			var data = {
+		//				webUrl: getRealPath(),
+		//				phoneNum: "", //手机号
+		//				captcha: "", //验证码
+		//				verifycode: "", //交易密码
+		//				password: "", //登录密码
+		//				imgUrl: {},
+		//				bannerImg: '',
+		//				codeUrl: getRealPath() + 'imgcode?' + Math.random(),
+		//				timerCodeMsg: "获取",
+		//				fetchCodeMsg: false,
+		//				fetchCodeMsgN: true,
+		//				detail: "",
+		//				sessionStorage: "",
+		//				mobile: this.GetRequest().mobile,
+		//				uid: this.GetRequest().order_no, //UID
+		//				channel: this.GetRequest().channel || 'GEWALA', //渠道
+		//				ruleContent: '', //活动规则文案
+		//				token: '', //注册token
+		//			}
+		//
+		//			var methods = {
+		//
+		//				//获取url中的参数 GetRequest().name   GetRequest().mobile
+		//				GetRequest: function() {
+		//					var strs = '';
+		//					var url = window.location.href; //获取url中"?"符后的字串
+		//					url = '?' + url.split('?')[1];
+		//					var theRequest = new Object();
+		//					if(url.indexOf("?") != -1) {
+		//						var str = url.substr(1);
+		//						strs = str.split("&");
+		//						for(var i = 0; i < strs.length; i++) {
+		//							theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+		//						}
+		//					}
+		//					return theRequest;
+		//				},
+		//				checking: function() {
+		//					if(this.phoneNum == "") {
+		//						$("#phoneNum").attr({ "placeholder": "请输入手机号" }).addClass("input");
+		//						return false;
+		//					}
+		//					if(!(/^((13|15|18|14|17)[0-9]{9})$/.test(this.phoneNum))) {
+		//						$("#phoneNum").attr({ "placeholder": "请输入正确的手机号码" }).addClass("input");
+		//						this.phoneNum = "";
+		//						return false;
+		//					}
+		//					this.fetchCodeMsg = true;
+		//					if(!this.captcha) {
+		//						$("#captcha").attr({ "placeholder": "请输入短信验证码" }).addClass("input");
+		//						return false;
+		//					};
+		//					if(this.password == null || this.password == '') {
+		//						$("#password").attr({ "placeholder": "请设置登录密码" }).addClass("input");
+		//						this.password = "";
+		//						return false;
+		//					};
+		//					if(this.password.length < 8) {
+		//						//					errorMessage('登录密码为8~16位字母数字或符号的组合');
+		//						$("#password").attr({ "placeholder": "密码为8~16位字母数字或符号的组合" }).addClass("input");
+		//						this.password = "";
+		//						return false;
+		//					}
+		//					if(/^[\d]+$/.test(password) || /^[a-zA-Z]+$/.test(this.password)) {
+		//						//					errorMessage('登录密码为8~16位字母数字或符号的组合');
+		//						$("#password").attr({ "placeholder": "密码为8~16位字母数字或符号的组合" }).addClass("input");
+		//						this.password = "";
+		//						return false;
+		//					};
+		//					if(!(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9\!\@\#\$\%\^\&\*]{8,16})$/.test(this.password))) {
+		//						$("#password").attr({ "placeholder": "密码为8~16位字母数字或符号的组合" }).addClass("input");
+		//						this.password = "";
+		//						return false;
+		//					}
+		//					if(this.verifycode == "" || this.verifycode == null) {
+		//						this.verifycode = "";
+		//						$("#verifycode").attr({ "placeholder": "请设置交易密码" }).addClass("input");
+		//						return false;
+		//					}
+		//					if(!(/^[0-9]{6}$/.test(this.verifycode))) {
+		//						this.verifycode = "";
+		//						$("#verifycode").attr({ "placeholder": "请设置交易密码" }).addClass("input");
+		//						return false;
+		//					}
+		//
+		//					this.register()
+		//				},
+		//				checkingT: function() {
+		//
+		//					if(this.phoneNum == "") {
+		//						$("#phoneNum").attr({ "placeholder": "请输入手机号" }).addClass("input");
+		//						return false;
+		//					}
+		//					if(!(/^((13|15|18|14|17)[0-9]{9})$/.test(this.phoneNum))) {
+		//						$("#phoneNum").attr({ "placeholder": "请输入正确的手机号码" }).addClass("input");
+		//						this.phoneNum = "";
+		//						return false;
+		//					}
+		//
+		//					this.fetchCodeMsg = true;
+		//				},
+		//				replaceFlag: function() {
+		//
+		//					$("#reminder").css({ "top": "0" });
+		//					setTimeout(function() {
+		//						$("#reminder").css({ "top": "-76px" })
+		//					}, 3000)
+		//				},
+		//				changeUrl: function() {
+		//					this.codeUrl = this.codeUrl.replace(/\?.*/ig, "") + "?" + Math.random();
+		//				},
+		//				SetRemainTime: function() {
+		//					let sec = 60;
+		//					var _this = this;
+		//					_this.fetchCodeMsgN = false;
+		//					$("#Countdown").removeClass("blue").addClass("grayBkg61T");
+		//					for(let i = 0; i <= 60; i++) {
+		//						window.setTimeout(function() {
+		//							if(sec != 0) {
+		//								_this.timerCodeMsg = sec + "秒后重发";
+		//								sec--;
+		//							} else {
+		//								sec = 60; //如果倒计时结束就让  获取验证码显示出来
+		//								$("#Countdown").removeClass("grayBkg61T").addClass("blue");
+		//								_this.timerCodeMsg = "再次获取"
+		//								_this.fetchCodeMsgN = true;
+		//							}
+		//						}, i * 1000);
+		//
+		//					}
+		//				},
+		//				//跳转用户服务注册协议
+		//				registration: function() {
+		//					var u = navigator.userAgent,
+		//						app = navigator.appVersion;
+		//					var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+		//					var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		//					var os = 'android';
+		//					if(isiOS) {
+		//						os = 'ios';
+		//					}
+		//					$.post(this.webUrl + 'javaservice/webClient?functionId=getUrl&os=' + os, { data: JSON.stringify({ 'name': 'register' }) }).then((res) => {
+		//						res = JSON.parse(res);
+		//						var serAgreementUrl = res.record.url
+		//						if(res.resCode != "0000") {} else {
+		//							window.location.href = this.webUrl + serAgreementUrl;
+		//						}
+		//					}, (error) => {
+		//
+		//					})
+		//				},
+		//				//注册请求
+		//				register: function() {
+		//					//注册前先判断之前有没有注册过
+		//					if(this.token) {
+		//						this.sendUid();
+		//						return;
+		//					}
+		//
+		//					var _this = this;
+		//					$.post(this.webUrl + 'javaservice/webClient?functionId=register', { data: JSON.stringify({ 'mobile': this.phoneNum, 'password': this.password, 'cashPassword': this.verifycode, 'valicode': this.captcha, 'sourceType': 'web', 'channel': this.channel, 'blackBox': this.sessionStorage, "invitationCode": this.mobile }) }).then((res) => {
+		//						res = JSON.parse(res);
+		//						this.replaceFlag();
+		//						this.detail = res.resMsg;
+		//						if(res.resCode == "0000") {
+		//							this.token = res.record.token;
+		//							this.sendUid();
+		//						} else {
+		//							errorMessage(this.detail);
+		//							this.captcha = '';
+		//						}
+		//					}, (error) => {
+		//
+		//					})
+		//
+		//				},
+		//
+		//				//注册成功给uid传给后台
+		//				sendUid: function() {
+		//					var _this = this;
+		//					$.ajax({
+		//						type: 'POST',
+		//						url: this.webUrl + 'javaservice/webClient?functionId=channelRegister',
+		//						data: { data: JSON.stringify({ 'UID': _this.uid, 'channel': _this.channel }) },
+		//						headers: { 'token': _this.token },
+		//						success: function(res) {
+		//							res = JSON.parse(res);
+		//							_this.detail = res.resMsg;
+		//							if(res.resCode == '0000') {
+		//								$('.alertBOX').css('display', 'block');
+		//							} else {
+		//								errorMessage(_this.detail);
+		//							}
+		//						},
+		//						error: function(res) {
+		//							res = JSON.parse(res);
+		//							_this.detail = res.resMsg;
+		//							errorMessage(_this.detail);
+		//						}
+		//					});
+		//
+		//				},
+		//				//取消
+		//				cancel: function() {
+		//					$('.alertBOX').css('display', 'none');
+		//				}
+		//			}
+		//
+		//			//初始化
+		//			var initial = function() {
+		//				$('.alertBOX').height($(window).height());
+		//
+		//				//活动页面不需要头尾
+		//				$('#nav').remove();
+		//				$('footer').remove();
+		//				//加载图片
+		//				$.post(this.webUrl + 'javaservice/webClient?functionId=channelInfo', { data: JSON.stringify({ 'channel': this.channel }) }).then((res) => {
+		//					res = JSON.parse(res);
+		//					this.replaceFlag();
+		//					this.detail = res.resMsg;
+		//					if(res.resCode == "0000") {
+		//						this.imgUrl = JSON.parse(res.record.content);
+		//						this.bannerImg = res.record.wxPicLink;
+		//						this.ruleContent = res.record.channelDesc;
+		//						$('.activeRule').css('background', 'url(' + this.imgUrl['pic2'] + ')');
+		//						$('.SecondConlumn').css('background', 'url(' + this.imgUrl['pic1'] + ')');
+		//
+		//					} else {
+		//						errorMessage(this.detail);
+		//					}
+		//
+		//				}, (error) => {
+		//					this.fetchCodeMsgN = true;
+		//				})
+		//
+		//				var input = "placeholder" in document.createElement('input');
+		//				if(!input) {
+		//					var placeholderArr = ["请输入手机号", "请输入验证码", "8~16位字母数字或符号的密码组合", "请输入6位数字交易密码"],
+		//						oDiv = document.getElementById("bannerContentDiv"),
+		//						oInput = oDiv.getElementsByTagName("input");
+		//					$("#bannerContentDiv input").focus(function() {
+		//						$(this).val("");
+		//					}).blur(function() {
+		//						var placeholderVal = $(this).attr("placeholder");
+		//						$(this).val(placeholderVal);
+		//					})
+		//					for(i = 0; i < oInput.length; i++) {
+		//						$("#bannerContentDiv input").eq(i).val(placeholderArr[i])
+		//					}
+		//				}
+		//
+		//				var bodyWidth = document.body.clientWidth;
+		//				if(bodyWidth < 798) {
+		//					var liWidth = $("#advantageUl").width();
+		//					$(".bannerContentDiv").width(liWidth)
+		//
+		//				}
+		//			}
+	</script>
+
+</html>

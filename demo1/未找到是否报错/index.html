@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.
+			var dvo = document.getElementById("one");
+				console.log(dvo);
+			//2.
+			$(document).ready(function(){
+				var dvo = document.getElementById("one");
+				console.log(dvo);
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div id="one">
+			
+		</div>
+		<div id="two">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		//1.
+			var dvo = document.getElementById("two");
+				console.log(dvo);
+			//2.
+			$(document).ready(function(){
+				var dvo = document.getElementById("two");
+				console.log(dvo);
+			})
+		
+	</script>
+	
+</html>

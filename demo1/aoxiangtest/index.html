@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	
+	<script type="text/javascript">
+//		add(1)(2) // 3
+//		add(1, 2, 3)(10) // 16
+//		add(1)(2)(3)(4)(5) // 15
+		
+		
+		var sum = 0;
+		
+		
+		function add(){
+			var param = [];
+			for(var i = 0;i<arguments.length;i++){
+				param.push(arguments[i]);
+			}
+			var tmpFunction = function(){
+				for(var i = 0;i<arguments.length;i++){
+					param.push(arguments[i]);
+				}
+				return tmpFunction;
+			}
+			tmpFunction.toString = function(){
+				console.log('s')
+				var sum = 0;
+				for(var i = 0;i<param.length;i++){
+					sum += param[i];
+				}
+				return sum;
+			}
+			return tmpFunction;
+		}
+		console.log(add(1)(2)(3)(1)(5)(2)(5));
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="x5-orientation" content="portrait">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+    <title>零钱计划</title>
+    <script src="js/rem.js"></script>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/enjoyPlan.css" />
+</head>
+<body>
+    <!--<div class="productHeaderWrap clearfix whiteBkg">-->
+        <!--<span class="inlineB strong fl current positionR">零钱计划</span>-->
+        <!--<span class="inlineB strong fl">铃铛宝3月期</span>-->
+        <!--<span class="inlineB strong fl">铃铛宝6月期</span>-->
+    <!--</div>-->
+    <!--<div class="productWrap whiteBkg">-->
+        <!--<div class="contentBox blockC whiteTex">-->
+            <!--<div class="currRate"><span>6.9</span>%</div>-->
+            <!--<div class="rateNum fontSize24 positionR">当日年化收益率-->
+                <!--<span class="rateIconSpan positionR"><img class="rateIcon" src="ver_201712/explain.png" /></span>-->
+                <!--<div class="currRateList positionA whiteBkg radius5">-->
+                    <!--<p class="redTex fontSize24">基本收益6.9%</p>-->
+                    <!--<p class="redTex fontSize24">专享+1%</p>-->
+                    <!--<p class="redTex fontSize24">加息券0.5%</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="virtueBox fontSize24 positionR">-->
+                <!--<span class="inlineB positionA">-->
+                    <!--<img src="ver_201712/icon_save.png" />-->
+                    <!--<p>随存隋取</p>-->
+                <!--</span>-->
+                <!--<span class="inlineB positionA">-->
+                    <!--<img src="ver_201712/icon_100.png" />-->
+                    <!--<p>随存隋取</p>-->
+                <!--</span>-->
+                <!--<span class="inlineB positionA">-->
+                    <!--<img src="ver_201712/icon_profit.png" />-->
+                    <!--<p>随存隋取</p>-->
+                <!--</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="investPeople PLR5P clearfix enjoyBox whiteBkg">-->
+            <!--<span class="fl">投资人数</span>-->
+            <!--<span class="fr">350</span>-->
+        <!--</div>-->
+        <!--<div class="leftBuy PLR5P clearfix enjoyBox whiteBkg">-->
+            <!--<span class="fl">剩余可购</span>-->
+            <!--<span class="fr">3,900.00元</span>-->
+        <!--</div>-->
+        <!--<div class="payWay PLR5P clearfix enjoyBox whiteBkg">-->
+            <!--<span class="fl">还款方式</span>-->
+            <!--<span class="fr">随存随取</span>-->
+        <!--</div>-->
+        <!--<ul class="PLR5P enjoyInfo fontSize26 clearfix whiteBkg">-->
+            <!--<li class="fl">-->
+                <!--<img src="ver_201712/icon_investment.png" />-->
+                <!--<p>今日投资</p>-->
+            <!--</li>-->
+            <!--<li class="fl positionR">-->
+                <!--<img src="ver_201712/icon_match.png" />-->
+                <!--<p>撮合成功</p>-->
+            <!--</li>-->
+            <!--<li class="fr">-->
+                <!--<img src="ver_201712/icon_interest.png" />-->
+                <!--<p>开始计息</p>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <div id="myVue">
+    <ul class="enjoyDetailHd color999 fontSize28 clearfix PLR5P whiteBkg">
+        <li class="fl positionR" @click="selWay('product')" :class="{current:nowSelect=='product'}">产品介绍</li>
+        <li class="fl positionR textC" @click="selWay('invest')" :class="{current:nowSelect=='invest'}">投资记录{{'2017-11-12 08:56:23' | formatDate}}</li>
+        <li class="fr positionR" @click="selWay('question')" :class="{current:nowSelect=='question'}">常见问题</li>
+    </ul>
+    <ul class="productDetailList textL MT10" v-if="nowSelect=='product'">
+        <li class="MT10 whiteBkg">
+            <p class="fontSize28 color333"><img src="ver_201712/icon_interest.png" />铃铛宝投资范围</p>
+            <div class="fontSize24 color999">十多块的是柯基反馈说接口数据待付款拉夫可立即阿克苏地方就克拉斯荆防颗粒上课时间反馈拉丝机风口浪尖ad可立即发多少积分卡啥地方 卡萨丁积分卡十街坊克里斯多夫就打卡时间发的的看风景两间房时空裂缝就</div>
+        </li>
+        <li class="MT10 whiteBkg">
+            <p class="fontSize28 color333"><img src="ver_201712/icon_interest.png" />铃铛宝投资范围</p>
+            <div class="fontSize24 color999">十多块的是柯基反馈说接口数据待付款拉夫可立即阿克苏地方就克拉斯荆防颗粒上课时间反馈拉丝机风口浪尖ad可立即发多少积分卡啥地方 卡萨丁积分卡十街坊克里斯多夫就打卡时间发的的看风景两间房时空裂缝就</div>
+        </li>
+        <li class="MT10 whiteBkg">
+            <p class="fontSize28 color333"><img src="ver_201712/icon_interest.png" />铃铛宝投资范围</p>
+            <div class="fontSize24 color999">十多块的是柯基反馈说接口数据待付款拉夫可立即阿克苏地方就克拉斯荆防颗粒上课时间反馈拉丝机风口浪尖ad可立即发多少积分卡啥地方 卡萨丁积分卡十街坊克里斯多夫就打卡时间发的的看风景两间房时空裂缝就</div>
+        </li>
+    </ul>
+    <ul class="investRecordList MT10 whiteBkg" v-if="nowSelect=='invest'">
+        <li class="PLR5P clearfix">
+            <img class="fl" src="ver_201712/icon_portrai.png" />
+            <span class="fl fontSize28 color333">萧 *</span>
+            <em class="fr fontSize28 color999">2016/11/23 08:00:00</em>
+        </li>
+    </ul>
+    <ul class="commonQuestion MT10 textL productDetailList" v-if="nowSelect=='question'">
+        <li class="MT10 whiteBkg">
+            <p class="fontSize28 color333"><img src="ver_201712/icon_interest.png" />常见范围</p>
+            <div class="fontSize24 color999">十多块的是柯基反馈说接口数据待付款拉夫可立即阿克苏地方就克拉斯荆防颗粒上课时间反馈拉丝机风口浪尖ad可立即发多少积分卡啥地方 卡萨丁积分卡十街坊克里斯多夫就打卡时间发的的看风景两间房时空裂缝就</div>
+        </li>
+    </ul>
+    <div style="width:100px; height: 100px; background: #F00" v-if="a - 0 - b > 0"></div>
+    {{a - 0 - b | numFormat}} 
+    </div>
+</body>
+<script>
+
+    var VM = new Vue({
+        el:'#myVue',
+        data: function(){
+            return {
+                nowSelect:'product',  //  默认显示产品介绍
+                a:'0',
+                b:'2'
+            }
+        },
+        filters:{
+        //金额千分位转换函数（带小数点后两位）
+        //money 类型为string 或 number, 调用：numFormat(10000)或numFormat('10000');
+        numFormat: function(m){
+            var m2 = parseFloat(m);
+            if(isNaN(m2)) {
+                return false;
+            }
+            var num = m2 + ""
+            var re = /([0-9]+\.[0-9]{2})[0-9]*/;
+            var m2 = num.replace(re, "$1")
+            var money = m2.toString();
+            var pos_decimal = money.indexOf('.');
+            if(pos_decimal < 0) {
+                pos_decimal = money.length;
+                money += '.';
+            }
+            while(money.length <= pos_decimal + 2) {
+                money += '0';
+            }
+            if(typeof money == "number") money = money.toString();
+            return money.replace(/^(\d+)((\.\d+)?)$/, function(v1, v2, v3) {
+                return v2.replace(/\d{1,3}(?=(\d{3})+$)/g, '$&,') + (v3 || '.00');
+            });
+        },
+        formatDate:function(value){
+            if(value){
+                return value.replace(/-/g,'/')
+            }else{
+                return "";
+            }
+        }
+    },
+        methods:{
+            selWay:function(val){    //  选择 切换栏
+                this.nowSelect=val;
+            }
+        }
+    })
+
+
+</script>
+</html>

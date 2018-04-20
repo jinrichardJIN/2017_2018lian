@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		123
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- （必选）加载 Mock -->
+	<script src="http://mockjs.com/dist/mock.js"></script>
+	<script>
+		Mock.mock('http:www.baidu.com', {
+			'name': '@name',
+			'age|1-100': 100,
+			'color': '@color'
+		});
+//		发送Ajax请求：
+
+		$.ajax({
+			url: 'http:www.baidu.com',
+			dataType: 'json'
+		}).done(function(data, status, xhr) {
+			console.log(
+				JSON.stringify(data, null, 4)
+			)
+		});
+	</script>
+
+</html>

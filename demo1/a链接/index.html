@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				background: salmon;
+			}
+			.child{
+				width: 200px;
+				height: 200px;
+				background:sandybrown;
+			}
+		</style>
+	</head>
+
+	<body>
+		<a href="www.baidu.com">
+			<div class="ss">
+				asdf
+			</div>
+		</a>
+		
+		<div class="parent">
+			<div class="child">
+				
+			</div>
+		</div>
+		
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//阻止系统默认事件 但是不能阻止冒泡
+//		(function() {
+//			$('.ss').click(function(event) {
+//				var event = window.event || event;
+//				event.preventDefault(); 
+//			})
+//
+//			$('a').click(function() {
+//				console.log('我被点到');
+//			})
+//		})()
+//		
+//		//阻止向上冒泡 
+//		(function() {
+//			$('.ss').click(function(event) {
+//				var event = window.event || event;
+//				event.stopPropagation();//阻止冒泡
+//			})
+//
+//			$('a').click(function() {
+//				console.log('我被点到');
+//			})
+//		})()
+		
+		 
+		//阻止系统默认事件  但是不能阻止冒泡
+		(function() {
+			$('.child').click(function(event) {
+				var event = window.event || event;
+				event.preventDefault(); 
+			})
+
+			$('.parent').click(function() {
+				console.log('我被点到');
+			})
+		})()
+		
+		//阻止向上冒泡 
+//		(function() {
+//			$('.child').click(function(event) {
+//				var event = window.event || event;
+//				event.stopPropagation();//阻止冒泡
+//			})
+//
+//			$('.parent').click(function() {
+//				console.log('我被点到');
+//			})
+//		})()
+
+		
+	</script>
+
+</html>

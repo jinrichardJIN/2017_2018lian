@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="../lazyLoad/images/1.jpg"/ id="one">
+		<img src="../lazyLoad/images/2.jpg"/ style="display:inline-block;">
+		<img src="../lazyLoad/images/2.jpg"/ style="display:inline-block;">
+		<img src="../lazyLoad/images/3.jpg"/ id="three">
+		<img src="../lazyLoad/images/5.jpg"/ id="four">
+		<img src="../lazyLoad/images/6.jpg"/ id="five">
+	</body>
+	
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var imgs = $('img');
+		
+		var io = new IntersectionObserver(function(item){
+			$(item[0].target).css('display','none');
+			console.log(item)
+		})
+		
+		imgs.each(function(key,item){
+			io.observe(item);
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

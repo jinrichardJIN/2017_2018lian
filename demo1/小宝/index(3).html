@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Schedule</title>
+
+		<link rel="stylesheet" href="css/site.css" />
+
+	</head>
+	<style>
+
+	</style>
+
+	<body class="wrap ziti">
+		<!-- 上部分 -->
+		<div class="topback">
+			<div class="topcontent">
+				<span style="position:absolute;margin-top: 40px;font-size: 20px"> Project Schedule</span>
+
+				<span class="" style="position:absolute;margin-top: 70px;font-size: 32px;"> C1704-08-Ghantoot-0425 </span>
+
+				<div style="display: inline-block;position:absolute;margin-top: 120px;float: left;">
+
+					<div style="display: inline-block;border-radius: 15px;width: 120px;height: 30px;text-align: center;background: #1e497a;font-size: 20px;border: solid 2px #1e497a;">
+						<table width="100%" height="100%" align="center" valign="center">
+							<tr>
+								<td>
+									Visual
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div style="display: inline-block;border: solid 2px white;border-radius: 15px;width: 120px;height: 30px;font-size: 20px;text-align: center;">
+						<table width="100%" height="100%" align="center" valign="center">
+							<tr>
+								<td>
+									Animation
+								</td>
+							</tr>
+						</table>
+
+					</div>
+
+				</div>
+
+				<span style="position:absolute;margin-top: 180px;font-size: 20px">2017-GMT+0800</span>
+			</div>
+
+		</div>
+
+		<div class="total-time">
+			<table width="100%" height="100%" align="center" valign="center">
+				<tr>
+					<td>
+						<span style="font-size:30px;color: white"> Project Total Time </span>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+
+		<div class="whitetool">
+
+		</div>
+
+		<!-- 	<span class="star">01</span> -->
+		<!--进度条-->
+		<ul class="progress" id="progress">
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 25px;font-size: 20px">18</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 91px;font-size: 20px">19</div>
+				<!-- 	<div style="display: inline-block;position: absolute;color: #e0d40b;top: -105px;left: 120px;font-size: 20px">5-19</div>
+				<div style="display: inline-block;position: absolute;background: #e0d40b;top: -60px;width: 4px;height: 60px;left: 130px"></div> -->
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 157px;font-size: 20px">20</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 223px;font-size: 20px">21</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 289px;font-size: 20px">22</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 355px;font-size: 20px">23</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 421px;font-size: 20px">24</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 487px;font-size: 20px">25</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 553px;font-size: 20px">26</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 619px;font-size: 20px">27</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 685px;font-size: 20px">28</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 751px;font-size: 20px">29</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 817px;font-size: 20px">30</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 883px;font-size: 20px">31</div>
+			</li>
+			<li>
+				<div style="display: inline-block;position: absolute;color: #383838;top: -105px;left: 949px;font-size: 20px">1</div>
+			</li>
+			<!--滑块-->
+			<div class="slider">
+				<span class="today">01</span>
+				<span class="line"></span>
+				<span class="time">2017-05-18</span>
+			</div>
+			<!--时间-->
+
+		</ul>
+		<!-- <span class="end">15</span> -->
+
+		<!-- 下半部分 -->
+		<ul class="bottom-left">
+			<li>Deadline Receiving Information</li>
+			<li>Model</li>
+			<li>Send Progress</li>
+		</ul>
+
+		<ul class="bottom-right">
+			<li>Final Comments on Model</li>
+			<li>Final Comments on Effects</li>
+			<li>Final Rendering+PS</li>
+		</ul>
+
+	</body>
+	<!-- 	<script src="js/vendor/jquery.js" charset="utf-8"></script> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		
+		
+		
+		
+		//获取滑块和日期实例
+		var slider = $('.slider');
+		var timeModel = $('.time');
+		var todayModel = $('.today');
+
+		//定义开始时间
+		var startTime = '2017/05/17';
+
+		//记录当天
+		var tmp = new Date().toLocaleDateString();
+		var tmpToday = new Date().getDate();
+
+		//今天-开始时间  = 持续时间
+		var allTime = new Date(tmp).getTime() - new Date(startTime).getTime();
+		allTime = allTime / 86400000;
+		todayModel.html(allTime);
+		//滑块移动多少
+		var total = allTime - 1;
+		if(total < 15) {
+			slider.css('left', total * 66 + 'px');
+		} else {
+			todayModel.html(15);
+			slider.css('left', 924);
+		}
+
+		//显示今天
+		var myDate = new Date();
+		timeModel.html(myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
+		
+		
+		//控制滑块和上面日期的对应
+		var _progress = $('#progress');
+		var _progressLis = $('#progress li');
+		//得到每个li下面div中的日期是那一天
+		(function(){
+			for(var i = 0;i<_progressLis.length;i++){
+				var tmpContent = $(_progressLis[i]).children().html();
+				if(tmpContent == myDate.getDate()){
+					$(_progressLis[i]).children().css('background','#E0D40B')
+				}
+			}
+		})()
+		
+
+		//滑块移动函数
+		slider.move = function() {
+			var left = this.css('left');
+			left = parseInt(left);
+			this.animate({
+				left: left + 66
+			})
+		}
+		//获取实时
+		function getCurrentToday(){
+			var dateT = new Date();
+			var time = dateT.toLocaleDateString();
+			var tmpToday = dateT.getDate();
+
+			//日期改变时候让滑块移动
+			if(time != tmp) {
+				tmp = time;
+				slider.move();
+				timeModel.html(tmp);
+				todayModel.html(tmpToday)
+			}
+		}
+
+		setInterval(function() {
+			getCurrentToday();
+
+//			下面这个是效果，注释掉就可以了
+//			 slider.move();
+
+		}, 1000)
+	</script>
+
+</html>

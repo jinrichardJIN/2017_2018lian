@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		'use strict'
+		
+		var add  = function(){
+			var arus = Array.prototype.slice.call(arguments);
+			return function(){
+				if(arguments.length==0){
+					return arus;
+				}				
+				arguments.callee.toString = function(){
+					return 4;
+				}
+				return arguments.callee;
+				arus = arus.concat(Array.prototype.slice.call(arguments));
+			}
+		}
+		var s = add(1)(2)(3);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

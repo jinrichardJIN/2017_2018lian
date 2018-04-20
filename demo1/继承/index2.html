@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>原形对象继承</title>
+	</head>
+
+	<body>
+
+	</body>
+	<script type="text/javascript">
+		function Parent(name) {
+			this.say = function(name) {
+				console.log(name);
+			}
+		}
+		Parent.prototype = {
+			dance: function() {
+				console.log('父亲可以跳舞');
+			}
+		}
+		
+		
+		function Child(){
+			Parent.call(this,name);
+		}
+		Child.prototype = new Parent();
+		
+		var child1 =  new Child();
+		var parent1 = new Parent();
+		
+		console.log('实例化是否相同'+parent1===child1);
+		console.log('实例化是否相同2'+parent1==child1);
+		
+		console.log(parent1);
+		console.log(child1);
+		console.log(parent1.dance);
+		console.log(child1.dance);
+		console.log(parent1.say);
+		console.log(child1.say);
+		
+		console.log(parent1.constructor)
+		console.log(Parent.prototype.constructor == Parent)
+		
+		console.log(child1.constructor);
+		console.log(Child.prototype.constructor);
+
+		
+		
+		
+	</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				font-size:25px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="class1">
+			
+		</div>
+		<div class="class2">
+			
+		</div>
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var i = 0;
+		setInterval(function(){
+			i++;
+			$('.class1').html(i)
+		},500)
+		
+		var a = 0;
+		function test(){
+			a++;
+			$('.class2').html(a);
+			if(a>200){
+				return false;
+			}
+			setTimeout(function(){
+				test()
+			},500)
+		}
+		test();
+		
+	</script>
+</html>

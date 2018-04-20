@@ -1,0 +1,76 @@
+html{
+    font-size: 100px;
+}
+.fontSize0{
+    font-size: 0;
+}
+.fontSize24{
+    font-size: 0.24rem;
+}
+.fontSize26{
+    font-size: 0.26rem;
+}
+.fontSize28{
+    font-size: 0.28rem;
+}
+.fontSize36{
+    font-size: 0.36rem;
+}
+.color999{
+    color: #999;
+}
+.color333{
+    color: #333;
+}
+
+/*历史收益单独样式*/
+.allEarn{
+	padding-top: 0.25rem;
+	height: 1.25rem;
+	border-bottom: 10px solid #F7F7F7;
+}
+.allEarn p{
+	font-size: 0.4rem;
+}
+
+/*历史收益单独样式*/
+
+
+/*历史收益率单独样式*/
+.allEarn em{
+	width: 50%;
+	height: 100%;
+	line-height: 1rem;
+}
+.allEarn .current{
+	color: #000;
+}
+.allEarn .current span:before{
+	content: '';
+	display: inline-block;
+	position: absolute;
+	bottom: -0.58rem;
+	left: 0;
+	width: 0.8rem;
+	height: 3px;
+	background: #FA604C;	
+}
+
+
+/*历史收益率单独样式*/
+
+
+/*开始收益  历史本金  收益利率公用样式*/
+.historyAmtList li{
+	margin-top: 0.35rem;
+}
+.widthDiv{
+	height: 0.4rem;
+	width: 75%;
+	background: -webkit-linear-gradient(left, #FA604C, #FAE7B9);
+}
+.historyAmtList span{
+	height: 0.4rem;
+	line-height: 0.4rem
+}
+/*开始收益  历史本金  收益利率公用样式*/

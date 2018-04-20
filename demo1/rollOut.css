@@ -1,0 +1,117 @@
+html{
+    font-size: 100px;
+}
+.fontSize0{
+    font-size: 0;
+}
+.fontSize28{
+    font-size: 0.28rem;
+}
+.fontSize30{
+    font-size: 0.3rem;
+}
+.fontSize36{
+    font-size: 0.36rem;
+}
+.color999{
+    color: #999;
+}
+.color333{
+    color: #333;
+}
+.PLR10P{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.rollOutWrap{
+    height: 3.7rem;
+}
+.rollOutWrap .ringWrap{
+    width: 50%;
+}
+#canvasBox{
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.75rem;
+}
+.ringWrap p{
+    height: 0.6rem;
+    line-height: 0.6rem;
+}
+.investAmt{
+    width: 50%;
+}
+.investAmt div{
+    padding-left: 0.6rem;
+    line-height: 0.5rem;
+}
+.investAmt div:nth-child(1){
+    margin-top: 0.7rem;
+}
+.investAmt div:nth-child(3){
+    margin-top: 0.3rem;
+}
+.investAmt div:nth-child(1):before,.investAmt div:nth-child(3):before{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 0.15rem;
+    height: 0.15rem;
+    background: #FAAB4C;
+    top: 0.175rem;
+    left: 0.3rem;
+    border-radius: 50%;
+}
+.investAmt div:nth-child(3):before{
+    background: #FA604C;
+}
+.investAmt img{
+    position: relative;
+    top: 0.08rem;
+    width: 0.36rem;
+    margin-left: 0.1rem;
+}
+.explainIcon{
+    position: relative;
+    top: 0.08rem;
+    width: 0.36rem;
+    margin-left: 0.1rem;
+}
+.rollDetail{
+    padding: 0.3rem 5%;
+}
+.rollDetail div{
+    height: 1rem;
+    line-height: 1rem;
+}
+.rollDetail div:nth-child(3):before{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0.32rem;
+    width: 15px;
+    height: 15px;
+    background: url(../ver_201712/personal_arrow.png) no-repeat;
+    background-size: 100% 100%;
+}
+.rollTip{
+    margin-top: 1rem;
+}
+.rollTip p{
+    height: 0.8rem;
+    line-height: 0.8rem;
+}
+.btnWrap{
+    bottom: 0;
+}
+.btnWrap span:nth-child(1){
+    background: #FFF;
+}
+.btnWrap span{
+    width: 50%;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    background: #FA604C;
+}

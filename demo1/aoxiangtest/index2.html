@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let add = (...a) => {
+		  let helper = (...b) => {
+		    return add(...[...a, ...b]);
+		  };
+		 
+		  helper.valueOf = () => {
+		    let sum = 0;
+		    for (let item of a)
+		      sum += item;
+		    return sum;
+		  };
+		  return helper;
+		};
+		console.log(add(1)(2)(3)(4))
+		
+		
+	</script>
+</html>

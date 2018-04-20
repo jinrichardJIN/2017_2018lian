@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+	<script type="text/javascript">
+		function add(arg) {
+			// body...
+			let sum = 0;
+			sum += arg;
+			return function(tmarg) {
+				// body...
+				if(arguments.length == 0) {
+					return sum;
+				} else {
+					sum += tmarg;
+					return arguments.callee;
+				}
+			}
+		}
+		add(0,1)(2)();
+	</script>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="no" />
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="x5-orientation" content="portrait">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+		<title>联璧会员</title>
+		<script src="js/rem.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/jquery-1.8.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/vipGrade.css" />
+	</head>
+
+	<body class="whiteBkg">
+		<div id="vipGrade">
+			<div class="wrap positionR whiteBkg">
+				<img class="memberBg" src="ver_201712/member_bg.png" />
+				<div class="userContent radius5 positionA">
+					<div class="clearfix fontSize28 pointWrap">
+						<img class="fl userIcon" src="ver_201712/icon_portrai.png">
+						<div class="fl textL" class="fontSize12">
+							<p>当前积分 <em class="strong">300</em></p>
+							<span>累计积分 <em class="strong">15000</em></span>
+						</div>
+						<div class="fr">
+							<img class="pointStar" src="ver_201712/member_icon_hj_real.png" />
+							<span class="fontSize34">黄金会员</span>
+						</div>
+					</div>
+					<table class="fontSize12 pointLevel whiteTex">
+						<tr>
+							<th><img class="levelStar" src="ver_201712/member_icon_hj_real.png" />普通</th>
+							<th><img class="levelStar" src="ver_201712/member_icon_hj_real.png" />黄金</th>
+							<th><img class="levelStar" src="ver_201712/member_icon_hj_real.png" />白金</th>
+							<th><img class="levelStar" src="ver_201712/member_icon_hj_real.png" />铂金</th>
+							<th><img class="levelStar" src="ver_201712/member_icon_hj_real.png" />钻石</th>
+						</tr>
+					</table>
+					<div class="outProgress positionR">
+						<div class="inProgress positionA"></div>
+					</div>
+					<table class="fontSize12 pointNum whiteTex textC">
+						<tr>
+							<th>0</th>
+							<th>10000</th>
+							<th>20000</th>
+							<th>50000</th>
+							<th>100000</th>
+						</tr>
+					</table>
+					<p class="whiteTex fontSize12">当前黄金会员，距离白金会员还需累计 5000积分</p>
+				</div>
+			</div>
+			<div class="colorGray fontSize32 whiteBkg levelTitle positionR">黄金会员权益</div>
+			<ul class="clearfix fontSize12 levelEquity textC whiteBkg">
+				<li v-for="(item, index) in numList" class="fl colorGray" @click="lookEquity(index)"><img src="ver_201712/member_icon_zshz.png" />
+					<p>{{item}}</p>
+				</li>
+				<!-- <li class="fl colorGray"><img src="ver_201712/member_icon_zshz.png" /><p>专属徽章</p></li>
+            <li class="fl color999"><img src="ver_201712/member_icon_zshz.png" /><p>专属徽章</p></li>
+            <li class="fl color999"><img src="ver_201712/member_icon_zshz.png" /><p>专属徽章</p></li>
+            <li class="fl color999"><img src="ver_201712/member_icon_zshz.png" /><p>专属徽章</p></li>
+            <li class="fl color999"><img src="ver_201712/member_icon_zshz.png" /><p>专属徽章</p></li>
+            <li class="fl color999"><img src="ver_201712/member_icon_zshz.png" /><p>专属徽章</p></li>
+            <li class="fl color999"><img src="ver_201712/member_icon_zshz.png" /><p>专属徽章</p></li> -->
+			</ul>
+			<div class="colorGray fontSize32 whiteBkg levelTitle title positionR">做任务 得积分</div>
+			<ul class="fontSize12 productList">
+				<li class="clearfix PLR5P">
+					<div class="fl textL">
+						<p class="fontSize28 color333">铃铛宝定期</p>
+						<p class="color999">本金*天数*0.4/365</p>
+					</div>
+					<a class="fr fontSize28">立即投资</a>
+				</li>
+				<li class="clearfix PLR5P">
+					<div class="fl textL">
+						<p class="fontSize28 color333">铃铛宝定期</p>
+						<p class="color999">本金*天数*0.4/365</p>
+					</div>
+					<a class="fr fontSize28">立即投资</a>
+				</li>
+				<li class="clearfix PLR5P">
+					<div class="fl textL">
+						<p class="fontSize28 color333">铃铛宝定期</p>
+						<p class="color999">本金*天数*0.4/365</p>
+					</div>
+					<a class="fr fontSize28">立即投资</a>
+				</li>
+			</ul>
+
+			<div class="blackWrap positionF" v-show="isShowFlg">
+				<p class="fontSize32 strong">生日特权</p>
+				<ul class="levelPower positionR" v-bind:class='{true:"left",false:"right"}[direction]' @touchstart.stop="touchStart($event)" @touchmove.stop="touchMove($event)">
+					<li class="bbb" v-bind:class="{true:'active'}[clickIndex==key]" v-for='(item,key) in numList'>{{key}}</li>
+				</ul>
+				<span></span>
+			</div>
+
+		</div>
+	</body>
+	<script>
+		var VM = new Vue({
+
+			el: "#vipGrade",
+			data: function() {
+				return {
+					numList: ['1', '2', '3', '4', '5', '6', '7', '8'],
+					startX: 0,
+					startY: 0,
+					moveEndX: 0,
+					moveEndY: 0, // 
+					isShowFlg: false, //  是否显示 弹框权益的 标知
+					showContetnt: '', // 显示的权益内容
+					clickIndex: 5, //  点击查看的 权益索引值
+					lock: true, //  函数执行 判断
+					activeClass: false,
+					direction:false
+				}
+			},
+			methods: {
+				touchStart: function(e) {
+					console.log(e);
+					e.preventDefault();　　　　
+					this.startX = e.changedTouches[0].pageX, 
+					this.startY = e.changedTouches[0].pageY;
+					this.lock = true;
+				},
+				touchMove: function(e) {
+					e.preventDefault();　　　　
+					this.moveEndX = e.changedTouches[0].pageX,　　
+					this.moveEndY = e.changedTouches[0].pageY,　　　　
+					X = this.moveEndX - this.startX, 
+					Y = this.moveEndY - this.startY;　　　　
+					if(Math.abs(X) > Math.abs(Y) && X > 0) {　　　　　　
+						this.direction = false;
+						this.preEquity();　　　　
+					}　　　　
+					else if(Math.abs(X) > Math.abs(Y) && X < 0) {　　　　　　
+						console.log("下一张")
+						this.direction = true;
+						this.nextEquity();　　　　
+					}
+				},
+				lookEquity: function(_index) {
+					this.clickIndex = _index;
+					console.log(_index);
+					this.isShowFlg = true;
+					this.showContetnt = this.numList[_index];
+				},
+				nextEquity: function() {
+					if(this.lock) {
+						this.clickIndex++;
+						if(this.clickIndex > 7) {
+							this.clickIndex = 0;
+						}
+						this.showContetnt = this.numList[this.clickIndex];
+						this.lock = false;
+						this.activeClass = true;
+					}
+
+				},
+				preEquity: function() {
+					if(this.lock) {
+						this.clickIndex--;
+						if(this.clickIndex < 0) {
+							this.clickIndex = 7;
+						}
+						this.showContetnt = this.numList[this.clickIndex];
+						this.lock = false;
+						this.activeClass = true;
+					}
+				}
+			}
+		});
+
+		// $(".levelEquity li").click(function(){
+		//     var index = $(this).index();  
+		//     $(".blackWrap").removeClass('none');
+		//     alert(index);
+
+		// });
+
+		// $(".levelPower li").click(function(){
+		//     var DomArr = $(".levelPower li");
+		//     var _index = $(this).index();
+		//     console.log(_index);
+		//     if(_index == DomArr.length - 1){
+		//         $(".levelPower").prepend(DomArr.eq(_index).clone(true));
+		//     }else if(_index == 0){
+		//         $(".levelPower").append(DomArr.eq(_index).clone(true));
+		//     }
+		//     DomArr[_index].remove();
+		// });
+		//     $(".levelPower").on("touchstart", function(e) {
+		// 　　　　e.preventDefault();
+		// 　　　　startX = e.originalEvent.changedTouches[0].pageX,
+		// 　　　　startY = e.originalEvent.changedTouches[0].pageY;
+		// 　　});
+		// 　　$(".levelPower").on("touchmove", function(e) {
+		// 　　　　e.preventDefault();
+		// 　　　　moveEndX = e.originalEvent.changedTouches[0].pageX,
+		// 　　　　moveEndY = e.originalEvent.changedTouches[0].pageY,
+		// 　　　　X = moveEndX - startX,
+		// 　　　　Y = moveEndY - startY;
+		// 　　　　if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+		// // 　　　　　　alert("left 2 right");
+		// 　　　　}
+		// 　　　　else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+		//     console.log("下一张")
+		// // 　　　　　　alert("right 2 left");
+		// 　　　　}
+		// 　　　　else if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
+		// 　　　　　　alert("top 2 bottom");
+		// 　　　　}
+		// 　　　　else if ( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
+		// 　　　　　　alert("bottom 2 top");
+		// 　　　　}
+		// 　　　　else{
+		// 　　　　　　alert("just touch");
+		// 　　　　}
+		// 　　});
+	</script>
+
+</html>

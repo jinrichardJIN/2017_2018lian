@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+	<script type="text/javascript">
+		arr = [1,58,36,99,33,666,125,555,654];
+		function insertionSort(arr) {
+			var len = arr.length;
+			var preIndex, current;
+			for(var i = 1; i < len; i++) {
+				preIndex = i - 1;
+				current = arr[i];
+				while(preIndex >= 0 && arr[preIndex] > current) {
+					arr[preIndex + 1] = arr[preIndex];
+					preIndex--;
+				}
+				arr[preIndex + 1] = current;
+			}
+			return arr;
+		}
+		insertionSort(arr);
+	</script>
+
+</html>

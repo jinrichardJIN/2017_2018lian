@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var ccc = '1111'
+		function use(a,b){
+			console.log(a);
+			console.log(b);
+		}
+		
+		var html = '<div onclick="use(\''+      ccc           +'\',1)" style="width:200px;height:200px;"></div>'
+		
+		$('body').html(html)
+		
+		var html2 = '<div onclick="use(\''+      ccc           +'\',1)" style="width:200px;height:200px;"></div>'
+		
+	</script>
+</html>

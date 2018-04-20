@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>2周年</title>
+		<link rel="stylesheet" type="text/css" href="layout.css" />
+		<style type="text/css">
+			/*基础类*/
+			
+			.height30 {
+				height: 30%;
+			}
+			
+			.width100 {
+				width: 100%;
+			}
+			.width100p{
+				width:100px;
+			}
+			
+			.height70 {
+				height: 70%;
+			}
+			
+			.positionR {
+				position: relative;
+			}
+			.top50{
+				top:50%;
+			}
+			.top60{
+				top:60%;
+			}
+			.MT200{
+				margin-top:200px;
+			}
+			.left5{
+				left:5%;
+			}
+			.height55P{
+				height:52%;
+			}
+			.top30{
+				top:30%;
+			}
+			.top20{
+				top:20%;
+			}
+			.top10{
+				top:10%;
+			}
+			.top44{
+				top:44%;
+			}
+			.height400{
+				height:400px;
+			}
+			.positionA {
+				position: absolute;
+			}
+			.borderRadius{
+				border-radius:5px 5px 0 0;
+			}
+			.colorfa324c {
+				color: #fa324c;
+			}
+			
+			.clolrffdb85 {
+				color: #ffdb85;
+			}
+			
+			.yellowBackground {
+				height: 50px;
+				width: 100px;
+				line-height: 50px;
+				background: url(img/yellow_base.png);
+				background-size: 100% 100%;
+				display: inline-block;
+				text-align: center;
+			}
+			.totalOne{
+				top:24%;
+				font-size:24px;
+				width:100%;
+				text-align:center;
+			}
+			.totalTwo{
+				top:55%;
+				font-size:24px;
+				width:100%;
+				text-align:center;
+			}
+			.ticketOne{
+				top:15%;
+				width:100%;
+				text-align:center;
+			}
+			.ticketTwo{
+				text-align:center;
+				top:33%;
+				width:100%;
+			}
+			.ticketThree{
+				text-align:center;
+				top:54%;
+				width:100%;
+			}
+			.ticketFour{
+				text-align:center;
+				top:73%;
+				width:100%;
+			}
+			.inviteFriend{
+				width:200px;
+				position: absolute;
+				top:76%;
+				left:50%;
+				margin-left:-100px;
+			}
+			.slogan{
+				height:50px;
+				line-height:50px;
+				text-align:center;
+				width:100%;
+				top:66%;
+				position:absolute;
+			}
+			.slogan img{
+				height:100%;
+				vertical-align: middle;
+			}
+			
+			/*动画类---烟花*/
+			
+			.startFlashOne {
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				width: 100px;
+				perspective: 1000px;
+				animation: rolateStar 4s 0s cubic-bezier(0.55, 0.54, 1, 1) forwards infinite;
+				transform:scale(0);
+			}
+			.startFlashTwo {
+				position: absolute;
+				top:50%;
+				left:10%;
+				width:50px;
+				perspective: 1000px;
+				animation: rolateStar 4s 0.5s cubic-bezier(0.55, 0.54, 1, 1) forwards infinite;
+				transform:scale(0);
+			}
+			.startFlashThree {
+				position: absolute;
+				top:80%;
+				left:30%;
+				width:80px;
+				perspective: 1000px;
+				animation: rolateStar 4s 1s cubic-bezier(0.55, 0.54, 1, 1) forwards infinite;
+				transform:scale(0);
+			}
+			
+			
+			
+			@-webkit-keyframes rolateStar {
+				0% {
+					-webkit-transform: scale(0);
+					opacity:0;
+				}
+				40% {
+					-webkit-transform: scale(0.2);
+					opacity:0.5;
+				}
+				60% {
+					-webkit-transform: scale(0.5);
+					opacity:1;
+				}
+				100% {
+					-webkit-transform: scale(1);
+					opacity:0;
+				}
+			
+			}
+			
+			/*动画类---飘带*/
+			.ribbonOne{
+				width:100px;
+				position:absolute;
+				top:-100px;
+				right:10px;
+				animation: ribbon 20s 0s cubic-bezier(0.49, 0.48, 0.49, 0.48);
+			}
+			.ribbonTwo{
+				width:50px;
+				position:absolute;
+				top:100px;
+				right:10px;
+				top:-10%;
+				left:10px;
+				animation: ribbon 15s 1s cubic-bezier(0.49, 0.48, 0.49, 0.48);
+			}			
+			@-webkit-keyframes ribbon {
+				0% {
+					top:-10%;
+				}
+				100% {
+					top:100%;
+				}
+			
+			}
+			/*动画类---流星雨*/
+			.meteoricOne{
+				position:absolute;
+				width:150px;
+				left:100%;
+				top:-60%;
+				animation: meteoric 1.5s 1s cubic-bezier(0.49, 0.48, 0.49, 0.48) ;
+			}
+			
+			.meteoricTwo{
+				position:absolute;
+				width:150px;
+				left:100%;
+				top:-60%;
+				animation: meteoric 1s 0s cubic-bezier(0.49, 0.48, 0.49, 0.48) ;
+			}
+			
+			@-webkit-keyframes meteoric {
+				0% {
+					transform:translateX(-10px) translateY(100px);
+					
+				}
+				100% {
+					transform:translateX(-600px) translateY(700px);
+				}
+			
+			}
+			/*动画类---气球*/
+			.balloon{
+				position:absolute;
+				width:150px;
+				bottom:-300px;
+				left:100px;
+				animation: balloon 4s 0s cubic-bezier(0.49, 0.48, 0.49, 0.48) ;
+			}
+			@-webkit-keyframes balloon {
+				0% {
+					transform:translateY(-100px);
+				}
+				
+				100% {
+					transform:translateY(-1000px);
+				}
+			
+			}
+			
+			
+			
+			
+			
+			.rolateIn {
+				animation: rolate 2s 0s infinite;
+			}
+			
+			.page {
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+				position: absolute;
+				top: 0;
+				overflow:hidden;
+			}
+			.title{
+				width:100%;
+				height:40px;
+				background:url(img/yellow_base3.png);
+				background-size:100% 100%;
+				left:10%;
+				line-height:40px;
+				font-size:18px;
+				color:#fa324c;
+				font-weight:bold;
+				margin-top:30px;
+			}
+			.titleTwo{
+				width:100%;
+				height:50px;
+				background:url(img/yellow_base3.png);
+				background-size:100% 100%;
+				left:10%;
+				line-height:50px;
+				font-size:18px;
+				color:#fa324c;
+				font-weight:bold;
+				margin-top:30px;
+			}
+			
+			.swiper-container {
+				height: 100%;
+			}
+			.swiper-slide{
+				position:relative;
+			}
+			
+			.imgBanner {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+			
+			.pageOneContent {
+				position: absolute;
+				top: 0;
+				width: 80%;
+				margin: 0 auto;
+				height: 100%;
+				left: 10%;
+			}
+			.pageFourContent {
+				position: absolute;
+				top:50%;
+				width: 80%;
+				margin: 0 auto;
+				left: 10%;
+			}
+			body,
+			html {
+				padding: 0;
+				margin: 0;
+				height: 100vh;
+				
+			}
+			
+			.changePage {
+				position: fixed;
+				bottom: 20px;
+				width: 30px;
+				height: 30px;
+				left: 50%;
+				margin-left: -15px;
+				z-index: 10;
+				-webkit-animation: shake 2s infinite both;
+			}
+			
+			@-webkit-keyframes shake {
+				0% {
+					bottom: 20px;
+				}
+				50% {
+					bottom: 30px;
+				}
+				100% {
+					bottom: 20px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+
+		
+
+		<span class="changePage">
+			<img src="img/icon_arrow.png"/ class="imgBanner">
+		</span>
+
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<!--第一栏-->
+					<div class="page">
+						<div class="banner height30 width100">
+							<img src="img/banner.jpg" class="imgBanner">
+						</div>
+						<div class="height70 positionR">
+							<img src="img/bj.png" class="imgBanner">
+						</div>
+						<div class="width90 blockC positionA top30 left5 height55P whiteBkg borderRadius">
+							<p class="MT20 colorfa324c">你的好友给你发了80元红包</p>
+							<img src="img/bonus.png" class="width100p MT20">
+							<br>
+							<img src="img/button5.png" width="200" class="MT40">
+						</div>
+						
+						<!--动画-->
+						<div class="animates">
+							<img src="img/fireworks.png" class="startFlashOne">
+							<img src="img/fireworks.png" class="startFlashTwo">
+							<img src="img/fireworks.png" class="startFlashThree">
+							<img src="img/flloat1.png" class="ribbonOne">
+							<img src="img/flloat3.png" class="ribbonTwo">
+							
+							<img src="img/balloon.png">
+							<img src="img/line2.png" class="meteoricOne">
+							<img src="img/line3.png" class="meteoricTwo">
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		//初始化 
+		$('.animates img').css('display','none');
+		$($('.animates')[0]).children().css('display','block');
+		
+		
+		
+		
+		var mySwiper = new Swiper('.swiper-container', {
+			direction: 'vertical',
+			loop:false,
+			// 如果需要分页器
+			pagination: '.swiper-pagination',
+			// 如果需要前进后退按钮
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			// 如果需要滚动条
+			scrollbar: '.swiper-scrollbar',
+			onSlideChangeEnd: function(swiper){
+				$('.animates img').css('display','none');
+				$($('.animates')[swiper.activeIndex]).children().css('display','block');
+		    }
+					
+			
+		})
+
+
+	</script>
+
+</html>

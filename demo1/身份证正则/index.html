@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="email" name="" value="" id="id" onkeyup="this.value=this.value.replace(/[^X0-9]/g,'');">
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var oldVal = $('#id').val();
+//		$('#id').on('keyup', function(e) {
+//			e = event || e;
+//			var re = /[\d]/;
+//			var re1 = /[\dX]/;
+//			var tmpValue = $(this).val();
+//			if(!$(this).val().length == 17) {
+//				if(!re.test(tmpValue) && e.keyCode !== 8) {
+//					$(this).val(oldVal);
+//					return false;
+//				}
+//			} else {
+//				if(!re1.test(tmpValue) && e.keyCode !== 8) {
+//					$(this).val(oldVal);
+//					return false;
+//				}
+//			}
+//		})
+
+
+
+
+		$('#id').on('keydown',function(e){
+			e = event||e;
+			if(e.keyCode!=88&&e.keyCode){
+				
+			}
+		})
+
+		
+
+
+		
+	</script>
+
+</html>

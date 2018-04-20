@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../doubt/reset.css" />
+		<link rel="stylesheet" type="text/css" href="layout.css" />
+		<link rel="stylesheet" type="text/css" href="../doubt/main.css" />
+	</head>
+
+	<body>
+		<!-- 输入框 begin -->
+		<div class="headerDiv MT5">
+			<font class="grayTex fl font24 lineHeigt18 fontF">￥</font>
+			<div class="fl width80">
+				<input type="text" class="headerInput invalid PL10" placeholder="请输入金额" id="inputAmount" readonly="readonly" />
+			</div>
+		</div>
+		<!-- 输入框 end -->
+		<div class="clearfix textC blackTex font20" id="KeyboardWrap">
+			<ul class="fl width100" id="numberKeyboard">
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardOne" keyboard="1">1</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardTwo" keyboard="2">2</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardThree" keyboard="3">3</li>
+				<li class="fr width25 heigh50 font18 borderR borderT boxSizing not returnKeyboard" id="keyboardReturn" keyboard="reture"></li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardFour" keyboard="4">4</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardFive" keyboard="5">5</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardSix" keyboard="6">6</li>
+				<li class="fr width25 heigh50 boxSizing not font18" id="keyboardConfirm" keyboard="confirm">确定</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardSeven" keyboard="7">7</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardEight" keyboard="8">8</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardNine" keyboard="9">9</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20 not" id="keyboardPoint" keyboard=".">.</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardZero" keyboard="0">0</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardTwoZero" keyboard="00">00</li>
+			</ul>
+		</div>
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../src/merge.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var xFunction;
+		var input = function(price) { // 数字初始化
+			var num = $("#inputAmount").val() + price;
+			$("#inputAmount").val(num);
+			$.checkLimit($("#inputAmount"), $("#inputAmount").attr("minNumber"), true);
+		}
+		var inputNumber = function(price) { //显示输入数字
+			if(price == "reture") {
+				var num = $("#inputAmount").val();
+				num = num.substring(0, num.length - 1);
+				$("#inputAmount").val(num);
+				$.checkLimit($("#inputAmount"), $("#inputAmount").attr("minNumber"), false); // 这里传false，是因为当为0.00 时可以删除了，如果为false就不能删除了
+			}
+			if(price == ".") {
+				input(price)
+			}
+			if(price >= 0 && price <= 9) {
+				input(price)
+			}
+		}
+		$(document).ready(function() {
+			$("#numberKeyboard li").click(function() {
+				inputNumber($(this).attr("keyboard"));
+			});
+		});
+
+		//自定义键盘   点击键盘确认键
+		$("#keyboardConfirm").click(function() {
+			$(".wrap").removeClass("height100P");
+			$("#momeyBox").stop().slideUp(200);
+			$('#goPay').css("margin-bottom", "0px");
+		});
+		//去除active
+		$("#numberKeyboard").on("click", "li", function() {
+			var confirm = $(this).attr("keyboard");
+			if(!(confirm == "confirm")) {
+				$("#shortcut li").removeClass("active");
+			}
+		})
+
+		
+	</script>
+
+</html>

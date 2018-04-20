@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<dt class="dHead" style="text-align:center;color:#00a4ec;font-size:12px;">修改号段</dt>
+	            <dd class="dBody" id="publish_selection" style="margin-top:20px;margin-left:15px;">
+	                <input type="tel" class="iIpt_lg iIpt_col0"   maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1" >
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1" >
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0" maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	                <input type="tel" class="iIpt_lg iIpt_col0"  maxlength="1">
+	            </dd>
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*添加号段中的组件**/
+				
+				var inputs = $('#publish_selection input');
+				//监听点击事件
+				var active = 0;//当前状态
+				inputs.click(function(){
+					inputs.eq(active).focus();
+				});
+				//监听键盘事件  ---------所有的绑定按下输入进入下一个
+				inputs.keydown(function(event){
+					var e = window.event||event;
+					var CodeKey = e.keyCode||e.which;
+					var _this = this,
+				    index = $(this).index();
+					//判断是否为shift 空格  或者tab
+					if(CodeKey==16||CodeKey==32||CodeKey==9){
+						return false;
+					}
+				})
+				inputs.keyup(function(event){
+					var e = window.event||event,
+					_this = this,
+					index = $(this).index(),//用来限制最后和开始的动作
+					CodeKey = e.keyCode||e.which;
+					
+					if(!isNaN(this.value)&&this.value!=''||this.value=='*'){//如果内容不为空且不为汉字						
+						if(index!=16){
+							$(this).css('background','#DDDDDD');
+							_this.nextElementSibling.focus();
+							active++;
+						};															
+					}
+					else if(CodeKey==8){
+						clearInterval(scope.LongPress);
+						if(index!=0){	
+							var next = $(this).next().val();						
+							if(!next){
+								active--;							
+								$(this).prev().css('background','#FFFFFF');
+								$(this).css('background','#FFFFFF');
+								_this.previousElementSibling.focus();
+								$(this).prev().val('');
+							};										
+						};
+					}
+					else{
+						this.value = '';
+						return;
+					}														
+				});
+		
+	</script>
+</html>

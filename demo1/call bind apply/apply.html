@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var name = 'window'
+		var lijin = {
+			name:'lijin',
+			myName:function(){
+				console.log(this.name);
+			}
+		}
+		
+		//正常情况
+		var test = lijin.myName;
+		lijin.myName(); //lijin	
+		test();			//window
+		lijin.myName.apply();	//window
+		var testCall = lijin.myName.apply();
+		console.log(testCall)
+		
+	</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#children{
+				position: absolute;
+				top:500px;	
+				width:200px;
+				height:200px;		
+			}
+		</style>
+	</head>
+	<body>
+		<div id="parent">
+			<div id='children'>
+				
+			</div>
+		</div>
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var a = $('#parent').children();
+		$('#parent').children().css('background','#F04A49')
+		console.log(a);
+	</script>
+</html>

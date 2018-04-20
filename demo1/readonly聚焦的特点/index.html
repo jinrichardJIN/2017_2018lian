@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			[readonly="readonly"]{
+				-webkit-user-select:none;
+				pointer-events: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text"  name="" id=""  onfocus="this.blur()" readonly="readonly" value="" />
+		<button>
+			anniu
+		</button>
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('input').focus(function(event){
+			var eventS = window.event||event;
+			eventS.preventDefault();
+			eventS.stopPropagation();
+		})
+		
+		$('button').click(function(){
+			
+			$('input').focus();
+		})
+		
+		
+		
+	</script>
+</html>

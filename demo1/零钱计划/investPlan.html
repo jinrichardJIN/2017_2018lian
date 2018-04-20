@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="x5-orientation" content="portrait">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+    <title>零钱计划</title>
+    <script src="js/rem.js"></script>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/investPlan.css" />
+</head>
+<body>
+    <div id="myVue">
+        <div class="hdWrap textL PLR5P whiteBkg">
+            <p class="fontSize36">投资金额</p>
+            <p class="color999 fontSize28">起投金额为100元，投资金额为100的整数倍</p>
+            <div class="inputWrap clearfix">
+                <span class="fontSize28 fl inlineB">￥</span>
+                <input class="fl fontSize36" type="text" readonly="readonly" placeholder="0.00" id="inputAmount" />
+            </div>
+            <div class="color999 fontSize28">预期每日收益(元) &nbsp;&nbsp;<span class="fontSize36 color333">0.00</span></div>
+        </div>
+        <div class="MT10 whiteBkg clearfix balanceWrap PLR5P">
+            <span class="fontSize28 color999 fl">账户可用余额(元)</span>
+            <span class="fontSize28 color333 fl ML5">10,000.00</span>
+            <em class="fontSize28 fr">充值</em>
+        </div>
+        <div class="proAmtWrap whiteBkg">
+            <p class="fontSize28">剩余可购 <span class="colorRed fontSize28">5,122,123.32</span>元</p>
+            <div class="positionR outSchedule">
+                <div class="positionA inSchedule"></div>
+            </div>
+        </div>
+        <div class="whiteBkg cashCoupon clearfix color999 fontSize36 positionR">
+            <img class="fl" src="ver_201712/icon_cashcoupon.png" />
+            <span class="fl color333">代金券</span>
+            <em class="fr color999"><span class="color333">4张</span>&nbsp;可用</em>
+        </div>
+        <ul class="useCouponList whiteBkg PLR5P">
+            <li class="clearfix">
+                <span class="fl fontSize28 color333">抵扣<em class="colorRed">50元，</em>投资满5000元可用</span>
+                <img class="fr" src="ver_201712/icon_close.png" />
+            </li>
+        </ul>
+
+        <div class="agreeWrap fontSize28 textL">
+            <div class="agreeHd MB5">
+                <img @click="changeSrc" :src="agreeSrc[srcIndex]" />
+                <span class="color999">我同意</span><em @click="isShowAgree">《联璧金融服务协议》</em>
+            </div>
+            <div v-show="isShow" class="subDiv">
+                <p><a class="redTex lineHeight1_8x">《定向委托投资管理协议》</a></p>
+                <p><a class="redTex lineHeight1_8x">《联璧金融平台服务协议》</a></p>
+                <p><a class="redTex lineHeight1_8x">《风险提示书》</a></p>
+            </div>
+        </div>
+
+        <div class="cashCouponOut positionF fontSize28">
+            <div class="cashCouponIn whiteBkg">
+                <p class="fontSize30 cashCouponTitle">可使用代金券</p>
+                <ul class="cashCouponList">
+                    <li class="clearfix">
+                        <div class="fl leftBox textL whiteTex">
+                            <p class="fontSize36">零钱计划</p>
+                            <p>投资满500元使用</p>
+                            <p>有效期至: 2017/12/30</p>
+                        </div>
+                        <div class="fr rightBox fontSize28">
+                            <p><span class="strong fontSize36">200</span>元</p>
+                            <em class="whiteTex fontSize28">福利礼包</em>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="closeBtn positionF">
+                <img src="ver_201712/icon_closedown.png" />
+            </div>
+        </div>
+
+        <a class="goInvest inlineB positionF fontSize36 whiteTex" href="#">立即投资</a>
+    </div>
+</body>
+<script>
+
+    var VM=new Vue({
+        el: '#myVue',
+        data: function(){
+            return {
+                isShow:false ,
+                agreeSrc:['checkbox2.png','checkbox1.png'],
+                srcIndex: 0
+            }
+        },
+        methods:{
+            isShowAgree:function(){   
+                this.isShow=!this.isShow;
+            },
+            changeSrc:function(){
+                this.srcIndex>0?this.srcIndex=0:this.srcIndex=1;
+            }
+        }
+
+
+
+    });
+
+
+</script>
+</html>

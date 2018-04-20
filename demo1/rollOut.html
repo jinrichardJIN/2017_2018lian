@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="no" />
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="x5-orientation" content="portrait">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/weixin/reset.css?<%=request.getAttribute(" version ")%>" />
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/weixin/layout.css?<%=request.getAttribute(" version ")%>" />
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/weixin/main.css?<%=request.getAttribute(" version ")%>" />
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/weixin/depository/demandExtraction.css?<%=request.getAttribute(" version ")%>" />
+		<title>转出</title>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				getRem(750, 100)
+			})
+
+			window.onresize = function() {
+				getRem(750, 100)
+			};
+
+			function getRem(pwidth, prem) {
+				var html = document.getElementsByTagName("html")[0];
+				var body = document.getElementsByTagName("body")[0]
+				var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+				html.style.fontSize = oWidth / pwidth * prem + "px";
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div class="rollOutWrap clearfix whiteBkg">
+			<div class="fl ringWrap">
+				<span id="canvasBox" class="inlineB"></span>
+				<p class="fontSize36 strong">2,250.00</p>
+				<div class="fontSize28 color999">可转出总金额(元)</div>
+			</div>
+			<div class="fr fontSize28 textL investAmt">
+				<div class="positionR">50.00</div>
+				<div class="color999">在投收益(元)<img src="ver_201712/personal_explain.png" /></div>
+				<div class="positionR">2,200.00</div>
+				<div class="color999">可转出本金(元)<img src="ver_201712/personal_explain.png" /></div>
+			</div>
+		</div>
+		<div class="MT10 whiteBkg PLR5P rollDetail">
+			<div class="fontSize28 clearfix">
+				<span class="fl color999">在投本金(元)</span>
+				<span class="fr color333">2,500.00</span>
+			</div>
+			<div class="fontSize28 clearfix">
+				<span class="fl color999">赎回中金额(元)<img class="explainIcon" src="ver_201712/personal_explain.png" /></span>
+				<span class="fr color333">100.00</span>
+			</div>
+			<div class="fontSize28 clearfix positionR">
+				<span class="fl color999">锁定中金额(元)</span>
+			</div>
+		</div>
+		<div class="textL PLR5P rollTip">
+			<p class="fontSize36">产品小贴士</p>
+			<div class="fontSize28">1.转出免手续费</div>
+			<div class="fontSize28">2.转出成功后，转出金额将汇至您的账户余额中</div>
+		</div>
+		<div class="positionF btnWrap fontSize28 width100">
+			<span class="inlineB fl color333">提取收益</span>
+			<span class="inlineB fl whiteTex">转出本金</span>
+		</div>
+		<div class="alertBoxLJ none">
+			<!--弹窗（转出本金）-->
+			<div class="backGroundWhite  positionA top50 MT_100 width80P left10 borderRadius10px" id="TransferFundBox">
+				<div class="boxSizing lineHeight50 borderBottomG  height50 strong">请输入转出本金</div>
+				<div class="boxSizing width80 blockC height60 lineHeight60 borderBottomG font18">
+					￥&nbsp;&nbsp;
+					<input type="text" class="width80" name="inputAmount" id="inputAmount" value="" readonly="readonly" placeholder="">
+				</div>
+				<div class="textL width80 blockC font12 wordColor9 boxSizing">
+					<p class="PB10 PT10 lineHeight20">
+						转出本金为100的整数倍，或者本金全部转出
+					</p>
+				</div>
+				<div class="overHidden height50 lineHeight50 textC boxSizing ">
+					<span class="inlineB floatL boderTopgainsboro height50 boxSizing height50" id="TransferFundCancel">取消</span>
+					<span class="inlineB backGroundff5959  height50 sureBox wordColorFFFFF" id="TransferFundSure">确定</span>
+				</div>
+			</div>
+
+		</div>
+		<!--弹窗（全部收益）-->
+		<div class="alertBoxLJTwo none">
+			<div class="backGroundWhite  positionA top50 MT_100 width80P left10 borderRadius10px " id="sureTradeBox">
+				<div class="boxSizing lineHeight50 borderBottomG height50 strong">确认信息</div>
+				<div class="font12 wordColor9 boxSizing height100">
+					<p class="height60 lineHeight60 font16 ">确定转出全部收益</p>
+					<p class="height40  font14 wordColorff5959 helveticaneue">￥<span class="font22 helveticaneue strong extractableIncomeAmt">8000</span></p>
+				</div>
+				<div class="overHidden height50 lineHeight50 textC boxSizing">
+					<span class="inlineB floatL boderTopgainsboro boxSizing  height50" id="cancel">取消</span>
+					<span class="inlineB backGroundff5959 height50 sureBox wordColorFFFFF" id="sure">确定</span>
+				</div>
+			</div>
+		</div>
+
+		<!--虚拟键盘-->
+		<div class="clearfix textC blackTex font20 none" id="KeyboardWrap">
+			<ul class="fl width100" id="numberKeyboard">
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardOne" keyboard="1">1</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardTwo" keyboard="2">2</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardThree" keyboard="3">3</li>
+				<li class="fr width25 heigh50 font18 borderR borderT boxSizing not returnKeyboard" id="keyboardReturn" keyboard="reture"></li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardFour" keyboard="4">4</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardFive" keyboard="5">5</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardSix" keyboard="6">6</li>
+				<li class="fr width25 heigh50 boxSizing not font18" id="keyboardConfirm" keyboard="confirm">确定</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardSeven" keyboard="7">7</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardEight" keyboard="8">8</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardNine" keyboard="9">9</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20 not" id="keyboardPoint" keyboard=".">.</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardZero" keyboard="0">0</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardTwoZero" keyboard="00">00</li>
+			</ul>
+		</div>
+
+		<!--密码输入-->
+		<div class="wrapper PT5P positionF whiteBkg height100P" id="usePassword" style="top:200%;z-index: 1000;">
+			<div class="width90 blockC">
+				<div class="MT20 textC font20" id="promptArea">请输入交易密码</div>
+			</div>
+			<div class="width95 blockC">
+				<div class="MT20">
+					<ul class="keyboard">
+						<li>
+							<a class="border" id="keyboardOne" keyboard="1">1</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardTwo" keyboard="2">2</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardThree" keyboard="3">3</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardFour" keyboard="4">4</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardFive" keyboard="5">5</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardSix" keyboard="6">6</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardSeven" keyboard="7">7</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardEight" keyboard="8">8</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardNine" keyboard="9">9</a>
+						</li>
+						<li>
+							<a class="redBorder" id="keyboardReturn" keyboard="reture">回退</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardZero" keyboard="0">0</a>
+						</li>
+						<li>
+							<a class="redBorder" id="keyboardEnter" keyboard="enter">确定</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<%@  include file="../../weixin/baiduStatistics.jsp"%>
+	</body>
+	<script>
+		/**
+		 * ==================================
+		 * opts.parent 插入到哪里 一个JS元素对象
+		 * opts.width 宽度 = 2* (半径+弧宽)
+		 * opts.radius 半径
+		 * opts.arc 弧宽
+		 * opts.perent 百分比
+		 * opts.color 弧渲染颜色 [底色,进度色]
+		 * opts.textColor 文字渲染颜色
+		 * opts.textSize 文字渲染大小
+		 * opts.animated 是否以动画的方式绘制 默认false
+		 * opts.after 绘制完成时执行函数
+		 * ==================================
+		 **/
+		var w = document.getElementById('canvasBox').clientWidth;
+		w = w / 2;
+		var opts1 = {
+			parent: document.getElementById('canvasBox'),
+			perent: 50,
+			width: w
+		}
+		drawRing(opts1);
+
+		function drawRing(opts) {
+			var _opts = {
+					parent: document.body,
+					width: 50,
+					radius: 22,
+					arc: 10,
+					perent: 76.5,
+					color: ['#FAAB4C', '#FA604C'],
+					textColor: '#000',
+					textSize: '0',
+					animated: true,
+					after: function() {}
+				},
+				k;
+			for(k in opts) _opts[k] = opts[k];
+
+			var parent = _opts.parent,
+				width = _opts.width,
+				radius = _opts.radius,
+				arc = _opts.arc,
+				perent = parseFloat(_opts.perent),
+				color = _opts.color,
+				textSize = _opts.textSize,
+				textColor = _opts.textColor,
+				c = document.createElement('canvas'),
+				ctx = null,
+				x = 0,
+				animated = _opts.animated,
+				after = _opts.after;
+
+			parent.appendChild(c);
+			ctx = c.getContext("2d");
+			ctx.canvas.width = width;
+			ctx.canvas.height = width;
+
+			function clearFill() {
+				ctx.clearRect(0, 0, width, width);
+			}
+
+			function fillBG() {
+				ctx.beginPath();
+				ctx.lineWidth = arc;
+				ctx.strokeStyle = color[0];
+				ctx.arc(width / 2, width / 2, radius, 0, 2 * Math.PI);
+				ctx.stroke();
+			}
+
+			function fillArc(x) {
+				ctx.beginPath();
+				ctx.lineWidth = arc;
+				ctx.strokeStyle = color[1];
+				ctx.arc(width / 2, width / 2, radius, -90 * Math.PI / 180, (x * 3.6 - 90) * Math.PI / 180);
+				ctx.stroke();
+			}
+
+			function fillText(x) {
+				ctx.font = textSize + ' Arial';
+				ctx.fillStyle = textColor;
+				ctx.textBaseline = "middle";
+				ctx.textAlign = 'center';
+				ctx.fillText(x.toFixed(1) + '%', width / 2, width / 2);
+			}
+
+			function fill(x) {
+				fillBG();
+				fillArc(x);
+				fillText(x);
+			}
+
+			if(!animated) return fill(perent);
+
+			fill(x);
+			! function animate() {
+				if(++x > perent) return after && after();
+				setTimeout(animate, 10);
+				clearFill();
+				fill(x);
+			}();
+		}
+	</script>
+
+</html>

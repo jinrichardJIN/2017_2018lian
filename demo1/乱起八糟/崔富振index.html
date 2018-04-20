@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>prod</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.prod {
+				width: 600px;
+				margin: 0 auto;
+				border: 1px solid #ccc;
+			}
+			
+			.buy {
+				padding: 10px;
+			}
+			
+			.pic {
+				width: 600px;
+				height: 500px;
+				overflow: hidden;
+			}
+			
+			.pic img {
+				width: 600px;
+			}
+			
+			.modal-back {
+				position: fixed;
+				top: 0;
+				left: 50%;
+				margin-left: -300px;
+				width: 600px;
+				height: 100%;
+				background: rgba(0, 0, 0, .7);
+				display: none;
+			}
+			
+			.modal {
+				position: fixed;
+				top: 200px;
+				left: 50%;
+				margin-left: -250px;
+				width: 500px;
+				border: 1px solid #ccc;
+				background: #fff;
+				display: none;
+			}
+			
+			.modal table {
+				width: 500px;
+				border-collapse: collapse;
+			}
+			
+			.modal table th,
+			.modal table td {
+				text-align: left;
+				border: 1px solid #ccc;
+				height: 30px;
+				padding: 0 5px;
+			}
+			
+			.modal table td input {
+				width: 60px;
+			}
+			
+			.button-create-order {
+				width: 100px;
+				line-height: 20px;
+				padding: 10px;
+				background: #ccc;
+				text-align: center;
+			}
+			
+			.button-create-order-ok {
+				background: #2cca6f;
+			}
+		</style>
+		<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<div class="prod"></div>
+		<div class="modal-back"></div>
+		<div class="modal">
+			<p>单价10元／件</p>
+			<br>
+			<table class="J-table">
+				<thead>
+					<tr>
+						<th>尺码</th>
+						<th>S</th>
+						<th>M</th>
+						<th>L</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+			<br>
+			<div>合计：<span class="J-num">0</span>件</div>
+			<div>总价：<span class="J-total">0</span>元</div>
+			<div class="J-create-order button-create-order">立即下单</div>
+		</div>
+		<script>
+			$(function() {
+				// 初始数据
+				const data = {
+					"title": "美丽的连衣裙",
+					"number": "test01",
+					"brand": "海贝",
+					"pic": "http://img30.360buyimg.com/popWaterMark/jfs/t4147/11/1915664005/307826/6ea9bf87/58c8b07bN2c83b024.jpg",
+					"price": "100.01",
+					"color": [{
+							'name': '红色',
+							'size': [{
+									'name': 'S',
+									'stock': 101
+								},
+								{
+									'name': 'M',
+									'stock': 200
+								},
+								{
+									'name': 'L',
+									'stock': 300
+								}
+							]
+						},
+						{
+							'name': '绿色',
+							'size': [{
+									'name': 'S',
+									'stock': 100
+								},
+								{
+									'name': 'M',
+									'stock': 200
+								},
+								{
+									'name': 'L',
+									'stock': 300
+								}
+							]
+						},
+						{
+							'name': '蓝色',
+							'size': [{
+									'name': 'S',
+									'stock': 100
+								},
+								{
+									'name': 'M',
+									'stock': 200
+								},
+								{
+									'name': 'L',
+									'stock': 300
+								}
+							]
+						}
+					]
+				}
+
+				// 商品信息
+				let dom_pro_info = `
+		            <div class="pic"><img src="${data.pic}"></div>
+		            <h1>${data.title}</h1>
+		            <p>价格：&yen; ${data.price}</p>
+		            <p>货号：${data.number} | 品牌：${data.brand}</p>
+		            <br>
+		            <h2>商品信息</h2>
+		            <p>颜色：红色，绿色，蓝色</p>
+		            <p>尺码：S, M, L</p>
+		            <br>
+		            <button class="buy J-buy">立即购买</button>
+		        `;
+
+				// 插入商品信息
+				$('.prod').append(dom_pro_info);
+
+				// 读取颜色以及尺码
+				$.each(data.color, function(i, color) {
+
+					let tds = '';
+					$.each(color.size, function(i, size) {
+						tds += `<td><input class="J-input" type="text" data-stock="${size.stock}" placeholder="${size.stock}"></td>`;
+					});
+
+					$('.J-table tbody').append(`
+                <tr>
+                    <td>${color.name}</td>
+                    ${tds}
+                </tr>
+            `);
+				})
+
+				/**
+				 * 验证
+				 * obj.dom 当前验证到input
+				 * obj.isShowAlert 验证不通过时候是否展示弹框
+				 */
+				let check = function(obj) {
+					let stock = obj.dom.attr('data-stock');
+					let val = obj.dom.val() * 1;
+
+					let my_obj = {
+						dom: obj.dom
+					}
+
+					if(/^[1-9]\d*$/.test(val)) {
+						if(val > stock) {
+							my_obj.result = false;
+							if(obj.isShowAlert) {
+								alert('购买数量不能大于库存');
+							}
+							obj.dom.focus();
+						} else {
+							my_obj.result = true;
+						}
+
+					} else {
+						my_obj.result = false;
+						if(obj.isShowAlert) {
+							alert('购买数量只能输入正整数');
+						}
+						obj.dom.focus();
+					}
+
+					return my_obj;
+
+				}
+
+				// 计算解雇
+				let getResult = function() {
+					let istrue = true;
+					let total = 0;
+
+					$('.J-input').each(function() {
+
+						if($(this).val()) {
+							// 当前input验证结果
+							let checkResult = check({
+								dom: $(this),
+								isShowAlert: false
+							}).result;
+
+							total += $(this).val() * 1
+
+							if(!checkResult) {
+								istrue = false;
+								return false;
+							}
+						}
+
+					})
+
+					// 输入都合法
+					if(istrue) {
+						$('.J-num').text(total);
+						$('.J-total').text(total * 10);
+
+						if(total > 0) {
+							$('.J-create-order').addClass('button-create-order-ok');
+						}
+					} else {
+						$('.J-num').text(0);
+						$('.J-total').text(0);
+						$('.J-create-order').removeClass('button-create-order-ok');
+					}
+				}
+
+				// 输入完成后的判断
+				$('.J-input').change(function() {
+					let checkResult = check({
+						dom: $(this),
+						isShowAlert: true
+					}).result;
+
+					getResult();
+
+				})
+
+				// 立即购买
+				$('.J-buy').click(function() {
+					$('.modal-back').show();
+					$('.modal').show();
+				})
+				// 立即下单
+				$('.J-create-order').click(function() {
+					if($(this).hasClass('button-create-order-ok')) {
+						alert('下单成功');
+					} else {
+						alert('输入不正确');
+					}
+				})
+
+			})
+		</script>
+
+	</body>
+
+</html>

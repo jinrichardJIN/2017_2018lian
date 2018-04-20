@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		ul{
+			position:relative;
+			margin-left:50px;
+			perspective:10000px;
+		}
+		li{
+			list-style:none;
+			width:100px;
+			height:150px;
+			background:salmon;
+			position:absolute;
+			
+			transform:translateZ(-500px);
+			left:0px;
+		}
+		.translatez0{
+			animation:anmiate 2s;
+		}
+		.translatez100{
+			left:0px;
+		}
+		
+		
+		@keyframes anmiate{
+			0%{
+				background:darkslateblue;
+				z-index:1 !important;
+				transform:translateZ(-500px) !important;
+				left:-10px !important;
+			}
+			50%{
+				transform:translateZ(-250px) !important;
+			}
+			100%{
+				transform:translateZ(0px) !important;
+			}
+		}
+		
+	</style>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		function anmiate(num){
+			$('li').addClass('translatez100').removeClass('translatez0').eq(num).toggleClass('translatez0');;
+		}
+		
+		
+		
+	</script>
+</html>

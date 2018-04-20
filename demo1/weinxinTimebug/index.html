@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body>
+			<div class="a">
+				
+			</div>
+			<div class="b">
+				
+			</div>
+			<div class="c">
+				
+			</div>
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var a = new Date('2017-12-26 10:40:13').getTime(); //NAN
+		var b = new Date('2017-12-26T10:40:13').getTime(); //OK
+		var a1 = new Date('2017/12/26 10:40:13').getTime(); //NAN
+		var b1 = new Date('2017/12/26 10:40:13').getTime(); //OK
+		var c = new Date(b1);
+		$('.c').html(c);
+		$('.a').html(a1);
+		$('.b').html(b1);
+		
+		var str = '2017-12-26 10:40:13';
+			str = str.replace(/\s/,'T');
+			str1 = str.replace(' ','T');
+			console.log(str);
+			console.log(str1);
+		
+		
+
+		function stringToDate(str) { 
+			var tempStrs = str.split(" "); 
+			var dateStrs = tempStrs[0].split("-"); 
+			var year = parseInt(dateStrs[0], 10); 
+			var month = parseInt(dateStrs[1], 10) - 1; 
+			var day = parseInt(dateStrs[2], 10); 
+			var timeStrs = tempStrs[1].split(":"); 
+			var hour = parseInt(timeStrs[0], 10); 
+			var minute = parseInt(timeStrs[1], 10); 
+			var second = parseInt(timeStrs[2], 10); 
+			var date = new Date(year, month, day, hour, minute, second); 
+			return date; 
+		}
+		
+		
+		str12 = '2017-12-28 11:55:58';
+		str12 = str12.replace(/-/,'/');
+		alert(str12);
+		
+	</script>
+
+</html>

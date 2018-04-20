@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="no" />
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="reset.css" />
+		<link rel="stylesheet" type="text/css" href="main.css" />
+		<link rel="stylesheet" type="text/css" href="layout.css" />
+		<link rel="stylesheet" type="text/css" href="test.css" />
+	</head>
+
+	<body>
+		<div class="backGroundWhite">
+			<p class="PT50 font12 wordColor9">可转出总金额&nbsp;&nbsp;
+				<img width="15" height="15" style="vertical-align: middle;" src="${pageContext.request.contextPath}/pic/weixin/depository/doubt.png" alt="" />
+			</p>
+			<p class="MT10 font18 wordColorff5959"><span>￥</span><span class="font30 helveticaneue strong extractableAmt">36,145</span></p>
+			<p class="MT20 font14  ">在投本金&nbsp;&nbsp;<span class="wordColorff5959 helveticaneue strong valuePrincipal">30000.001</span></p>
+		</div>
+		<ul class="moneyFour PT20 overFlowH backGroundWhite">
+			<li>
+				<p>
+					<span class="helveticaneue strong matchingAmount">00</span>
+					<span class="font12 wordColor9 MT10P ">撮合中金额（元）</span>
+				</p>
+			</li>
+			<li>
+				<p>
+					<span class="helveticaneue strong extractableIncomeAmt">3</span>
+					<span class="font12 wordColor9 MT10P">在投收益（元）</span>
+				</p>
+			</li>
+			<li class="borderBottomG">
+				<p>
+					<span class="helveticaneue strong investFrozenAmt">4</span>
+					<span class="font12 wordColor9 MT10P">锁定期金额（元）</span>
+				</p>
+			</li>
+			<li class="borderBottomG">
+				<p>
+					<span class="helveticaneue strong extractablePrincipalAmt">4</span>
+					<span class="font12 wordColor9 MT10P ">可转出本金（元）</span>
+				</p>
+			</li>
+		</ul>
+		<div class="productTip  font14 textL wordColor9 PB100">
+			<div class="width90 blockC">
+				<p class="PT20 PB10">产品小贴示</p>
+				<p>1.转出免手续费</p>
+				<p>2.优先转出在投收益</p>
+				<p>3.转出成功后，转出余额将汇至您的账户余额中</p>
+			</div>
+		</div>
+
+		<div class="bottomButton wordColorFFFFF">
+			<span class="wordColorff5959 backGroundWhite  boxSizing height50" id="extractionIncome">提取收益</span>
+			<span class="backGroundff5959" id="alertBoxShow">转出本金</span>
+		</div>
+
+		<div class="alertBoxLJ none">
+			<!--弹窗（转出本金）-->
+			<div class="backGroundWhite  positionA top50 MT_100 width80P left10 borderRadius10px" id="TransferFundBox">
+				<div class="boxSizing lineHeight50 borderBottomG  height50 strong">请输入转出本金</div>
+				<div class="boxSizing height60 lineHeight60 borderBottomG font18">
+					￥&nbsp;&nbsp;
+					<input type="text" class="" name="inputAmount" id="inputAmount" value="" readonly="readonly" placeholder="可用转出">
+				</div>
+				<div class="lineHeight40 font12 wordColor9 boxSizing height40">转出本金100的整数值，不足100最后转出</div>
+				<div class="overHidden height50 lineHeight50 textC boxSizing ">
+					<span class="inlineB floatL boderTopgainsboro height50 boxSizing height50" id="TransferFundCancel">取消</span>
+					<span class="inlineB backGroundff5959  height50 sureBox wordColorFFFFF" id="TransferFundSure">确定</span>
+				</div>
+			</div>
+
+		</div>
+		<!--弹窗（确认转出本金）-->
+		<div class="alertBoxLJTwo none">
+			<div class="backGroundWhite  positionA top50 MT_100 width80P left10 borderRadius10px " id="sureTradeBox">
+				<div class="boxSizing lineHeight50 borderBottomG height50 strong">确认信息</div>
+				<div class="font12 wordColor9 boxSizing height100">
+					<p class="height60 lineHeight60 font16 ">确定转出全部收益</p>
+					<p class="height40  font14 wordColorff5959 helveticaneue">￥<span class="font22 helveticaneue strong">8000</span></p>
+				</div>
+				<div class="overHidden height50 lineHeight50 textC boxSizing">
+					<span class="inlineB floatL boderTopgainsboro boxSizing  height50" id="cancel">取消</span>
+					<span class="inlineB backGroundff5959 height50 sureBox wordColorFFFFF" id="sure">确定</span>
+				</div>
+			</div>
+		</div>
+
+		<!--虚拟键盘-->
+		<div class="clearfix textC blackTex font20 none" id="KeyboardWrap">
+			<ul class="fl width100" id="numberKeyboard">
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardOne" keyboard="1">1</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardTwo" keyboard="2">2</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardThree" keyboard="3">3</li>
+				<li class="fr width25 heigh50 font18 borderR borderT boxSizing not returnKeyboard" id="keyboardReturn" keyboard="reture"></li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardFour" keyboard="4">4</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardFive" keyboard="5">5</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardSix" keyboard="6">6</li>
+				<li class="fr width25 heigh50 boxSizing not font18" id="keyboardConfirm" keyboard="confirm">确定</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardSeven" keyboard="7">7</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardEight" keyboard="8">8</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardNine" keyboard="9">9</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20 not" id="keyboardPoint" keyboard=".">.</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardZero" keyboard="0">0</li>
+				<li class="fl width25 heigh50 borderR borderT boxSizing strong font20" id="keyboardTwoZero" keyboard="00">00</li>
+			</ul>
+		</div>
+
+		<!--密码输入-->
+		<div class="wrapper PT5P positionF whiteBkg height100P" id="usePassword" style="top:200%;z-index: 1000;">
+			<div class="width90 blockC">
+				<div class="MT20 textC font20" id="promptArea">请输入交易密码</div>
+			</div>
+			<div class="width95 blockC">
+				<div class="MT20">
+					<ul class="keyboard">
+						<li>
+							<a class="border" id="keyboardOne" keyboard="1">1</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardTwo" keyboard="2">2</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardThree" keyboard="3">3</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardFour" keyboard="4">4</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardFive" keyboard="5">5</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardSix" keyboard="6">6</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardSeven" keyboard="7">7</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardEight" keyboard="8">8</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardNine" keyboard="9">9</a>
+						</li>
+						<li>
+							<a class="redBorder" id="keyboardReturn" keyboard="reture">回退</a>
+						</li>
+						<li>
+							<a class="border" id="keyboardZero" keyboard="0">0</a>
+						</li>
+						<li>
+							<a class="redBorder" id="keyboardEnter" keyboard="enter">确定</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../src/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../src/merge.js" type="text/javascript" charset="utf-8"></script>
+	<script src="test.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//数据初始化
+		ajaxRequest(contextPath + 'webClient', 'functionId=extractProductPage', initial)
+		/*
+		 *  extractableAmt	String	可转出总金额
+			valuePrincipal	String	在投本金	
+			matchingAmount	String	撮合中金额
+			extractableIncomeAmt	String	在投收益
+			investFrozenAmt	String	锁定期金额
+			extractablePrincipalAmt	String	可转出本金
+
+		 * 
+		 */
+		function initial(res) {
+			$('.extractableAmt').html(res.extractableAmt);
+			$('.valuePrincipal').html(res.valuePrincipal);
+			$('.matchingAmount').html(res.matchingAmount);
+			$('.extractableIncomeAmt').html(res.extractableIncomeAmt);
+			$('.investFrozenAmt').html(res.investFrozenAmt);
+			$('.extractablePrincipalAmt').html(res.extractablePrincipalAmt);
+		}
+
+		//提取收益
+		$('#extractionIncome').click(function() {
+			$(this).css('background', '#ff5959');
+			$(this).css('color', '#ffffff');
+			$('#alertBoxShow').css('color', '#ff5959');
+			$('#alertBoxShow').css('background', '#ffffff');
+
+			$('.alertBoxLJTwo').show();
+		})
+
+		//确定提取收益
+		$('#sure').click(function() {
+			$('.alertBoxLJTwo').hide();
+			usePassword();
+		})
+		//取消提取收益
+		$('#cancel').click(function() {
+			$('.alertBoxLJTwo').hide();
+		})
+
+		//转出本金
+		$('#alertBoxShow').click(function() {
+			$('#extractionIncome').css('background', '#ffffff');
+			$('#extractionIncome').css('color', '#ff5959');
+			$(this).css('color', '#ffffff');
+			$(this).css('background', '#ff5959');
+
+			$('.alertBoxLJ').show();
+		})
+
+		//确定转出本金
+		$('#TransferFundSure').click(function() {
+			$('#KeyboardWrap').hide(200);
+			$('#TransferFundBox').animate({
+				top: 50 + '%'
+			}, function() {
+				$('#sureTradeBox').show();
+			});
+			usePassword();
+
+		})
+		//取消转出本金
+		$('#TransferFundCancel').click(function() {
+			$('.alertBoxLJ').hide();
+			$('#KeyboardWrap').hide(200);
+			$('#TransferFundBox').animate({
+				top: 50 + '%'
+			})
+		})
+
+		//调取数字键盘
+		$('#inputAmount').click(function() {
+			$('#KeyboardWrap').show(200);
+			$('#TransferFundBox').animate({
+				top: 40 + '%'
+			})
+		})
+
+		//数字键盘逻辑
+		var xFunction;
+		var input = function(price) { // 数字初始化
+			var num = $("#inputAmount").val() + price;
+			$("#inputAmount").val(num);
+			$.checkLimit($("#inputAmount"), $("#inputAmount").attr("minNumber"), true);
+		}
+		var inputNumber = function(price) { //显示输入数字
+			if(price == "reture") {
+				var num = $("#inputAmount").val();
+				num = num.substring(0, num.length - 1);
+				$("#inputAmount").val(num);
+				$.checkLimit($("#inputAmount"), $("#inputAmount").attr("minNumber"), false); // 这里传false，是因为当为0.00 时可以删除了，如果为false就不能删除了
+			}
+			if(price == ".") {
+				input(price)
+			}
+			if(price >= 0 && price <= 9) {
+				input(price)
+			}
+		}
+		$(document).ready(function() {
+			$("#numberKeyboard li").click(function() {
+				inputNumber($(this).attr("keyboard"));
+			});
+		});
+
+		//自定义键盘   点击键盘确认键
+		$("#keyboardConfirm").click(function() {
+			$(".wrap").removeClass("height100P");
+			$("#momeyBox").stop().slideUp(200);
+			$('#goPay').css("margin-bottom", "0px");
+			$('#KeyboardWrap').hide();
+			$('#TransferFundBox').animate({
+				top: 50 + '%'
+			})
+		});
+		//去除active
+		$("#numberKeyboard").on("click", "li", function() {
+			var confirm = $(this).attr("keyboard");
+			if(!(confirm == "confirm")) {
+				$("#shortcut li").removeClass("active");
+			}
+		})
+
+		//密码逻辑
+
+		var password = new Array;
+		var xFunction;
+		var promptAreaInitialization = function() { // 文案初始化
+			$("#promptArea").css("color", "black");
+			$("#promptArea").html("请输入交易密码");
+			password = new Array;
+		}
+		var usePassword = function(sFunction) {
+			xFunction = sFunction
+			promptAreaInitialization();
+			$("#usePassword").animate({ top: '0' }, "fast");
+		}
+		var showError = function(txt) {
+			if(txt != null && txt != "") {
+				$("#promptArea").css("color", "red").html(txt).animate({
+					marginLeft: '-10px'
+				}, 100).animate({
+					marginLeft: '10px'
+				}, 100).animate({
+					marginLeft: '-10px'
+				}, 100).animate({
+					marginLeft: '0px'
+				}, 100, function() {
+					promptAreaInitialization()
+				});
+			} else {
+				$("#promptArea").animate({
+					marginLeft: '-10px'
+				}, 100).animate({
+					marginLeft: '10px'
+				}, 100).animate({
+					marginLeft: '-10px'
+				}, 100).animate({
+					marginLeft: '0px'
+				}, 100);
+			}
+		};
+		var inputPassword = function(price) { //显示输入密码
+			if(price == "enter") {
+				if(password.length == 6) {
+					//提交
+					var ss = "";
+					for(i = 0; i < password.length; i++) {
+						ss += password[i];
+					}
+					$("#usePassword").animate({ top: '100%' }, "fast");
+					xFunction(ss);
+				} else {
+					showError("密码不能小于六位！");
+				}
+				return false;
+			}
+			if(price == "reture") {
+				if(password.length > 1) {
+					password.pop(); //删除
+				} else {
+					promptAreaInitialization();
+				}
+			}
+			if(price >= 0 && price <= 9) {
+				if(password.length < 6) {
+					password.push(price); //正常数字输入
+				} else {
+					showError();
+				}
+			}
+			if(password.length <= 6 && password.length > 0) { //输入1到6位数字
+				var ss = "";
+				for(i = 1; i <= password.length; i++) {
+					ss += "*";
+				}
+				$("#promptArea").html(ss);
+			}
+		}
+		$(document).ready(function() {
+			$(".keyboard li a").click(function() {
+				inputPassword($(this).attr("keyboard"));
+			});
+		});
+	</script>
+
+</html>

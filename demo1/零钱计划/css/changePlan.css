@@ -1,0 +1,101 @@
+html{
+    font-size: 100px;
+}
+.fontSize0{
+    font-size: 0;
+}
+.fontSize24{
+    font-size: 0.24rem;
+}
+.fontSize26{
+    font-size: 0.26rem;
+}
+.fontSize28{
+    font-size: 0.28rem;
+}
+.fontSize36{
+    font-size: 0.36rem;
+}
+.color999{
+    color: #999;
+}
+.color333{
+    color: #333;
+}
+.PLR10P{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.headerWrap{
+    height: 2.6rem;
+    padding-top: 0.8rem;
+    background: #FFF url("../ver_201712/personal_change_bg.png") no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+}
+.headerWrap p{
+    font-size: 0.6rem;
+}
+.userInvest .dataBox{
+    width: 50%;
+    height: 2rem;
+    font-size: 0.42rem;
+    box-sizing: border-box;
+    padding-top: 0.5rem;
+}
+.dataBox img{
+    position: relative;
+    top: 0.06rem;
+    width: 0.36rem;
+    margin-left: 0.1rem;
+}
+.userInvest .dataBox:nth-child(3),.userInvest .dataBox:nth-child(4){
+    padding-top: 0.2rem;
+}
+.userInvest .dataBox:nth-child(2),.userInvest .dataBox:nth-child(4){
+    padding-left: 0.4rem;
+}
+.investAbout li{
+    height: 1rem;
+    line-height: 1rem;
+    position: relative;
+}
+.investAbout li:before{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    right: 5%;
+    top: 0.32rem;
+    width: 15px;
+    height: 15px;
+    background: url("../ver_201712/personal_arrow.png") no-repeat;
+    background-size: 100% 100%;
+}
+.investAbout li:nth-child(2){
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+}
+.investAbout img{
+    width: 0.52rem;
+    position: relative;
+    top: 0.26rem;
+    margin-right: 0.2rem;
+}
+.investAbout div img{
+    top: 0.1rem;
+    width: 0.36rem;
+    margin-left: 0.2rem;
+}
+.btnWrap{
+    bottom: 0;
+}
+.btnWrap span:nth-child(1){
+    background: #FFF;
+}
+.btnWrap span{
+    width: 50%;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    background: #FA604C;
+}
