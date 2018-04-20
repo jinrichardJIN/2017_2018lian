@@ -1,7 +1,0 @@
-#eclipse
-.settings
-/WebRoot/WEB-INF/classes/
-/WebRoot/devWeb/src/components/advantage/advantage.vue
-*.rar
-*.log
-.idea
