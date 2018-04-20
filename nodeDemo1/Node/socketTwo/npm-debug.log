@@ -1,0 +1,536 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'socket' ]
+2 info using npm@3.8.9
+3 info using node@v6.2.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData socket
+8 silly fetchNamedPackageData socket
+9 silly mapToRegistry name socket
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'socket',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   name: 'socket',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/socket
+14 verbose request uri https://registry.npmjs.org/socket
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 15:11:47
+17 verbose request id 418eff3e3ad83073
+18 verbose etag W/"54dbe8d4-5f3"
+19 verbose lastModified Wed, 11 Feb 2015 23:42:12 GMT
+20 http request GET https://registry.npmjs.org/socket
+21 http 304 https://registry.npmjs.org/socket
+22 verbose headers { date: 'Thu, 28 Sep 2017 07:11:51 GMT',
+22 verbose headers   via: '1.1 varnish',
+22 verbose headers   'cache-control': 'max-age=300',
+22 verbose headers   etag: 'W/"54dbe8d4-5f3"',
+22 verbose headers   age: '264',
+22 verbose headers   connection: 'keep-alive',
+22 verbose headers   'x-served-by': 'cache-nrt6126-NRT',
+22 verbose headers   'x-cache': 'HIT',
+22 verbose headers   'x-cache-hits': '1',
+22 verbose headers   'x-timer': 'S1506582712.910855,VS0,VE1',
+22 verbose headers   vary: 'Accept-Encoding, Accept' }
+23 silly get cb [ 304,
+23 silly get   { date: 'Thu, 28 Sep 2017 07:11:51 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     'cache-control': 'max-age=300',
+23 silly get     etag: 'W/"54dbe8d4-5f3"',
+23 silly get     age: '264',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-nrt6126-NRT',
+23 silly get     'x-cache': 'HIT',
+23 silly get     'x-cache-hits': '1',
+23 silly get     'x-timer': 'S1506582712.910855,VS0,VE1',
+23 silly get     vary: 'Accept-Encoding, Accept' } ]
+24 verbose etag https://registry.npmjs.org/socket from cache
+25 verbose get saving socket to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\socket\.cache.json
+26 verbose correctMkdir C:\Users\Administrator\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+27 silly install normalizeTree
+28 silly loadCurrentTree Finishing
+29 silly loadIdealTree Starting
+30 silly install loadIdealTree
+31 silly cloneCurrentTree Starting
+32 silly install cloneCurrentTreeToIdealTree
+33 silly cloneCurrentTree Finishing
+34 silly loadShrinkwrap Starting
+35 silly install loadShrinkwrap
+36 silly loadShrinkwrap Finishing
+37 silly loadAllDepsIntoIdealTree Starting
+38 silly install loadAllDepsIntoIdealTree
+39 silly resolveWithNewModule socket@0.0.1 checking installable status
+40 silly cache add args [ 'socket', null ]
+41 verbose cache add spec socket
+42 silly cache add parsed spec Result {
+42 silly cache add   raw: 'socket',
+42 silly cache add   scope: null,
+42 silly cache add   name: 'socket',
+42 silly cache add   rawSpec: '',
+42 silly cache add   spec: 'latest',
+42 silly cache add   type: 'tag' }
+43 silly addNamed socket@latest
+44 verbose addNamed "latest" is being treated as a dist-tag for socket
+45 info addNameTag [ 'socket', 'latest' ]
+46 silly mapToRegistry name socket
+47 silly mapToRegistry using default registry
+48 silly mapToRegistry registry https://registry.npmjs.org/
+49 silly mapToRegistry data Result {
+49 silly mapToRegistry   raw: 'socket',
+49 silly mapToRegistry   scope: null,
+49 silly mapToRegistry   name: 'socket',
+49 silly mapToRegistry   rawSpec: '',
+49 silly mapToRegistry   spec: 'latest',
+49 silly mapToRegistry   type: 'tag' }
+50 silly mapToRegistry uri https://registry.npmjs.org/socket
+51 verbose addNameTag registry:https://registry.npmjs.org/socket not in flight; fetching
+52 verbose get https://registry.npmjs.org/socket not expired, no request
+53 silly addNameTag next cb for socket with tag latest
+54 silly addNamed socket@0.0.1
+55 verbose addNamed "0.0.1" is a plain semver version for socket
+56 silly cache afterAdd socket@0.0.1
+57 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\socket\0.0.1\package\package.json not in flight; writing
+58 verbose correctMkdir C:\Users\Administrator\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+59 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\socket\0.0.1\package\package.json written
+60 silly fetchNamedPackageData microtime
+61 silly mapToRegistry name microtime
+62 silly mapToRegistry using default registry
+63 silly mapToRegistry registry https://registry.npmjs.org/
+64 silly mapToRegistry data Result {
+64 silly mapToRegistry   raw: 'microtime',
+64 silly mapToRegistry   scope: null,
+64 silly mapToRegistry   name: 'microtime',
+64 silly mapToRegistry   rawSpec: '',
+64 silly mapToRegistry   spec: 'latest',
+64 silly mapToRegistry   type: 'tag' }
+65 silly mapToRegistry uri https://registry.npmjs.org/microtime
+66 verbose request uri https://registry.npmjs.org/microtime
+67 verbose request no auth needed
+68 info attempt registry request try #1 at 15:11:48
+69 verbose etag W/"5965005e-8d9b"
+70 verbose lastModified Tue, 11 Jul 2017 16:44:14 GMT
+71 http request GET https://registry.npmjs.org/microtime
+72 http 304 https://registry.npmjs.org/microtime
+73 verbose headers { date: 'Thu, 28 Sep 2017 07:11:52 GMT',
+73 verbose headers   via: '1.1 varnish',
+73 verbose headers   'cache-control': 'max-age=300',
+73 verbose headers   etag: 'W/"5965005e-8d9b"',
+73 verbose headers   age: '263',
+73 verbose headers   connection: 'keep-alive',
+73 verbose headers   'x-served-by': 'cache-nrt6126-NRT',
+73 verbose headers   'x-cache': 'HIT',
+73 verbose headers   'x-cache-hits': '1',
+73 verbose headers   'x-timer': 'S1506582712.105470,VS0,VE4',
+73 verbose headers   vary: 'Accept-Encoding, Accept' }
+74 silly get cb [ 304,
+74 silly get   { date: 'Thu, 28 Sep 2017 07:11:52 GMT',
+74 silly get     via: '1.1 varnish',
+74 silly get     'cache-control': 'max-age=300',
+74 silly get     etag: 'W/"5965005e-8d9b"',
+74 silly get     age: '263',
+74 silly get     connection: 'keep-alive',
+74 silly get     'x-served-by': 'cache-nrt6126-NRT',
+74 silly get     'x-cache': 'HIT',
+74 silly get     'x-cache-hits': '1',
+74 silly get     'x-timer': 'S1506582712.105470,VS0,VE4',
+74 silly get     vary: 'Accept-Encoding, Accept' } ]
+75 verbose etag https://registry.npmjs.org/microtime from cache
+76 verbose get saving microtime to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\microtime\.cache.json
+77 verbose correctMkdir C:\Users\Administrator\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+78 silly resolveWithNewModule microtime@0.2.0 checking installable status
+79 silly cache add args [ 'microtime@=0.2.0', null ]
+80 verbose cache add spec microtime@=0.2.0
+81 silly cache add parsed spec Result {
+81 silly cache add   raw: 'microtime@=0.2.0',
+81 silly cache add   scope: null,
+81 silly cache add   name: 'microtime',
+81 silly cache add   rawSpec: '=0.2.0',
+81 silly cache add   spec: '0.2.0',
+81 silly cache add   type: 'version' }
+82 silly addNamed microtime@0.2.0
+83 verbose addNamed "0.2.0" is a plain semver version for microtime
+84 silly mapToRegistry name microtime
+85 silly mapToRegistry using default registry
+86 silly mapToRegistry registry https://registry.npmjs.org/
+87 silly mapToRegistry data Result {
+87 silly mapToRegistry   raw: 'microtime',
+87 silly mapToRegistry   scope: null,
+87 silly mapToRegistry   name: 'microtime',
+87 silly mapToRegistry   rawSpec: '',
+87 silly mapToRegistry   spec: 'latest',
+87 silly mapToRegistry   type: 'tag' }
+88 silly mapToRegistry uri https://registry.npmjs.org/microtime
+89 verbose addNameVersion registry:https://registry.npmjs.org/microtime not in flight; fetching
+90 verbose get https://registry.npmjs.org/microtime not expired, no request
+91 silly cache afterAdd microtime@0.2.0
+92 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\microtime\0.2.0\package\package.json not in flight; writing
+93 verbose correctMkdir C:\Users\Administrator\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+94 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\microtime\0.2.0\package\package.json written
+95 silly loadAllDepsIntoIdealTree Finishing
+96 silly idealTree:prePrune socketTwo
+96 silly idealTree:prePrune +-- accepts@1.3.3
+96 silly idealTree:prePrune +-- after@0.8.2
+96 silly idealTree:prePrune +-- arraybuffer.slice@0.0.6
+96 silly idealTree:prePrune +-- backo2@1.0.2
+96 silly idealTree:prePrune +-- base64-arraybuffer@0.1.5
+96 silly idealTree:prePrune +-- base64id@1.0.0
+96 silly idealTree:prePrune +-- better-assert@1.0.2
+96 silly idealTree:prePrune +-- blob@0.0.4
+96 silly idealTree:prePrune +-- callsite@1.0.0
+96 silly idealTree:prePrune +-- component-bind@1.0.0
+96 silly idealTree:prePrune +-- component-emitter@1.2.1
+96 silly idealTree:prePrune +-- component-inherit@0.0.3
+96 silly idealTree:prePrune +-- cookie@0.3.1
+96 silly idealTree:prePrune +-- debug@2.6.9
+96 silly idealTree:prePrune +-- engine.io-client@3.1.2
+96 silly idealTree:prePrune +-- engine.io-parser@2.1.1
+96 silly idealTree:prePrune +-- engine.io@3.1.2
+96 silly idealTree:prePrune +-- has-binary2@1.0.2
+96 silly idealTree:prePrune +-- has-cors@1.1.0
+96 silly idealTree:prePrune +-- indexof@0.0.1
+96 silly idealTree:prePrune +-- isarray@2.0.1
+96 silly idealTree:prePrune +-- microtime@0.2.0
+96 silly idealTree:prePrune +-- mime-db@1.30.0
+96 silly idealTree:prePrune +-- mime-types@2.1.17
+96 silly idealTree:prePrune +-- ms@2.0.0
+96 silly idealTree:prePrune +-- negotiator@0.6.1
+96 silly idealTree:prePrune +-- object-assign@4.1.1
+96 silly idealTree:prePrune +-- object-component@0.0.3
+96 silly idealTree:prePrune +-- parseqs@0.0.5
+96 silly idealTree:prePrune +-- parseuri@0.0.5
+96 silly idealTree:prePrune +-- safe-buffer@5.0.1
+96 silly idealTree:prePrune +-- socket.io-adapter@1.1.1
+96 silly idealTree:prePrune +-- socket.io-client@2.0.3
+96 silly idealTree:prePrune +-- socket.io-parser@3.1.2
+96 silly idealTree:prePrune +-- socket.io@2.0.3
+96 silly idealTree:prePrune +-- socket@0.0.1
+96 silly idealTree:prePrune +-- to-array@0.1.4
+96 silly idealTree:prePrune +-- ultron@1.1.0
+96 silly idealTree:prePrune +-- uws@0.14.5
+96 silly idealTree:prePrune +-- ws@2.3.1
+96 silly idealTree:prePrune +-- xmlhttprequest-ssl@1.5.3
+96 silly idealTree:prePrune `-- yeast@0.1.2
+97 silly loadIdealTree Finishing
+98 silly currentTree socketTwo
+98 silly currentTree +-- accepts@1.3.3
+98 silly currentTree +-- after@0.8.2
+98 silly currentTree +-- arraybuffer.slice@0.0.6
+98 silly currentTree +-- backo2@1.0.2
+98 silly currentTree +-- base64-arraybuffer@0.1.5
+98 silly currentTree +-- base64id@1.0.0
+98 silly currentTree +-- better-assert@1.0.2
+98 silly currentTree +-- blob@0.0.4
+98 silly currentTree +-- callsite@1.0.0
+98 silly currentTree +-- component-bind@1.0.0
+98 silly currentTree +-- component-emitter@1.2.1
+98 silly currentTree +-- component-inherit@0.0.3
+98 silly currentTree +-- cookie@0.3.1
+98 silly currentTree +-- debug@2.6.9
+98 silly currentTree +-- engine.io-client@3.1.2
+98 silly currentTree +-- engine.io-parser@2.1.1
+98 silly currentTree +-- engine.io@3.1.2
+98 silly currentTree +-- has-binary2@1.0.2
+98 silly currentTree +-- has-cors@1.1.0
+98 silly currentTree +-- indexof@0.0.1
+98 silly currentTree +-- isarray@2.0.1
+98 silly currentTree +-- mime-db@1.30.0
+98 silly currentTree +-- mime-types@2.1.17
+98 silly currentTree +-- ms@2.0.0
+98 silly currentTree +-- negotiator@0.6.1
+98 silly currentTree +-- object-assign@4.1.1
+98 silly currentTree +-- object-component@0.0.3
+98 silly currentTree +-- parseqs@0.0.5
+98 silly currentTree +-- parseuri@0.0.5
+98 silly currentTree +-- safe-buffer@5.0.1
+98 silly currentTree +-- socket.io-adapter@1.1.1
+98 silly currentTree +-- socket.io-client@2.0.3
+98 silly currentTree +-- socket.io-parser@3.1.2
+98 silly currentTree +-- socket.io@2.0.3
+98 silly currentTree +-- to-array@0.1.4
+98 silly currentTree +-- ultron@1.1.0
+98 silly currentTree +-- uws@0.14.5
+98 silly currentTree +-- ws@2.3.1
+98 silly currentTree +-- xmlhttprequest-ssl@1.5.3
+98 silly currentTree `-- yeast@0.1.2
+99 silly idealTree socketTwo
+99 silly idealTree +-- accepts@1.3.3
+99 silly idealTree +-- after@0.8.2
+99 silly idealTree +-- arraybuffer.slice@0.0.6
+99 silly idealTree +-- backo2@1.0.2
+99 silly idealTree +-- base64-arraybuffer@0.1.5
+99 silly idealTree +-- base64id@1.0.0
+99 silly idealTree +-- better-assert@1.0.2
+99 silly idealTree +-- blob@0.0.4
+99 silly idealTree +-- callsite@1.0.0
+99 silly idealTree +-- component-bind@1.0.0
+99 silly idealTree +-- component-emitter@1.2.1
+99 silly idealTree +-- component-inherit@0.0.3
+99 silly idealTree +-- cookie@0.3.1
+99 silly idealTree +-- debug@2.6.9
+99 silly idealTree +-- engine.io-client@3.1.2
+99 silly idealTree +-- engine.io-parser@2.1.1
+99 silly idealTree +-- engine.io@3.1.2
+99 silly idealTree +-- has-binary2@1.0.2
+99 silly idealTree +-- has-cors@1.1.0
+99 silly idealTree +-- indexof@0.0.1
+99 silly idealTree +-- isarray@2.0.1
+99 silly idealTree +-- microtime@0.2.0
+99 silly idealTree +-- mime-db@1.30.0
+99 silly idealTree +-- mime-types@2.1.17
+99 silly idealTree +-- ms@2.0.0
+99 silly idealTree +-- negotiator@0.6.1
+99 silly idealTree +-- object-assign@4.1.1
+99 silly idealTree +-- object-component@0.0.3
+99 silly idealTree +-- parseqs@0.0.5
+99 silly idealTree +-- parseuri@0.0.5
+99 silly idealTree +-- safe-buffer@5.0.1
+99 silly idealTree +-- socket.io-adapter@1.1.1
+99 silly idealTree +-- socket.io-client@2.0.3
+99 silly idealTree +-- socket.io-parser@3.1.2
+99 silly idealTree +-- socket.io@2.0.3
+99 silly idealTree +-- socket@0.0.1
+99 silly idealTree +-- to-array@0.1.4
+99 silly idealTree +-- ultron@1.1.0
+99 silly idealTree +-- uws@0.14.5
+99 silly idealTree +-- ws@2.3.1
+99 silly idealTree +-- xmlhttprequest-ssl@1.5.3
+99 silly idealTree `-- yeast@0.1.2
+100 silly generateActionsToTake Starting
+101 silly install generateActionsToTake
+102 silly generateActionsToTake Finishing
+103 silly diffTrees action count 3
+104 silly diffTrees add microtime@0.2.0
+105 silly diffTrees add socket@0.0.1
+106 silly diffTrees update socket.io@2.0.3
+107 silly decomposeActions action count 24
+108 silly decomposeActions fetch microtime@0.2.0
+109 silly decomposeActions extract microtime@0.2.0
+110 silly decomposeActions test microtime@0.2.0
+111 silly decomposeActions preinstall microtime@0.2.0
+112 silly decomposeActions build microtime@0.2.0
+113 silly decomposeActions install microtime@0.2.0
+114 silly decomposeActions postinstall microtime@0.2.0
+115 silly decomposeActions finalize microtime@0.2.0
+116 silly decomposeActions fetch socket@0.0.1
+117 silly decomposeActions extract socket@0.0.1
+118 silly decomposeActions test socket@0.0.1
+119 silly decomposeActions preinstall socket@0.0.1
+120 silly decomposeActions build socket@0.0.1
+121 silly decomposeActions install socket@0.0.1
+122 silly decomposeActions postinstall socket@0.0.1
+123 silly decomposeActions finalize socket@0.0.1
+124 silly decomposeActions fetch socket.io@2.0.3
+125 silly decomposeActions extract socket.io@2.0.3
+126 silly decomposeActions test socket.io@2.0.3
+127 silly decomposeActions preinstall socket.io@2.0.3
+128 silly decomposeActions build socket.io@2.0.3
+129 silly decomposeActions install socket.io@2.0.3
+130 silly decomposeActions postinstall socket.io@2.0.3
+131 silly decomposeActions finalize socket.io@2.0.3
+132 silly executeActions Starting
+133 silly install executeActions
+134 silly doSerial global-install 0
+135 silly doParallel fetch 3
+136 verbose correctMkdir C:\Users\Administrator\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+137 verbose lock using C:\Users\Administrator\AppData\Roaming\npm-cache\_locks\staging-fe534171dcf1d213.lock for E:\Node\socketTwo\node_modules\.staging
+138 silly doParallel extract 3
+139 silly extract microtime@0.2.0
+140 silly extract socket@0.0.1
+141 silly extract socket.io@2.0.3
+142 verbose unbuild node_modules\.staging\microtime-56fe2a64
+143 verbose unbuild node_modules\.staging\socket-6cbca54f
+144 verbose unbuild node_modules\.staging\socket.io-72224cca
+145 silly gentlyRm E:\Node\socketTwo\node_modules\.staging\microtime-56fe2a64 is being purged from base E:\Node\socketTwo
+146 verbose gentlyRm don't care about contents; nuking E:\Node\socketTwo\node_modules\.staging\microtime-56fe2a64
+147 silly gentlyRm E:\Node\socketTwo\node_modules\.staging\socket.io-72224cca is being purged from base E:\Node\socketTwo
+148 verbose gentlyRm don't care about contents; nuking E:\Node\socketTwo\node_modules\.staging\socket.io-72224cca
+149 silly gentlyRm E:\Node\socketTwo\node_modules\.staging\socket-6cbca54f is being purged from base E:\Node\socketTwo
+150 verbose gentlyRm don't care about contents; nuking E:\Node\socketTwo\node_modules\.staging\socket-6cbca54f
+151 verbose tar unpack C:\Users\Administrator\AppData\Roaming\npm-cache\microtime\0.2.0\package.tgz
+152 verbose tar unpacking to E:\Node\socketTwo\node_modules\.staging\microtime-56fe2a64
+153 silly gentlyRm E:\Node\socketTwo\node_modules\.staging\microtime-56fe2a64 is being purged
+154 verbose gentlyRm don't care about contents; nuking E:\Node\socketTwo\node_modules\.staging\microtime-56fe2a64
+155 verbose tar unpack C:\Users\Administrator\AppData\Roaming\npm-cache\socket.io\2.0.3\package.tgz
+156 verbose tar unpacking to E:\Node\socketTwo\node_modules\.staging\socket.io-72224cca
+157 silly gentlyRm E:\Node\socketTwo\node_modules\.staging\socket.io-72224cca is being purged
+158 verbose gentlyRm don't care about contents; nuking E:\Node\socketTwo\node_modules\.staging\socket.io-72224cca
+159 verbose tar unpack C:\Users\Administrator\AppData\Roaming\npm-cache\socket\0.0.1\package.tgz
+160 verbose tar unpacking to E:\Node\socketTwo\node_modules\.staging\socket-6cbca54f
+161 silly gentlyRm E:\Node\socketTwo\node_modules\.staging\socket-6cbca54f is being purged
+162 verbose gentlyRm don't care about contents; nuking E:\Node\socketTwo\node_modules\.staging\socket-6cbca54f
+163 silly gunzTarPerm modes [ '777', '666' ]
+164 silly gunzTarPerm modes [ '777', '666' ]
+165 silly gunzTarPerm modes [ '777', '666' ]
+166 silly gunzTarPerm extractEntry index.js
+167 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+168 silly gunzTarPerm extractEntry package.json
+169 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+170 silly gunzTarPerm extractEntry examples/
+171 silly gunzTarPerm modified mode [ 'examples/', 493, 511 ]
+172 silly gunzTarPerm extractEntry LICENSE
+173 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+174 silly gunzTarPerm extractEntry package.json
+175 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+176 silly gunzTarPerm extractEntry LICENSE
+177 silly gunzTarPerm modified mode [ 'LICENSE', 436, 438 ]
+178 silly gunzTarPerm extractEntry Readme.md
+179 silly gunzTarPerm modified mode [ 'Readme.md', 436, 438 ]
+180 silly gunzTarPerm extractEntry examples/echo-server.js
+181 silly gunzTarPerm modified mode [ 'examples/echo-server.js', 420, 438 ]
+182 silly gunzTarPerm extractEntry examples/simple-test.js
+183 silly gunzTarPerm modified mode [ 'examples/simple-test.js', 420, 438 ]
+184 silly gunzTarPerm extractEntry examples/simple-time-server.js
+185 silly gunzTarPerm modified mode [ 'examples/simple-time-server.js', 420, 438 ]
+186 silly gunzTarPerm extractEntry index.js
+187 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+188 silly gunzTarPerm extractEntry lib/
+189 silly gunzTarPerm modified mode [ 'lib/', 493, 511 ]
+190 silly gunzTarPerm extractEntry README.md
+191 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+192 silly gunzTarPerm extractEntry test.js
+193 silly gunzTarPerm modified mode [ 'test.js', 420, 438 ]
+194 silly gunzTarPerm extractEntry lib/client.js
+195 silly gunzTarPerm modified mode [ 'lib/client.js', 436, 438 ]
+196 silly gunzTarPerm extractEntry wscript
+197 silly gunzTarPerm modified mode [ 'wscript', 420, 438 ]
+198 silly gunzTarPerm extractEntry src/microtime.cc
+199 silly gunzTarPerm modified mode [ 'src/microtime.cc', 420, 438 ]
+200 silly gunzTarPerm extractEntry lib/index.js
+201 silly gunzTarPerm modified mode [ 'lib/index.js', 436, 438 ]
+202 silly gunzTarPerm extractEntry lib/namespace.js
+203 silly gunzTarPerm modified mode [ 'lib/namespace.js', 436, 438 ]
+204 silly gunzTarPerm extractEntry lib/index.js
+205 silly gunzTarPerm modified mode [ 'lib/index.js', 420, 438 ]
+206 silly gunzTarPerm extractEntry lib/middleware/
+207 silly gunzTarPerm modified mode [ 'lib/middleware/', 493, 511 ]
+208 silly gunzTarPerm extractEntry lib/middleware/echo.js
+209 silly gunzTarPerm modified mode [ 'lib/middleware/echo.js', 420, 438 ]
+210 silly gunzTarPerm extractEntry lib/middleware/errorHandler.js
+211 silly gunzTarPerm modified mode [ 'lib/middleware/errorHandler.js', 420, 438 ]
+212 silly gunzTarPerm extractEntry lib/middleware/json.js
+213 silly gunzTarPerm modified mode [ 'lib/middleware/json.js', 420, 438 ]
+214 silly gunzTarPerm extractEntry lib/middleware/profiler.js
+215 silly gunzTarPerm modified mode [ 'lib/middleware/profiler.js', 420, 438 ]
+216 silly gunzTarPerm extractEntry lib/proto.js
+217 silly gunzTarPerm modified mode [ 'lib/proto.js', 420, 438 ]
+218 silly gunzTarPerm extractEntry lib/utils.js
+219 silly gunzTarPerm modified mode [ 'lib/utils.js', 420, 438 ]
+220 silly gunzTarPerm extractEntry nbproject/
+221 silly gunzTarPerm modified mode [ 'nbproject/', 493, 511 ]
+222 silly gunzTarPerm extractEntry nbproject/private/
+223 silly gunzTarPerm modified mode [ 'nbproject/private/', 493, 511 ]
+224 silly gunzTarPerm extractEntry nbproject/private/private.properties
+225 silly gunzTarPerm modified mode [ 'nbproject/private/private.properties', 420, 438 ]
+226 silly gunzTarPerm extractEntry nbproject/project.properties
+227 silly gunzTarPerm modified mode [ 'nbproject/project.properties', 420, 438 ]
+228 silly gunzTarPerm extractEntry nbproject/project.xml
+229 silly gunzTarPerm modified mode [ 'nbproject/project.xml', 420, 438 ]
+230 silly gunzTarPerm extractEntry package.json
+231 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+232 silly gunzTarPerm extractEntry scripts/
+233 silly gunzTarPerm modified mode [ 'scripts/', 493, 511 ]
+234 silly gunzTarPerm extractEntry scripts/lint
+235 silly gunzTarPerm modified mode [ 'scripts/lint', 493, 511 ]
+236 silly gunzTarPerm extractEntry lib/socket.js
+237 silly gunzTarPerm modified mode [ 'lib/socket.js', 436, 438 ]
+238 silly gunzTarPerm extractEntry History.md
+239 silly gunzTarPerm modified mode [ 'History.md', 436, 438 ]
+240 silly gentlyRm E:\Node\socketTwo\node_modules\.staging\microtime-56fe2a64\node_modules is being purged
+241 verbose gentlyRm don't care about contents; nuking E:\Node\socketTwo\node_modules\.staging\microtime-56fe2a64\node_modules
+242 silly gentlyRm E:\Node\socketTwo\node_modules\.staging\socket.io-72224cca\node_modules is being purged
+243 verbose gentlyRm don't care about contents; nuking E:\Node\socketTwo\node_modules\.staging\socket.io-72224cca\node_modules
+244 silly gentlyRm E:\Node\socketTwo\node_modules\.staging\socket-6cbca54f\node_modules is being purged
+245 verbose gentlyRm don't care about contents; nuking E:\Node\socketTwo\node_modules\.staging\socket-6cbca54f\node_modules
+246 silly doParallel preinstall 3
+247 silly preinstall microtime@0.2.0 E:\Node\socketTwo\node_modules\.staging\microtime-56fe2a64
+248 info lifecycle microtime@0.2.0~preinstall: microtime@0.2.0
+249 silly preinstall socket@0.0.1 E:\Node\socketTwo\node_modules\.staging\socket-6cbca54f
+250 info lifecycle socket@0.0.1~preinstall: socket@0.0.1
+251 silly preinstall socket.io@2.0.3 E:\Node\socketTwo\node_modules\.staging\socket.io-72224cca
+252 info lifecycle socket.io@2.0.3~preinstall: socket.io@2.0.3
+253 silly lifecycle microtime@0.2.0~preinstall: no script for preinstall, continuing
+254 silly lifecycle socket@0.0.1~preinstall: no script for preinstall, continuing
+255 silly lifecycle socket.io@2.0.3~preinstall: no script for preinstall, continuing
+256 silly doReverseSerial remove 0
+257 silly doSerial move 0
+258 silly doSerial finalize 3
+259 silly finalize E:\Node\socketTwo\node_modules\microtime
+260 silly finalize E:\Node\socketTwo\node_modules\socket
+261 silly finalize E:\Node\socketTwo\node_modules\socket.io
+262 silly doSerial build 3
+263 silly build microtime@0.2.0
+264 info linkStuff microtime@0.2.0
+265 silly linkStuff microtime@0.2.0 has E:\Node\socketTwo\node_modules as its parent node_modules
+266 verbose linkBins microtime@0.2.0
+267 verbose linkMans microtime@0.2.0
+268 silly build socket@0.0.1
+269 info linkStuff socket@0.0.1
+270 silly linkStuff socket@0.0.1 has E:\Node\socketTwo\node_modules as its parent node_modules
+271 verbose linkBins socket@0.0.1
+272 verbose linkMans socket@0.0.1
+273 silly build socket.io@2.0.3
+274 info linkStuff socket.io@2.0.3
+275 silly linkStuff socket.io@2.0.3 has E:\Node\socketTwo\node_modules as its parent node_modules
+276 verbose linkBins socket.io@2.0.3
+277 verbose linkMans socket.io@2.0.3
+278 silly doSerial global-link 0
+279 silly doParallel update-linked 0
+280 silly doSerial install 3
+281 silly install microtime@0.2.0 E:\Node\socketTwo\node_modules\.staging\microtime-56fe2a64
+282 info lifecycle microtime@0.2.0~install: microtime@0.2.0
+283 verbose lifecycle microtime@0.2.0~install: unsafe-perm in lifecycle true
+284 verbose lifecycle microtime@0.2.0~install: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;E:\Node\socketTwo\node_modules\microtime\node_modules\.bin;E:\Node\socketTwo\node_modules\.bin;C:\Program Files\nodejs;C:\Users\Administrator\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Administrator\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+285 verbose lifecycle microtime@0.2.0~install: CWD: E:\Node\socketTwo\node_modules\microtime
+286 silly lifecycle microtime@0.2.0~install: Args: [ '/d /s /c', 'node-waf configure build' ]
+287 silly lifecycle microtime@0.2.0~install: Returned: code: 1  signal: null
+288 info lifecycle microtime@0.2.0~install: Failed to exec install script
+289 verbose unlock done using C:\Users\Administrator\AppData\Roaming\npm-cache\_locks\staging-fe534171dcf1d213.lock for E:\Node\socketTwo\node_modules\.staging
+290 silly rollbackFailedOptional Starting
+291 silly rollbackFailedOptional Finishing
+292 silly runTopLevelLifecycles Starting
+293 silly runTopLevelLifecycles Finishing
+294 silly install printInstalled
+295 warn enoent ENOENT: no such file or directory, open 'E:\Node\socketTwo\package.json'
+296 warn socketTwo No description
+297 warn socketTwo No repository field.
+298 warn socketTwo No README data
+299 warn socketTwo No license field.
+300 verbose stack Error: microtime@0.2.0 install: `node-waf configure build`
+300 verbose stack Exit status 1
+300 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:245:16)
+300 verbose stack     at emitTwo (events.js:106:13)
+300 verbose stack     at EventEmitter.emit (events.js:191:7)
+300 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:24:14)
+300 verbose stack     at emitTwo (events.js:106:13)
+300 verbose stack     at ChildProcess.emit (events.js:191:7)
+300 verbose stack     at maybeClose (internal/child_process.js:850:16)
+300 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+301 verbose pkgid microtime@0.2.0
+302 verbose cwd E:\Node\socketTwo
+303 error Windows_NT 6.1.7601
+304 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "socket"
+305 error node v6.2.0
+306 error npm  v3.8.9
+307 error code ELIFECYCLE
+308 error microtime@0.2.0 install: `node-waf configure build`
+308 error Exit status 1
+309 error Failed at the microtime@0.2.0 install script 'node-waf configure build'.
+309 error Make sure you have the latest version of node.js and npm installed.
+309 error If you do, this is most likely a problem with the microtime package,
+309 error not with npm itself.
+309 error Tell the author that this fails on your system:
+309 error     node-waf configure build
+309 error You can get information on how to open an issue for this project with:
+309 error     npm bugs microtime
+309 error Or if that isn't available, you can get their info via:
+309 error     npm owner ls microtime
+309 error There is likely additional logging output above.
+310 verbose exit [ 1, true ]
