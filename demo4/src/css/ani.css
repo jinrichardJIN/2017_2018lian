@@ -1,0 +1,1 @@
+.pageview{width:100%;position:absolute;left:0;height:90vh}.page-enter-active,.page-leave-active{transition:all .5s}.page-enter-active{transform:translateX(0)}.page-leave-active{transform:translateX(-100%)}.page-leave{transform:translateX(0)}.page-enter{transform:translateX(100%)};

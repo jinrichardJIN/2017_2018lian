@@ -1,0 +1,41 @@
+@import "./core/reset.scss";
+@import './usage/style1.scss';
+@import './usage/evaluate1.scss';
+@import './usage/goodsFollow1.scss';
+@import './usage/order1.scss';
+@import './usage/recover1.scss';
+@import './usage/user1.scss';
+@import './usage/reset.css';
+@import './usage/withdrawals.scss';
+
+html,
+body {
+    background-color: #fff;
+    width: 100%;
+    min-height: 100%;
+    font-family:".PingFangSC-Regular";
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+#app{
+    width: 100%;
+    min-height: 100%;
+    @include flexbox();
+    @include flex-direction(column);
+    background: #fff;
+}
+.index-box,.home-box{
+    height: 100%;
+    width: 100%;
+    @include flexbox();
+    @include flex-direction(column);
+}
+.overhidden{
+    overflow: hidden;
+}
+button{
+    border:0;
+    box-shadow: none;
+}

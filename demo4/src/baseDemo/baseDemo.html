@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>共用样式使用说明demo</title>
+  <style>
+    .redText {
+      color: #ff0909;
+    }
+
+    .roseRedText {
+      color: #ff5677;
+    }
+
+    .blackText {
+      color: #333;
+    }
+
+    .greyText {
+      color: #999;
+    }
+
+    .yellowWishText {
+      color: #ffcf3a;
+    }
+
+    .placGreyText {
+      color: #cdd1d1;
+    }
+
+    .yellowBGBtn {
+      background: #fece38;
+    }
+
+    .blueBGBtn {
+      background: #4da8f5;
+    }
+
+    .blueText {
+      color: #4da8f5;
+    }
+
+    .whiteText {
+      color: #fff;
+    }
+
+    .uniBtn {
+      width: 85px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 15px;
+      border: 1px solid #9c9c9c;
+      display: inline-block;
+    }
+
+    .font14 {
+      font-size: 14px;
+    }
+
+    .uniBtnActive {
+      width: 85px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 15px;
+      background: #fece38;
+      display: inline-block;
+    }
+
+    .triangle-topleft {
+      width: 0;
+      height: 0;
+      border-top: 10px solid #fff;
+      border-right: 8px solid transparent;
+    }
+
+    .triangle-topright {
+      width: 0;
+      height: 0;
+      border-top: 10px solid #fff;
+      border-left: 8px solid transparent;
+    }
+
+    .blackBg {
+      background: #000;
+    }
+
+
+  </style>
+</head>
+<body>
+<ul>
+  <h1>后期添加请标注说明</h1>
+  <h2>所有第三方插件请在最上方注明引用地址</h2>
+  <h2>
+    <div>
+      顶部导航条
+    </div>
+    <p>
+      height:45px;
+      左右间距20px;
+      上下居中
+    </p>
+    <div>目录结构说明</div>
+    <p>src/assets 这里放所有的公共资源 包括css js img </p>
+    <p>components目录说明：</p>
+    <p>base: 这里放所有的基础组件</p>
+    <p>index：首页</p>
+    <p>goodsList：机型大全</p>
+    <p>release:发布/p>
+    <p>message:消息/p>
+    <p>user：个人中心</p>
+    <p>所有的组件建立文件夹，该组件引用的非共用资源放在该文件夹内</p>
+  </h2>
+  <li>
+    <h2>字体类颜色说明</h2>
+    <ul>
+      <li>
+        红色<em class="redText">redText</em>
+      </li>
+      <li>
+        <em class="roseRedText">玫红色roseRedText</em>
+      </li>
+      <li>
+        <em class="blackText">黑色blackText</em>
+      </li>
+      <li>
+        <em class="greyText">浅灰色greyText</em>
+      </li>
+      <li>
+        <em class="placGreyText">placeHold用灰色greyText</em>
+      </li>
+      <li>
+        <em class="yellowWishText">淡黄色greyText</em>
+      </li>
+      <li>
+        <em class="blueText">蓝色blueText</em>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h2>按钮类颜色说明</h2>
+    <ul>
+      <li>
+        <h3 class="yellowBGBtn">黄色按钮背景色yellowBGBtn</h3>
+      </li>
+      <li>
+        <h3 class="blueBGBtn">蓝色按钮背景色blueBGBtn</h3>
+      </li>
+      <li>
+        <div>按钮未选中</div>
+        <h3 class="uniBtn font14">uniBtn</h3>
+      </li>
+      <li>
+        <div>按钮选中</div>
+        <h3 class="uniBtnActive font14">uniBtnActive</h3>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h2>三角形颜色说明</h2>
+    <ul class="blackBg">
+      <li>
+        <div class="whiteText">左三角形triangle-topright</div>
+        <h3 class="triangle-topright"></h3>
+      </li>
+      <li>
+        <div class="whiteText">右三角形triangle-topleft</div>
+        <h3 class="triangle-topleft"></h3>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h2>组件类说明</h2>
+    <ul>
+      <li></li>
+    </ul>
+  </li>
+
+</ul>
+</body>
+</html>

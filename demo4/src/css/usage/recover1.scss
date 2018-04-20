@@ -1,0 +1,521 @@
+@charset "utf-8";
+
+$font-size:14px;
+$font-color: #333333;
+$font-colorO: #999999;
+$bg-color: #F5F6F6;
+$main-color: #fece38;
+
+body{
+    background-color: #FFFFFF;
+    font-family: "微软雅黑";
+}
+
+header a{
+    color: #626262;
+}
+header h1{
+    color: $font-color;
+}
+
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.mui-content{
+    /************选择回收方式*************/
+    background: #FFFFFF;
+    .recov-pro{
+        padding: .2rem .2rem .1rem;
+        overflow: hidden;
+        background-color: $bg-color;
+        .recov-pro-head{
+            padding: 0 .2rem .1rem;
+            margin-left: 5%;
+            .round{
+                width: .13rem;
+                height: .13rem;
+                margin-top: .04rem;
+                background-color: #e0e0e0;
+                border-radius: 50%;
+            }
+            .round-active{
+                margin-top: 0;
+                width: .25rem;
+                height: .25rem;
+                background-color: $main-color;
+                border: .05rem solid #ffebac;
+            }
+            .long{
+                width: 34%;
+                height: 2px;
+                background: #e0e0e0;
+                margin-top: .1rem;
+            }
+            .change-active{
+                background-color: $main-color;
+            }
+        }
+        .recov-pro-tst{
+            overflow: hidden;
+            padding: .08rem .2rem 0;
+            width: 100%;
+            @include flexbox();
+            p{
+                font-size: .13rem;
+                color: #999999;
+                &:nth-child(2){
+                    text-align: center;
+                    @include flex(1);
+                }
+            }
+        }
+    }
+    p.mui-row{
+        font-size: .15rem;
+        color: #333333;
+        padding: .15rem;
+        img{
+            width: .18rem;
+            line-height: .18rem;
+            margin-right: .1rem;
+        }
+        span{
+            font-size: .15rem;
+            color: #333333;
+            line-height: .38rem;
+        }
+    }
+
+    .recov-list{
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        @include flexbox();
+        @include flex-direction(column);
+        .choice-border{
+            margin-left: .45rem;
+            border-bottom: 1px solid #E5E5E5;
+        }
+        li{
+            background: #F5F6F6;
+            @include flexbox();
+            padding: .17rem 0;
+            position: relative;
+            &:last-child{
+                border: none;
+            }
+            .img-box{
+                padding: .1rem;
+                
+            }
+            .mui-media-body{
+                font-size: .15rem;
+                color: #333333;
+                p{
+                    font-size: .12rem;
+                    color: #CDD1D1;
+                }
+            }
+            .radio-yell{
+                position: absolute;
+                right: .3rem;
+                top: .3rem;
+                border: 2px solid #999999;
+                width: .2rem;
+                height: .2rem;
+                border-radius: 50%;
+            }
+            
+            .active-yell{
+                width: .22rem;
+                height: .22rem;
+                background: $main-color;
+                border-radius: 50%;
+                border: 0;
+                position: absolute;
+                right: .3rem;
+                top: .3rem;
+            }
+        }
+    }
+/***2017627今天先到这****/
+/***************快递回收填写信息（快递回收）*****************/
+  //手机号  验证码
+    .recov-pn{
+        margin-left: .2rem;
+        margin-right: .2rem;
+        padding: .2rem 0;
+        border-bottom: 1px solid #E5E5E5;
+        font-size: .14rem;
+        img{
+            width: .20rem;
+            padding-top: .05rem;
+        }
+        input{
+            font-size: .14rem;
+            width: 53%;
+            border: none;
+            margin-bottom: 0;
+            text-indent: .1rem;
+            padding-right: 0;
+        }
+        
+        input:-ms-input-placeholder{
+            color: #CDD1D1;
+        }
+        
+        input::-webkit-input-placeholder{
+            color: #CDD1D1;
+        }
+        
+        a{
+            position: absolute;
+            right: 20px;
+            color: $font-color;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: $main-color;
+            border-radius: 20px;
+        }
+    }
+    div.pn-change{
+        border: none;
+    }
+
+
+
+/*****************收款方式*******************/
+    .payment-method{
+        font-size: .15rem;
+        color: #333333;
+    }
+    .pay{
+        width: 100%;
+        background-color: $bg-color;
+        ul{
+            padding: 0;
+            width: 100%;
+            li{
+                padding: 0;
+                width: 100%;
+                @include flexbox();
+                @include flex-direction(column);
+                div{
+                    width: 100%;
+                    &:first-child{
+                        margin-top: .1rem;
+                        background: #fff;
+                        font-size: $font-size;
+                        padding:.2rem;
+                        border-bottom: 1px solid #e5e5e5;
+                        a{                            
+                            font-size: .15rem;
+                            color: #333333;
+                        }
+                        img{
+                            width: .25rem;
+                        }
+                    }
+                    &:last-child{
+                        @include flexbox();
+                        @include flex-direction(column);
+                        input{
+                            font-size: .15rem;
+                            padding:.2rem .1rem;
+                            text-indent: .1rem;
+                            background: $bg-color;
+                            color:#333333;
+                            input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+                               color: #CDD1D1;
+                            }
+                            input:-moz-placeholder, textarea:-moz-placeholder {
+                                color: #CDD1D1;
+                            }
+                            input::-moz-placeholder, textarea::-moz-placeholder {
+                                color: #CDD1D1;
+                            }
+                            input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+                                color: #CDD1D1;
+                            }
+                            
+                            &:first-child{
+                                border-bottom: 1px solid #e5e5e5;;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .txt-nav{
+            background: #fff;
+            padding: .2rem;
+            textarea{
+                resize : none;
+                width: 100%;
+                height: 1rem;
+                padding: .15rem;
+                border:none;
+                background: #F5F6F6;
+                border: 1px solid #E5E5E5;
+                
+            }
+            p{
+                font-size: $font-size;
+                text-align: center;
+                margin-bottom: .1rem;
+                position: relative;
+                padding-left: .2rem;
+                a{
+                    color: #16aeed;
+                }
+            }
+            p:before{
+                display: block;
+                content: '';
+                width: .16rem;
+                height: .16rem;
+                border: 1px solid $font-colorO;
+                border-radius: 50%;
+                position: absolute;
+                left: 2%;
+                top: .02rem;
+            }
+/*********************阅读并同意闲汇服务条款添加的类（默认添加）************************/
+            .agitem:before{
+                display: block;
+                content: '';
+                background: url(../image/bg-img8.jpg) no-repeat center center;
+                background-size: .18rem;
+                border: none;
+            }
+        }
+    }
+    .sysnum{
+        width: 100%;
+        text-align: right;
+        display: inline-block;
+        padding-right: .1rem;
+        font-size: 14px;
+        span{
+            color: $main-color;
+        }
+    }
+/*****************上门回收***********************/   
+    .linkman{
+        padding: 0 .2rem;
+        font-size: .15rem;
+        background-color: $bg-color;
+        input,
+        button{
+            width: 100%;
+            background-color: $bg-color;
+            font-size: .15rem;
+            text-align: left;
+            border-bottom: 1px solid #E5E5E5;
+            padding: .2rem 0;
+            height: .62rem;
+        }
+        .inptimg{
+            img{
+                width: .3rem;
+            }
+        }
+        .clearfix{
+            input,
+            button{
+                border: none;
+            }
+        }
+        .rig-arr{
+            button{
+                background-image: url('../image/leftarr.png') ;
+                background-repeat: no-repeat;
+                background-position: 2.5rem .23rem;;
+                background-size:.1rem .2rem ;
+            }
+        }
+        .linkman .el-input__icon{
+            right: 5px;
+        }
+    }
+    /*************门店回收**************/
+    .map-nav{
+        margin: .2rem;
+        div{
+            background-color: #FFF8DF;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+            padding: .2rem .1rem .2rem .35rem;
+            position: relative;
+            background-image: url(../image/bg-img16.jpg);
+            background-repeat: no-repeat;
+            background-size: .25rem;
+            background-position: .06rem;
+            span{
+                color: $font-color;
+                font-size: $font-size;
+            }
+            p{
+                color: #999999;
+                font-size: $font-size -2;
+            }
+            a{
+                font-size: $font-size+11;
+                position: absolute;
+                right: 2px;
+                top: 28px;
+                color: $font-color;
+                img{
+                    width: .07rem;
+                    margin-bottom: .17rem;
+                    margin-right:.1rem ;
+                }
+            }
+        }
+        button{
+            color: #333333;
+            width: 100%;
+            padding: .12rem;
+            border: none;
+            background-color: #FFE48F;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 9px;
+            border-bottom-right-radius: 9px;
+            font-size: .14rem;
+            color: #333333;
+            
+        }
+    }
+
+/*******************上门、快递、门店回收订单成功***********************/
+    .succue{
+        margin: 0 auto;
+        width: 70%;
+        padding: .2rem 0;
+        text-align: center;
+        
+        .succue-imgBox{
+            
+            @include flexbox();
+            @include flex-direction(row);
+            @include align-items(center);
+            @include justify-content(center);
+            margin-right: .1rem;
+            img{
+                width: .35rem;
+            }
+        }
+        div{
+            display: inline-block;
+            color: $font-color;
+            font-size: $font-size+4;
+            text-align: left;
+            margin-left: .05rem;
+            font-weight: bold;
+            p{
+                font-size: $font-size;
+                color: #999999;
+            }
+        }
+        p{
+            a{
+                font-size: $font-size+3;
+                margin: .1rem auto;
+                display: block;
+                width: 60%;
+                height: .4rem;
+                line-height: .4rem;
+                background-color: #16adec;
+                color: white;
+                border-radius: 4px;
+            }
+        }
+    }
+    .mailmessg{
+        padding: .2rem;
+        margin: 0 .2rem;
+        background: #fff7df;
+        border-radius: 4px;
+        h4{
+            text-align: center;
+            font-size: $font-size+2;
+            font-weight: bold;
+            margin-bottom:.2rem ;
+        }
+        p{
+            margin: 0;
+            padding-bottom: .05rem;
+            font-size: $font-size;
+            color: #999999;
+        }
+    }
+    .mate-ned{
+        padding: .2rem;
+        h4{
+            text-align: center;
+            font-size: $font-size+2;
+            font-weight: bold;
+            margin-bottom:.2rem ;
+        }
+        .mui-row{
+            @include flexbox();
+            @include flex-direction(row);
+            margin-bottom: .1rem;
+            img{
+                display: block;
+                margin-top: .1rem;
+                max-width: .35rem;
+            }
+            .m-span-box{
+                padding-left: .1rem;
+                span{
+                    display: block;
+                    color: #333333;
+                }
+                p{
+                    margin-bottom: .16rem;
+                    color: #999999;
+                }
+            }
+        }
+    }
+}
+
+
+.choRecO{
+    background-color: $main-color;
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    padding: .2rem 0px;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+    
+    .next{
+        font-size: $font-size+2;
+        color: $font-color;
+    }
+}
+.eval-foot-next{
+    background-color: #DEDEDE;
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    padding: .2rem 0px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    .next{
+        font-size: $font-size+2;
+        color: $font-color;
+    }
+}
+.eval-foot-next.active{
+    background-color: $main-color;
+}

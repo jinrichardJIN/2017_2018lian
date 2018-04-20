@@ -1,0 +1,293 @@
+@charset "utf-8";
+
+$font-size: 14px;
+$font-color: #333333;
+$bg-color: #F5F6F6;
+$main-color: #fece38;
+
+html{
+    background: #FFF;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.mask{
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    .inMask{
+        margin: 40% 10% 0;
+        width: 80%;
+        height: 2rem;
+        background: #fff;
+        border-radius: 5px;
+        .outClose{
+            height: .4rem;
+            margin-top: .1rem;
+            .close{
+                line-height: .4rem;
+                text-align: right;
+                color:#E9EAEB;
+                font-size: .5rem;
+                margin: .1rem .1rem 0 0;
+                img{
+                    width: .14rem;
+                    height: .14rem;
+                }
+            }
+        }
+        .mask-content{
+            padding: 0 10% 0%;
+            .mask-title{
+                text-align: center;
+                color: #5A9CF8;
+                font-family: "微软雅黑";
+                font-size: $font-size;
+            }
+            .mask-middle{
+                margin-top: .2rem;
+                @include flexbox();
+                @include justify-content(space-between);
+                .mask-inp{
+                    width: 50%;
+                    text-indent: .2rem;
+                    background: #F5F5F5;
+                    border: 1px solid #CCD5D6;
+                    border-radius: 100px;
+                }
+                .mask-img{
+                    overflow: hidden;
+                }
+            }
+            .determine{
+                font-size: .14rem;
+                color: #FFFFFF;
+                width: 60%;
+                height: .38rem;
+                border-radius: .2rem;
+                @include flexbox();
+                @include align-items(center);
+                @include justify-content(center);
+                margin: 0 auto;
+                background: $main-color;
+                margin-top: .15rem;
+            }
+        }
+            
+
+    }
+}
+
+
+header.mui-bar-nav {
+    @include flexbox();
+    @include align-items(center);
+    background-color: #FFF;
+}
+header.mui-bar-nav {
+    box-shadow: none;
+    background-color: #FFF;
+}
+header a{
+    color: #626262;
+}
+.mui-title{
+    color: #626262;
+}
+.mui-input-group:before, .mui-input-group:after{
+    background-color: transparent;
+}
+.mui-input-group .mui-input-row:after{
+    background-color: #f0f0f0;
+}
+.login-container{
+    border-top: .1rem solid #F5F6F6;
+    padding: .2rem 0px;
+    .mui-input-row.valcode-container{
+        padding-right: .15rem;
+        position: relative;
+    }
+    .mui-input-row{
+        padding: .3rem 0px .05rem;
+        height: .65rem;
+        width: 90%;
+        margin: 0 auto;
+        border-bottom: 1px solid #DFDFDF;
+        input{
+            height: .25rem;
+            display: block;
+            font-size: $font-size+2;
+            padding-left: .52rem;
+            background-repeat: no-repeat;
+            background-position: .15rem center;
+            background-size: .26rem;
+        }
+        input.phone{
+            background-image: url(../image/log1.jpg);
+        }
+        input.valcode{
+            background-image: url(../image/log2.jpg);
+        }
+        label{
+            background-color: #ffe48f;
+            text-align: center;
+            position: absolute;
+            top: .2rem;
+            right: .15rem;
+            border-radius: 20px;
+            color: #333333;
+            font-size: $font-size;
+            padding: .08rem;
+        }
+        label +input{
+            float: left;
+        }
+        label.disgetcode{
+            background-color: #EDEDED;
+            color: $main-color;
+        }
+    }
+}
+.sublogin-container{
+    padding: 0 .2rem;
+    background-color: #FFF;
+    .sublogin{
+        font-size: .14rem;
+        color: #FFFFFF;
+        width: 100%;
+        background-color: $main-color;
+        padding: .15rem 0px;
+        border-radius: 10px;
+        border: 0px;
+    }
+}
+
+
+
+/************home- search*****************/
+$font-size: .14rem;
+$font-color: #646464;
+$bg-color: #F5F6F6;
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+.search-box{
+    overflow-y: scroll;
+    height: 100%;
+    background: #fff;
+}
+.home-search-top{
+    width: 100%;
+    height: .44rem;
+    @include flexbox();
+    div{
+        line-height: .44rem;
+        display: inline-block;
+        background: #fff;
+        width: 85%;
+        input{
+            width: 100%;
+            margin-left: .2rem;
+            border-radius: 85px;
+            text-indent: .35rem;
+            height: .3rem;
+            width: 100%;
+            border: none;
+            background-color: #F4F4F4;
+            background-image: url(../image/search.png);
+            background-repeat: no-repeat;
+            background-size: .18rem;
+            background-position: .11rem .07rem;
+            font-size: .12rem;
+        }
+    }
+    a{
+        display: block;
+        width: 15%;
+        line-height: .44rem;
+        height: .44rem;
+        text-align: center;
+        margin-left: .2rem;
+        img{
+            width: .14rem;
+        }
+    }
+}
+.MC div>p{
+    width: 100%;
+    height: .45rem;
+    line-height: .45rem;
+    background: #F5F6F6;
+    font-size: .14rem;
+    color: #999999;
+    padding-left: .2rem;
+    display: block;
+}
+.MC{
+    ul{
+        background-color: #FFFFFF;
+        overflow: hidden;
+        width: 100%;
+        li{
+            overflow: hidden;
+            padding: .1rem;
+            height: .5rem;
+            width: 50%;
+            float: left;
+            p{
+                padding-left: .31rem;
+                text-align: left;
+                width: 100%;
+                overflow : hidden;
+                color: #333333;
+            }
+        }
+    }
+}
+
+//
+.login-but{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: .3rem;
+    span{
+        width: 1.48rem;
+        height: .45rem;
+        margin: 0 auto;
+        padding: .1rem;
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        background: #FECE38;
+        border-radius: 8px;
+        font-size: .15rem;
+        color: #333333;
+    }
+}
+.boxNull{
+    width: 100%;
+    height: 100%;
+    padding-top: .5rem;
+    .concernBoxNull{
+        padding: .5rem;
+        margin: 0 auto;
+        img{
+            margin: 0 auto;
+            display: block;
+            width: 80%;
+        }
+        p{
+            text-align: center;
+            margin: .3rem auto;
+            font-size: .14rem;
+            color: #333333;
+        }
+    }
+}
