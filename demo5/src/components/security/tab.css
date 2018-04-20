@@ -1,0 +1,49 @@
+.safetyContentDetail{
+	   padding-right:20px;
+       font-size: 18px;
+       font-weight: 200;
+       text-align: left;
+       line-height: 2em;
+	}
+    .saftyPic{
+    	box-shadow: 2px 2px 5px #999;
+    	border-radius: 5px;
+    	width:200px;
+    	height:240px;
+    	overflow: hidden;
+    	margin:0 70px;
+    	img{
+    		height:100%;
+    	}
+    }
+    .title{
+        display: none;
+    }
+    @media only screen and (max-width: 798px){
+     .safetyContentDetail{
+	   padding-right:0px;
+       font-size: 14px;
+       line-height: 1.5em;
+       float:none;
+       width:90%;
+       margin:20px auto;
+       text-indent: 0;
+       font-weight: 200;
+	  }
+     .saftyPic{
+    	box-shadow: 2px 2px 5px #999;
+    	border-radius: 5px;
+    	width:90%;
+    	height:50vw;
+    	overflow: hidden;
+    	margin:0 auto;
+    	float:none;
+    	img{
+    		height:100%;
+    		width:100%;
+    	}
+      }
+      .title{
+        display: block;
+      }
+    }
